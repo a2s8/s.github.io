@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Private Profile</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-dark: #0f172a;
+            --card-bg: #1e293b;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --accent-gold: #fbbf24;
+        }
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            font-family: 'Inter', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+        }
+        .privacy-card {
+            background: var(--card-bg);
+            padding: 50px 40px;
+            border-radius: 24px;
+            text-align: center;
+            max-width: 420px;
+            width: 100%;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+        }
+        .lock-icon {
+            font-size: 3rem;
+            margin-bottom: 25px;
+            display: inline-block;
+            background: rgba(251, 191, 36, 0.1);
+            padding: 24px;
+            border-radius: 50%;
+            color: var(--accent-gold);
+        }
+        h1 { font-size: 2rem; font-weight: 300; margin: 0 0 15px 0; letter-spacing: 2px; }
+        p { color: var(--text-muted); line-height: 1.6; margin-bottom: 35px; }
+        
+        .btn {
+            background-color: var(--text-main);
+            color: var(--bg-dark);
+            text-decoration: none;
+            padding: 14px 30px;
+            border-radius: 50px;
+            font-weight: 600;
+            display: inline-block;
+            transition: all 0.2s ease;
+        }
+        .btn:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(255, 255, 255, 0.2); opacity: 0.9; }
+        .home-link { display: block; margin-top: 35px; color: var(--text-muted); text-decoration: none; font-size: 0.85rem; opacity: 0.5; }
+        .home-link:hover { opacity: 1; }
+    </style>
+</head>
+<body>
+
+    <div class="privacy-card">
+        <div class="lock-icon">🔒</div>
+        
+        <h1>Profile S</h1> 
+
+        <p>
+            This profile is private. <br>
+            Please use the form below to send an inquiry or request access.
+        </p>
+
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSdH4Z9-Zs-Q8f4H8b4y4jxnlN4RqMp0HZYC0zVCxPoXjc10Lg/viewform" class="btn" target="_blank">Send Inquiry</a>
+
+        <a href="/" class="home-link">&larr; Return to Family Portal</a>
+    </div>
+
+</body>
+</html>
