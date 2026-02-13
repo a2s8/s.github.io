@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Magic Chameleon | Sripathi Experiments</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-dark: #0f172a;
+            --card-bg: #1e293b;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --accent-green: #22c55e; /* Green for the Lizard */
+            --accent-blue: #38bdf8;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* Hero / Video Section */
+        .hero {
+            width: 100%;
+            max-width: 600px;
+            padding: 40px 20px 0;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 10px;
+            background: linear-gradient(to right, #4ade80, #22c55e);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .subtitle {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            line-height: 1.5;
+        }
+
+        /* Vertical Video Container (Shorts Optimized) */
+        .video-container {
+            position: relative;
+            width: 100%;
+            max-width: 350px; /* Shorts are narrow */
+            margin: 0 auto;
+            aspect-ratio: 9 / 16;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px -10px rgba(34, 197, 94, 0.3);
+            border: 4px solid var(--card-bg);
+        }
+
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* Science & Story Cards */
+        .content-grid {
+            width: 90%;
+            max-width: 800px;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 30px;
+            margin: 50px 0;
+        }
+
+        .card {
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: 16px;
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+
+        h2 {
+            margin-top: 0;
+            color: var(--accent-green);
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        p {
+            line-height: 1.6;
+            color: var(--text-muted);
+        }
+
+        .highlight {
+            color: #fff;
+            font-weight: 600;
+        }
+
+        /* Buttons */
+        .btn-container {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .btn {
+            padding: 12px 24px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: transform 0.2s;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: var(--accent-green);
+            color: #064e3b;
+        }
+
+        .btn-secondary {
+            background: rgba(255,255,255,0.1);
+            color: #fff;
+        }
+
+        .btn:hover { transform: translateY(-3px); }
+
+        /* Footer */
+        footer {
+            margin: 40px 0;
+            opacity: 0.6;
+            font-size: 0.9rem;
+        }
+        
+        footer a { color: var(--text-main); text-decoration: none; }
+
+        @media (min-width: 768px) {
+            .content-grid { grid-template-columns: 1fr 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="hero">
+        <h1>The Magic Chameleon 🦎</h1>
+        <p class="subtitle">
+            Is it science or is it real? <br>
+            Watch what happens when we dip this Valentine's gift in water!
+        </p>
+        
+        <div class="video-container">
+            <iframe 
+                src="https://www.youtube.com/embed/BuYSO9RfCiM" 
+                title="Magic Chameleon Toy" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                allowfullscreen>
+            </iframe>
+        </div>
+    </div>
+
+    <div class="content-grid">
+        <div class="card">
+            <h2>🎁 The Story</h2>
+            <p>
+                I got this chameleon from my class <strong>Valentine's Day gift exchange</strong> and we just had to test it out.
+            </p>
+            <p>
+                When dipped in water, it transforms from <span class="highlight">Dark Green</span> to <span class="highlight">Light Green</span> instantly!
+            </p>
+            <p>
+                <strong>Question:</strong> What should I name him? Let me know in the comments on YouTube!
+            </p>
+        </div>
+
+        <div class="card">
+            <h2>🔬 How It Works</h2>
+            <p>
+                Is it magic? Nope, it's <strong>Thermochromism</strong>!
+            </p>
+            <p>
+                The toy is painted with a special <strong>Thermochromic Dye</strong> (heat-sensitive paint). These dyes contain molecules that change shape when the temperature shifts. 
+            </p>
+            <p>
+                When the warm (or cold) water hits the toy, the dye molecules "twist," causing them to reflect light differently—instantly changing the color you see!
+            </p>
+        </div>
+    </div>
+
+    <div class="btn-container">
+        <a href="https://www.youtube.com/@aviksripathi?sub_confirmation=1" class="btn btn-primary" target="_blank">🚀 Subscribe for More Fun</a>
+        <a href="/" class="btn btn-secondary">&larr; Back to Home</a>
+    </div>
+
+    <footer>
+        &copy; 2026 Sripathi Family • <a href="/">sripathi.one</a>
+    </footer>
+
+</body>
+</html>
