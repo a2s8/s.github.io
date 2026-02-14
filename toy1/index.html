@@ -203,6 +203,25 @@
 
     <footer>
         &copy; 2026 Sripathi Family • <a href="/">sripathi.one</a>
+        <div style="margin-top: 15px; opacity: 0.8;">
+    <img id="visit-count" src="" alt="Page Views" style="height: 20px;">
+</div>
+
+<script>
+    // 1. Get the current page URL path (e.g., "sripathi.one/toy1")
+    var pageId = window.location.hostname + window.location.pathname;
+    
+    // 2. Clean it up: Force lowercase and remove trailing slashes
+    // This ensures "sripathi.one/Toy1/" and "sripathi.one/toy1" count as the SAME page.
+    pageId = pageId.toLowerCase().replace(/\/$/, "");
+
+    // 3. Generate the counter badge URL
+    // Style options: flat-square (modern), plastic (classic), for-the-badge (blocky)
+    var counterUrl = "https://hits.sh/" + pageId + ".svg?style=flat-square&label=Views&extraCount=0&color=38bdf8";
+
+    // 4. Set the image
+    document.getElementById("visit-count").src = counterUrl;
+</script>
     </footer>
 
 </body>
