@@ -3,146 +3,172 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rama S. | IT Professional & Editor</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
+    <title>S. | Technical Solutions Architect</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg: #0a0a0c;
-            --text: #ffffff;
-            --accent: #a855f7; /* Professional Purple */
-            --secondary: #94a3b8;
+            --bg-dark: #0f172a;
+            --card-bg: #1e293b;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --accent-gold: #fbbf24; /* Premium Gold */
+            --accent-glass: rgba(251, 191, 36, 0.15);
         }
 
         body {
-            background-color: var(--bg);
-            /* Soft mesh gradient for a premium feel */
-            background-image: 
-                radial-gradient(at 0% 0%, rgba(168, 85, 247, 0.15) 0px, transparent 50%),
-                radial-gradient(at 100% 100%, rgba(56, 189, 248, 0.1) 0px, transparent 50%);
-            color: var(--text);
+            background-color: var(--bg-dark);
+            color: var(--text-main);
             font-family: 'Inter', sans-serif;
-            margin: 0;
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+            background-image: radial-gradient(circle at 50% 0%, rgba(251, 191, 36, 0.05), transparent 60%);
         }
 
-        .profile-container {
-            max-width: 600px;
-            padding: 40px;
+        .profile-card {
+            background: var(--card-bg);
+            padding: 60px 40px;
+            border-radius: 24px;
             text-align: center;
+            max-width: 450px;
+            width: 100%;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.6);
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 20px;
         }
 
-        .avatar {
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
-            background: linear-gradient(45deg, var(--accent), #38bdf8);
-            margin: 0 auto 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2rem;
-            font-weight: bold;
-            box-shadow: 0 0 30px rgba(168, 85, 247, 0.3);
+        .profile-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--accent-gold);
+        }
+
+        .badge {
+            background: var(--accent-glass);
+            color: var(--accent-gold);
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 800;
+            padding: 8px 16px;
+            border-radius: 50px;
+            display: inline-block;
+            margin-bottom: 25px;
+            border: 1px solid rgba(251, 191, 36, 0.2);
         }
 
         h1 {
-            font-size: 2.5rem;
-            margin: 0;
-            letter-spacing: -1px;
-        }
-
-        .title {
-            color: var(--accent);
+            font-size: 3rem;
             font-weight: 700;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            font-size: 0.9rem;
-            margin-top: 5px;
+            margin: 0 0 10px 0;
+            letter-spacing: -1px;
+            background: linear-gradient(to right, #fff, #cbd5e1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
-        .description {
-            color: var(--secondary);
-            line-height: 1.6;
-            margin: 25px 0;
+        .roles {
+            color: var(--text-main);
             font-size: 1.1rem;
+            font-weight: 500;
+            margin-bottom: 20px;
+            line-height: 1.5;
         }
 
-        .skills-tag-container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 10px;
-            margin-top: 30px;
-        }
+        .roles span { display: inline-block; }
+        .divider { color: var(--accent-gold); margin: 0 8px; opacity: 0.6; }
 
-        .skill-tag {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            padding: 8px 16px;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            color: var(--secondary);
-        }
-
-        .links {
-            margin-top: 40px;
+        p.description {
+            color: var(--text-muted);
+            line-height: 1.6;
+            margin-bottom: 40px;
+            font-size: 0.95rem;
+            max-width: 90%;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .btn {
+            background-color: var(--accent-gold);
+            color: #1e293b;
             text-decoration: none;
-            color: var(--text);
-            border: 1px solid var(--accent);
-            padding: 12px 30px;
-            border-radius: 8px;
-            transition: all 0.3s;
-            font-weight: bold;
+            padding: 16px 32px;
+            border-radius: 50px;
+            font-weight: 700;
+            display: inline-block;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 15px rgba(251, 191, 36, 0.3);
         }
 
         .btn:hover {
-            background: var(--accent);
-            box-shadow: 0 0 20px rgba(168, 85, 247, 0.4);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(251, 191, 36, 0.4);
+            background-color: #fcd34d;
         }
 
-        footer {
-            position: absolute;
-            bottom: 30px;
-            opacity: 0.4;
+        .home-link {
+            display: block;
+            margin-top: 40px;
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.85rem;
+            opacity: 0.6;
+            transition: opacity 0.2s;
         }
-
-        footer a { color: white; text-decoration: none; font-size: 0.8rem; }
+        
+        .home-link:hover { opacity: 1; color: var(--text-main); }
     </style>
 </head>
 <body>
 
-    <div class="profile-container">
-        <div class="avatar">RS</div>
-        <h1>Rama S.</h1>
-        <div class="title">IT Professional & Editor</div>
+    <div class="profile-card">
+        <div class="badge">The Techy</div>
         
+        <h1>S.</h1> 
+
+        <div class="roles">
+            Technical Solutions Architect
+            <span class="divider">•</span> 
+            TPM 
+            <span class="divider">•</span> 
+            PdM
+        </div>
+
         <p class="description">
-            Cloud Security Architect by day, creative storyteller by night. 
-            Passionate about building secure infrastructure and crafting 
-            visual narratives through precise video editing.
+            Specializing in technical program management and product strategy. 
+            This portfolio is currently private. Please request access below.
         </p>
 
-        <div class="skills-tag-container">
-            <span class="skill-tag">Final Cut Pro</span>
-            <span class="skill-tag">Cloud Security</span>
-            <span class="skill-tag">DevOps</span>
-            <span class="skill-tag">Tech Enthusiast</span>
-        </div>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSdH4Z9-Zs-Q8f4H8b4y4jxnlN4RqMp0HZYC0zVCxPoXjc10Lg/viewform" class="btn" target="_blank">Request Access / Contact</a>
 
-        <div class="links">
-            <a href="https://r2k8.com" class="btn">View Portfolio</a>
-        </div>
+        <a href="/" class="home-link">&larr; Return to Family Portal</a>
     </div>
 
-    <footer>
-        <a href="/">← BACK TO SRIPATHI.ONE</a>
-    </footer>
+    <div style="margin-top: 10px; opacity: 0.6;">
+        <img id="visit-count" src="" alt="Page Views" style="height: 20px;">
+    </div>
+
+    <script>
+        // 1. Get current page ID
+        var pageId = window.location.hostname + window.location.pathname;
+        pageId = pageId.toLowerCase().replace(/\/$/, "");
+        
+        // 2. Set color to GOLD (fbbf24) to match the page theme
+        var counterUrl = "https://hits.sh/" + pageId + ".svg?style=flat-square&label=Views&extraCount=0&color=fbbf24";
+        
+        // 3. Update image
+        document.getElementById("visit-count").src = counterUrl;
+    </script>
 
 </body>
 </html>
