@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LEGO McLaren F1 | Sripathi Builds</title>
+    <title>LEGO Audi F1 | Sripathi Builds</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -11,7 +11,7 @@
             --card-bg: #1e293b;
             --text-main: #f8fafc;
             --text-muted: #94a3b8;
-            --accent-orange: #f97316; /* McLaren Papaya Orange */
+            --accent-audi: #e10600; /* Audi Racing Red */
             --amazon-orange: #ff9900;
         }
 
@@ -37,7 +37,7 @@
             font-size: 2.2rem;
             font-weight: 800;
             margin-bottom: 25px;
-            background: linear-gradient(to right, #fb923c, #f97316);
+            background: linear-gradient(to right, #ff4d4d, var(--accent-audi));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
@@ -45,12 +45,12 @@
         .video-container {
             position: relative;
             width: 100%;
-            max-width: 320px; /* Adjust to 560px if it's a regular horizontal YouTube video */
+            max-width: 320px; 
             margin: 0 auto 30px;
-            aspect-ratio: 9 / 16; /* Change to 16 / 9 for horizontal video */
+            aspect-ratio: 9 / 16; 
             border-radius: 20px;
             overflow: hidden;
-            box-shadow: 0 20px 40px -10px rgba(249, 115, 22, 0.4);
+            box-shadow: 0 20px 40px -10px rgba(225, 6, 0, 0.4);
             border: 3px solid var(--card-bg);
         }
 
@@ -97,6 +97,13 @@
             display: block;
         }
 
+        .product-subtitle {
+            font-size: 0.85rem;
+            color: #555;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
         .product-rating { color: #ffa41c; font-size: 0.9rem; margin-bottom: 15px; }
 
         .btn-amazon {
@@ -128,7 +135,7 @@
             border: 1px solid rgba(255,255,255,0.05);
         }
 
-        h2 { margin-top: 0; color: var(--accent-orange); font-size: 1.3rem; }
+        h2 { margin-top: 0; color: var(--accent-audi); font-size: 1.3rem; }
         p { line-height: 1.6; color: var(--text-muted); font-size: 0.95rem; }
 
         .btn-secondary {
@@ -153,17 +160,18 @@
 <body>
 
     <div class="hero">
-        <h1>Building the McLaren F1 🏎️</h1>
+        <h1>Building the Audi F1 🏎️</h1>
         
         <div class="video-container">
-            <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID" title="LEGO F1 Build" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID" title="LEGO Audi F1 Build" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>
 
-        <a href="https://amzn.to/3PBPYYp" class="product-preview" target="_blank">
+        <a href="https://www.amazon.com/dp/B0FMYTJ93W" class="product-preview" target="_blank">
             <span class="product-label">Amazon Recommendation</span>
             <div class="product-info">
-                <span class="product-title">LEGO Technic McLaren Formula 1 Race Car</span>
-                <div class="product-rating">★★★★★ (4.9/5)</div>
+                <span class="product-title">LEGO Speed Champions Audi Revolut F1 Team R26</span>
+                <div class="product-subtitle">Building Set (77259) • Ages 10+</div>
+                <div class="product-rating">★★★★★ (4.8/5)</div>
                 <div class="btn-amazon">Check Price on Amazon</div>
             </div>
         </a>
@@ -172,12 +180,12 @@
     <div class="content-grid">
         <div class="card">
             <h2>⚙️ The Build</h2>
-            <p>We spent some serious time tackling this massive LEGO Technic set. With moving pistons, steering, and suspension, it's a detailed engineering challenge that was incredibly satisfying to put together.</p>
+            <p>We had a blast putting together this LEGO Speed Champions Audi Revolut F1 car. It is the perfect scale for a quick weekend project, capturing all the sleek aerodynamic details of the real R26 race car.</p>
         </div>
 
         <div class="card">
             <h2>🏆 The Verdict</h2>
-            <p>If you have a kid (or adult!) who loves racing, engineering, or complex builds, this McLaren F1 set is a masterpiece. The sheer size of the finished car makes for an epic display piece!</p>
+            <p>Designed for ages 10+, it strikes a great balance. It looks incredible as a display piece on a desk or shelf, but it's also sturdy enough to actually play with and race around the house!</p>
         </div>
     </div>
 
@@ -193,8 +201,8 @@
     <script>
         var pageId = window.location.hostname + window.location.pathname;
         pageId = pageId.toLowerCase().replace(/\/$/, "");
-        // Matching the McLaren Orange accent color
-        var counterUrl = "https://hits.sh/" + pageId + ".svg?style=flat-square&label=Views&extraCount=0&color=f97316";
+        // Matching the Audi Red accent color
+        var counterUrl = "https://hits.sh/" + pageId + ".svg?style=flat-square&label=Views&extraCount=0&color=e10600";
         document.getElementById("visit-count").src = counterUrl;
     </script>
 </body>
