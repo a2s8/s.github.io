@@ -36,6 +36,7 @@
             border-bottom: 1px solid rgba(214, 158, 142, 0.2);
         }
 
+        /* Generated Initials Logo since there is no JPG */
         .profile-pic {
             width: 120px;
             height: 120px;
@@ -44,7 +45,6 @@
             box-shadow: 0 10px 25px rgba(214, 158, 142, 0.4);
             margin-bottom: 15px;
             object-fit: cover;
-            background-color: var(--accent-rose);
         }
 
         h1 {
@@ -75,9 +75,9 @@
             border: 1px solid rgba(214,158,142,0.2);
         }
 
-        /* --- PORTFOLIO GALLERY --- */
+        /* --- INSTAGRAM GALLERY --- */
         .container {
-            max-width: 900px;
+            max-width: 1000px;
             width: 90%;
             margin: 50px auto;
         }
@@ -97,30 +97,23 @@
             margin-bottom: 40px;
         }
 
-        .photo-gallery {
+        .ig-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 25px;
-            margin-bottom: 30px;
+            justify-items: center;
+            margin-bottom: 50px;
         }
 
-        .photo-card {
+        /* Overriding Instagram's default styling to fit our grid nicely */
+        .instagram-media {
+            max-width: 100% !important;
+            width: 100% !important;
+            min-width: 320px !important;
+            border-radius: 12px !important;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.06) !important;
+            margin: 0 !important;
             background: #fff;
-            padding: 10px;
-            border-radius: 16px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.06);
-            transition: transform 0.3s;
-        }
-
-        .photo-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .photo-card img {
-            width: 100%;
-            border-radius: 8px;
-            object-fit: cover;
-            aspect-ratio: 4 / 5;
         }
 
         .btn-instagram {
@@ -193,23 +186,21 @@
 
     <div class="container">
         
-        <h2 class="section-title">Signature Bridal Looks</h2>
-        <p class="section-subtitle">Premium bridal makeovers crafted with precision and care.</p>
+        <h2 class="section-title">Latest from Instagram</h2>
+        <p class="section-subtitle">Real brides, real transformations.</p>
         
-        <div class="photo-gallery">
-            <div class="photo-card">
-                <img src="https://images.unsplash.com/photo-1595286576854-8ac7f00f074a?w=600&q=80" alt="Traditional South Indian Bride Makeup">
-            </div>
-            <div class="photo-card">
-                <img src="https://images.unsplash.com/photo-1595280544618-d5136675b6ae?w=600&q=80" alt="Elegant Bridal Saree Draping and Jewelry">
-            </div>
-            <div class="photo-card">
-                <img src="https://images.unsplash.com/photo-1610065261053-29472d7f8d67?w=600&q=80" alt="South Indian Bridal Artistry">
-            </div>
+        <div class="ig-grid">
+            
+            <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/PLACEHOLDER1/" data-instgrm-version="14"></blockquote>
+            
+            <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/PLACEHOLDER2/" data-instgrm-version="14"></blockquote>
+            
+            <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/PLACEHOLDER3/" data-instgrm-version="14"></blockquote>
+            
         </div>
 
         <a href="https://www.instagram.com/janu_bridal_artistry?igsh=aDJzenk0ZGNkZDVz" class="btn-instagram" target="_blank">
-            📸 See More Brides on Instagram
+            📸 View Full Profile on Instagram
         </a>
 
         <div class="faq-box">
@@ -240,6 +231,8 @@
     <footer>
         &copy; 2026 Janu Bridal Artistry 
     </footer>
+
+    <script async src="//www.instagram.com/embed.js"></script>
 
 </body>
 </html>
