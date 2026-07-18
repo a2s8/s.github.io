@@ -19,6 +19,4 @@ jobs:
         with:
           python-version: "3.13"
       - name: Scan published files
-        env:
-          PII_PRIVATE_TERMS: ${{ secrets.PII_PRIVATE_TERMS }}
         run: python scripts/pii_scan.py .

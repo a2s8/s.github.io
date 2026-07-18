@@ -21,7 +21,7 @@ Run:
 python scripts/pii_scan.py .
 ```
 
-GitHub Actions must pass the same scan before deployment. Private denylist terms belong in the `PII_PRIVATE_TERMS` Actions secret and must never be committed.
+GitHub Actions must pass the generic scan before deployment. Run private-name denylist checks locally with `PII_PRIVATE_TERMS`; do not commit or upload those terms to GitHub.
 
 ## Access control
 
