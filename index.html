@@ -3,239 +3,593 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#f7f8f5">
+    <meta name="description" content="The Sripathi family portal.">
     <title>The Sripathi Family | Home</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="preload" as="image" href="/assets/family-watercolor.jpg" imagesrcset="/assets/family-watercolor-900.jpg 900w, /assets/family-watercolor.jpg 1536w" imagesizes="(max-width: 760px) 100vw, 62vw">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&amp;family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-dark: #0f172a;
-            --card-glass: rgba(30, 41, 59, 0.7);
-            --text-main: #f8fafc;
-            --text-muted: #94a3b8;
-            --avik-accent: #38bdf8; /* Blue */
-            --rama-accent: #a855f7; /* Purple */
-            --private-accent: #fbbf24; /* Gold */
-            --trip-accent: #4ade80; /* Green */
+            --page: #f7f8f5;
+            --surface: #ffffff;
+            --ink: #17221c;
+            --muted: #637068;
+            --line: #dce2dd;
+            --forest: #175c45;
+            --forest-dark: #104333;
+            --navy: #1c4a62;
+            --clay: #a94936;
+            --mustard: #987113;
+            --sky: #dcecf4;
+            --coral: #f4ded8;
+            --gold: #f3e7b8;
+            --leaf: #dce9d7;
+            --max-width: 1120px;
         }
+
+        * { box-sizing: border-box; }
+
+        html { background: var(--page); }
 
         body {
-            background-color: var(--bg-dark);
-            color: var(--text-main);
-            font-family: 'Inter', sans-serif;
             margin: 0;
             min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            overflow-x: hidden;
-            position: relative;
-            padding: 40px 20px;
+            background: var(--page);
+            color: var(--ink);
+            font-family: "Inter", sans-serif;
+            letter-spacing: 0;
+            padding: 28px;
         }
 
-        /* Ambient Background */
-        .ambient-light {
-            position: absolute;
-            width: 800px;
-            height: 800px;
-            background: radial-gradient(circle, rgba(56, 189, 248, 0.1) 0%, rgba(168, 85, 247, 0.05) 40%, transparent 70%);
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            z-index: -1;
-            animation: pulse 10s infinite alternate;
-        }
+        a { color: inherit; }
 
-        @keyframes pulse {
-            0% { transform: translate(-50%, -50%) scale(1); opacity: 0.8; }
-            100% { transform: translate(-50%, -50%) scale(1.1); opacity: 1; }
-        }
-
-        header {
-            text-align: center;
-            margin-bottom: 50px;
-            z-index: 1;
-        }
-
-        h1 {
-            font-size: 3rem;
-            font-weight: 800;
-            letter-spacing: -2px;
-            margin: 0;
-            background: linear-gradient(to right, #fff, #cbd5e1);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        p.subtitle { color: var(--text-muted); font-size: 1.1rem; margin-top: 10px; }
-
-        /* 2x2 Grid Layout */
-        .portal-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            max-width: 900px;
-            width: 100%;
-            z-index: 1;
-        }
-
-        /* Card Styles */
-        .card {
-            background: var(--card-glass);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 24px;
-            padding: 35px;
-            text-decoration: none;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            position: relative;
+        .shell {
+            width: min(100%, var(--max-width));
+            min-height: 100vh;
+            margin: 0 auto;
+            background: var(--surface);
+            border-inline: 1px solid var(--line);
+            border-block: 1px solid var(--line);
+            border-radius: 8px;
             overflow: hidden;
         }
 
-        .card:hover {
-            transform: translateY(-5px);
-            border-color: rgba(255, 255, 255, 0.2);
-            box-shadow: 0 15px 30px -5px rgba(0, 0, 0, 0.4);
-        }
-
-        /* Accents */
-        .card-avik:hover { border-top: 3px solid var(--avik-accent); }
-        .card-rama:hover { border-top: 3px solid var(--rama-accent); }
-        .card-private:hover { border-top: 3px solid var(--private-accent); }
-        .card-trip:hover { border-top: 3px solid var(--trip-accent); }
-
-        .role-badge {
-            font-size: 0.7rem;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            font-weight: 800;
-            padding: 5px 10px;
-            border-radius: 20px;
-            display: inline-block;
-            margin-bottom: 15px;
-        }
-
-        .badge-avik { background: rgba(56, 189, 248, 0.15); color: var(--avik-accent); }
-        .badge-rama { background: rgba(168, 85, 247, 0.15); color: var(--rama-accent); }
-        .badge-private { background: rgba(251, 191, 36, 0.15); color: var(--private-accent); }
-        .badge-trip { background: rgba(74, 222, 128, 0.15); color: var(--trip-accent); }
-
-        .card h2 {
-            color: var(--text-main);
-            font-size: 1.8rem;
-            margin: 0 0 10px 0;
-        }
-
-        .card p {
-            color: var(--text-muted);
-            line-height: 1.5;
-            font-size: 0.95rem;
-            margin-bottom: 25px;
-        }
-
-        .arrow-link {
-            margin-top: auto;
-            font-weight: 600;
-            font-size: 0.9rem;
+        .topbar {
             display: flex;
             align-items: center;
-            gap: 6px;
-            transition: gap 0.2s;
+            justify-content: space-between;
+            min-height: 72px;
+            padding: 0 48px;
+            border-bottom: 1px solid var(--line);
         }
 
-        .card-avik .arrow-link { color: var(--avik-accent); }
-        .card-rama .arrow-link { color: var(--rama-accent); }
-        .card-private .arrow-link { color: var(--private-accent); }
-        .card-trip .arrow-link { color: var(--trip-accent); }
+        .brand {
+            display: inline-flex;
+            align-items: center;
+            gap: 11px;
+            text-decoration: none;
+            font-family: "DM Serif Display", serif;
+            font-size: 1.35rem;
+        }
 
-        .card:hover .arrow-link { gap: 10px; }
+        .brand-mark {
+            display: grid;
+            place-items: center;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: var(--forest);
+            color: #fff;
+            font-family: "Inter", sans-serif;
+            font-size: 0.75rem;
+            font-weight: 700;
+            transition: transform 220ms ease, background-color 220ms ease;
+        }
+
+        .brand:hover .brand-mark { transform: rotate(-8deg) scale(1.08); background: var(--clay); }
+
+        .trip-shortcut {
+            position: relative;
+            color: var(--forest);
+            font-size: 0.86rem;
+            font-weight: 700;
+            text-decoration: none;
+        }
+
+        .trip-shortcut::after {
+            content: "";
+            position: absolute;
+            right: 0;
+            bottom: -7px;
+            left: 0;
+            height: 2px;
+            background: var(--forest);
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: transform 180ms ease;
+        }
+
+        .trip-shortcut:hover::after { transform: scaleX(1); transform-origin: left; }
+
+        .intro {
+            position: relative;
+            display: block;
+            min-height: 470px;
+            overflow: hidden;
+            padding: 64px 64px 52px;
+            border-bottom: 1px solid var(--line);
+        }
+
+        .intro-copy {
+            position: relative;
+            z-index: 2;
+            width: 48%;
+            min-width: 0;
+        }
+
+        .hero-art {
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            width: 62%;
+            margin: 0;
+            overflow: hidden;
+            clip-path: polygon(20% 0, 100% 0, 100% 100%, 0 100%);
+        }
+
+        .hero-art img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: 62% center;
+            transition: transform 900ms cubic-bezier(0.2, 0.8, 0.2, 1);
+        }
+
+        .intro:hover .hero-art img { transform: scale(1.025); }
+
+        .eyebrow {
+            margin: 0 0 10px;
+            color: var(--forest);
+            font-size: 0.72rem;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        h1 {
+            max-width: 520px;
+            margin: 0;
+            font-family: "DM Serif Display", serif;
+            font-size: clamp(2.25rem, 8vw, 3.5rem);
+            font-weight: 400;
+            line-height: 1.02;
+            letter-spacing: 0;
+        }
+
+        .intro p:last-child {
+            max-width: 470px;
+            margin: 16px 0 0;
+            color: var(--muted);
+            font-size: 1rem;
+            line-height: 1.65;
+        }
+
+        .family-stats {
+            position: relative;
+            z-index: 2;
+            display: grid;
+            grid-template-columns: repeat(2, auto);
+            width: max-content;
+            gap: 28px;
+            margin-top: 34px;
+        }
+
+        .stat strong {
+            display: block;
+            color: var(--forest);
+            font-family: "DM Serif Display", serif;
+            font-size: 1.75rem;
+            font-weight: 400;
+            line-height: 1;
+        }
+
+        .stat span {
+            display: block;
+            margin-top: 7px;
+            color: var(--muted);
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .section {
+            padding: 38px 64px 42px;
+        }
+
+        .section-heading {
+            display: flex;
+            align-items: baseline;
+            justify-content: space-between;
+            gap: 16px;
+            margin-bottom: 14px;
+        }
+
+        h2 {
+            margin: 0;
+            font-family: "DM Serif Display", serif;
+            font-size: 1.6rem;
+            font-weight: 400;
+            letter-spacing: 0;
+        }
+
+        .section-count {
+            color: var(--muted);
+            font-size: 0.8rem;
+        }
+
+        .profile-list {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 14px;
+        }
+
+        .profile {
+            --tile-accent: var(--forest);
+            display: grid;
+            grid-template-columns: 56px minmax(0, 1fr) 24px;
+            align-items: center;
+            gap: 14px;
+            min-height: 104px;
+            padding: 18px;
+            border: 1px solid var(--line);
+            border-top: 3px solid var(--tile-accent);
+            border-radius: 8px;
+            background: var(--surface);
+            box-shadow: 0 4px 14px rgba(23, 34, 28, 0.04);
+            text-decoration: none;
+            transition: transform 220ms ease, box-shadow 220ms ease, border-color 220ms ease, background-color 220ms ease;
+        }
+
+        .profile-avik { --tile-accent: var(--navy); }
+        .profile-rama { --tile-accent: var(--clay); }
+        .profile-s { --tile-accent: var(--mustard); }
+        .profile-j { --tile-accent: var(--forest); }
+
+        .profile:hover, .profile:focus-visible {
+            border-color: var(--tile-accent);
+            background: #fbfcfa;
+            box-shadow: 0 16px 32px rgba(23, 34, 28, 0.12);
+            transform: translateY(-6px);
+        }
+        .profile:focus-visible { outline: 3px solid #89b9a8; outline-offset: -3px; }
+
+        .portrait-placeholder {
+            display: grid;
+            place-items: center;
+            width: 56px;
+            height: 56px;
+            border-radius: 8px;
+            color: var(--forest-dark);
+            font-family: "DM Serif Display", serif;
+            font-size: 1.45rem;
+            transition: transform 220ms cubic-bezier(0.2, 0.8, 0.2, 1), border-radius 220ms ease;
+        }
+
+        .profile:hover .portrait-placeholder {
+            border-radius: 50%;
+            transform: rotate(-5deg) scale(1.08);
+        }
+
+        .tone-sky { background: var(--sky); }
+        .tone-coral { background: var(--coral); }
+        .tone-gold { background: var(--gold); }
+        .tone-leaf { background: var(--leaf); }
+
+        .profile-copy { min-width: 0; }
+
+        .profile-name {
+            display: block;
+            overflow: hidden;
+            color: var(--ink);
+            font-size: 0.98rem;
+            font-weight: 700;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        .profile-description {
+            display: block;
+            margin-top: 5px;
+            overflow: hidden;
+            color: var(--muted);
+            font-size: 0.82rem;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        .arrow {
+            display: grid;
+            place-items: center;
+            width: 26px;
+            height: 26px;
+            border-radius: 50%;
+            background: #eef2ef;
+            color: var(--tile-accent);
+            font-size: 1.3rem;
+            line-height: 1;
+            text-align: right;
+            transition: color 180ms ease, background-color 180ms ease, transform 180ms ease;
+        }
+
+        .profile:hover .arrow { background: var(--tile-accent); color: #fff; transform: translateX(3px); }
+
+        .trip-band {
+            padding: 0 64px 56px;
+        }
+
+        .trip-card {
+            display: grid;
+            grid-template-columns: 220px minmax(0, 1fr) 40px;
+            align-items: stretch;
+            overflow: hidden;
+            min-height: 184px;
+            border: 1px solid #b9cbbf;
+            border-radius: 8px;
+            background: #f0f6f1;
+            box-shadow: 0 5px 18px rgba(23, 34, 28, 0.06);
+            text-decoration: none;
+            transition: transform 240ms ease, box-shadow 240ms ease, border-color 180ms ease, background-color 180ms ease;
+        }
+
+        .trip-card:hover, .trip-card:focus-visible {
+            border-color: var(--forest);
+            background: #e8f1ea;
+            box-shadow: 0 20px 40px rgba(23, 74, 55, 0.16);
+            transform: translateY(-7px);
+        }
+
+        .trip-card:focus-visible { outline: 3px solid #89b9a8; outline-offset: 2px; }
+
+        .trip-art {
+            position: relative;
+            overflow: hidden;
+            background: var(--sky);
+            border-right: 1px solid #b9cbbf;
+        }
+
+        .trip-art::before,
+        .trip-art::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            width: 100%;
+        }
+
+        .trip-art::before {
+            bottom: 0;
+            height: 62%;
+            background: var(--forest);
+            clip-path: polygon(0 72%, 24% 38%, 42% 61%, 68% 12%, 100% 58%, 100% 100%, 0 100%);
+        }
+
+        .trip-art::after {
+            right: 17px;
+            bottom: 19px;
+            left: auto;
+            width: 28px;
+            height: 62px;
+            border-radius: 50% 50% 42% 42%;
+            background: #fff;
+            opacity: 0.9;
+        }
+
+        .sun {
+            position: absolute;
+            top: 23px;
+            right: 24px;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background: #e7b93f;
+            box-shadow: 0 0 0 8px rgba(231, 185, 63, 0.18);
+            transition: transform 400ms ease;
+        }
+
+        .steam {
+            position: absolute;
+            z-index: 2;
+            right: 27px;
+            bottom: 70px;
+            width: 7px;
+            height: 28px;
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.84);
+            transform-origin: bottom;
+        }
+
+        .steam-two { right: 43px; bottom: 62px; height: 20px; animation-delay: 700ms; }
+
+        .trip-card:hover .sun { transform: translate(-5px, 5px) scale(1.12); }
+        .trip-card:hover .steam { animation: steam-rise 1.8s ease-in-out infinite; }
+
+        @keyframes steam-rise {
+            0%, 100% { opacity: 0.45; transform: translateY(6px) scaleY(0.75); }
+            50% { opacity: 1; transform: translateY(-7px) scaleY(1.15); }
+        }
+
+        .trip-copy {
+            align-self: center;
+            min-width: 0;
+            padding: 28px;
+        }
+
+        .trip-label {
+            display: block;
+            margin-bottom: 6px;
+            color: var(--forest);
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .trip-title {
+            display: block;
+            font-family: "DM Serif Display", serif;
+            font-size: 1.35rem;
+        }
+
+        .trip-meta {
+            display: block;
+            margin-top: 8px;
+            color: var(--muted);
+            font-size: 0.8rem;
+            line-height: 1.45;
+        }
+
+        .trip-arrow {
+            display: grid;
+            place-items: center;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background: var(--forest);
+            align-self: center;
+            color: #fff;
+            font-size: 1.5rem;
+            transition: transform 180ms ease, background-color 180ms ease;
+        }
+
+        .trip-card:hover .trip-arrow { background: var(--clay); transform: translateX(4px) rotate(-4deg); }
 
         footer {
-            margin-top: 60px;
-            color: rgba(255, 255, 255, 0.2);
-            font-size: 0.85rem;
-            text-align: center;
+            padding: 24px 64px 32px;
+            border-top: 1px solid var(--line);
+            color: var(--muted);
+            font-size: 0.76rem;
         }
 
-        @media (max-width: 650px) {
-            h1 { font-size: 2.5rem; }
-            .portal-grid { grid-template-columns: 1fr; }
+        @media (max-width: 760px) {
+            body { padding: 0; }
+            .shell { border: 0; border-radius: 0; }
+            .topbar { min-height: 64px; padding-inline: 18px; }
+            .intro { display: block; min-height: 0; padding: 34px 18px 0; }
+            .intro-copy { width: 100%; }
+            .family-stats { margin-top: 26px; }
+            .hero-art {
+                position: relative;
+                top: auto;
+                right: auto;
+                bottom: auto;
+                width: calc(100% + 36px);
+                height: 300px;
+                margin: 28px -18px 0;
+                clip-path: none;
+            }
+            .hero-art img { object-position: 70% center; }
+            .section { padding: 24px 18px 28px; }
+            .profile-list { grid-template-columns: 1fr; }
+            .trip-band { padding: 0 18px 30px; }
+            .trip-card { grid-template-columns: 88px minmax(0, 1fr) 24px; }
+            .trip-card { min-height: 142px; }
+            .trip-copy { padding: 14px; }
+            footer { padding-inline: 18px; }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            * { scroll-behavior: auto !important; transition: none !important; }
+            .steam { animation: none !important; }
         }
     </style>
 </head>
 <body>
+    <main class="shell">
+        <header class="topbar">
+            <a class="brand" href="/" aria-label="sripathi.one home">
+                <span class="brand-mark" aria-hidden="true">S1</span>
+                <span>sripathi.one</span>
+            </a>
+            <a class="trip-shortcut" href="/trip/">Trip plan</a>
+        </header>
 
-    <div class="ambient-light"></div>
+        <section class="intro" aria-labelledby="page-title">
+            <div class="intro-copy">
+                <p class="eyebrow">The family portal</p>
+                <h1 id="page-title">Welcome to our family home.</h1>
+                <p>Each of us has a space of our own, alongside the plans and memories we share as a family.</p>
+            </div>
+            <div class="family-stats" aria-label="Portal summary">
+                <div class="stat"><strong>04</strong><span>Profiles</span></div>
+                <div class="stat"><strong>01</strong><span>Adventure</span></div>
+            </div>
+            <figure class="hero-art">
+                <img src="/assets/family-watercolor.jpg" srcset="/assets/family-watercolor-900.jpg 900w, /assets/family-watercolor.jpg 1536w" sizes="(max-width: 760px) 100vw, 62vw" width="1536" height="1024" fetchpriority="high" alt="Watercolor illustration of the Sripathi family outdoors">
+            </figure>
+        </section>
 
-    <header>
-        <h1>sripathi.one</h1>
-        <p class="subtitle">The Family Portal</p>
-    </header>
+        <section class="section" aria-labelledby="family-heading">
+            <div class="section-heading">
+                <h2 id="family-heading">Our family</h2>
+                <span class="section-count">4 profiles</span>
+            </div>
 
-    <div class="portal-grid">
-        
-        <a href="/a" class="card card-avik">
-            <span class="role-badge badge-avik">The Creator</span>
-            <h2>Avik S.</h2>
-            <p>Level 8 Human, Professional Noise Maker, and Reel Creator.</p>
-            <span class="arrow-link">View Space &rarr;</span>
-        </a>
+            <div class="profile-list">
+                <a class="profile profile-avik" href="/a">
+                    <span class="portrait-placeholder tone-sky" aria-hidden="true">A</span>
+                    <span class="profile-copy">
+                        <span class="profile-name">Avik S.</span>
+                        <span class="profile-description">Creative projects and favorite things</span>
+                    </span>
+                    <span class="arrow" aria-hidden="true">&#8250;</span>
+                </a>
 
-        <a href="/r" class="card card-rama">
-            <span class="role-badge badge-rama">The Architect</span>
-            <h2>Rama S.</h2>
-            <p>Cloud Security Architect, DevOps Engineer, and Tech Enthusiast.</p>
-            <span class="arrow-link">Enter Portfolio &rarr;</span>
-        </a>
+                <a class="profile profile-rama" href="/r">
+                    <span class="portrait-placeholder tone-coral" aria-hidden="true">R</span>
+                    <span class="profile-copy">
+                        <span class="profile-name">Rama S.</span>
+                        <span class="profile-description">Technology, projects, and interests</span>
+                    </span>
+                    <span class="arrow" aria-hidden="true">&#8250;</span>
+                </a>
 
-        <a href="/s" class="card card-private">
-            <span class="role-badge badge-private">Private &bull; S</span>
-            <h2>Profile S.</h2>
-            <p>This profile is private. Inquiries only.</p>
-            <span class="arrow-link">Restricted Access 🔒</span>
-        </a>
+                <a class="profile profile-s" href="/s">
+                    <span class="portrait-placeholder tone-gold" aria-hidden="true">S</span>
+                    <span class="profile-copy">
+                        <span class="profile-name">Profile S.</span>
+                        <span class="profile-description">Family profile</span>
+                    </span>
+                    <span class="arrow" aria-hidden="true">&#8250;</span>
+                </a>
 
-        <a href="/j" class="card card-private">
-            <span class="role-badge badge-private">Private &bull; J</span>
-            <h2>Profile J.</h2>
-            <p>This profile is private. Inquiries only.</p>
-            <span class="arrow-link">Restricted Access 🔒</span>
-        </a>
+                <a class="profile profile-j" href="/j">
+                    <span class="portrait-placeholder tone-leaf" aria-hidden="true">J</span>
+                    <span class="profile-copy">
+                        <span class="profile-name">Profile J.</span>
+                        <span class="profile-description">Family profile</span>
+                    </span>
+                    <span class="arrow" aria-hidden="true">&#8250;</span>
+                </a>
+            </div>
+        </section>
 
-        <a href="/trip/" class="card card-trip">
-            <span class="role-badge badge-trip">Family Trip</span>
-            <h2>Yellowstone 2026</h2>
-            <p>Flights, lodging, daily plans, maps, and the remaining trip checklist.</p>
-            <span class="arrow-link">Open Trip Plan &rarr;</span>
-        </a>
+        <section class="trip-band" aria-labelledby="trip-title">
+            <a class="trip-card" href="/trip/">
+                <span class="trip-art" aria-hidden="true">
+                    <span class="sun"></span>
+                    <span class="steam steam-one"></span>
+                    <span class="steam steam-two"></span>
+                </span>
+                <span class="trip-copy">
+                    <span class="trip-label">Family trip</span>
+                    <span class="trip-title" id="trip-title">Yellowstone 2026</span>
+                    <span class="trip-meta">Aug 19-24 &middot; Flights, lodging, itinerary, maps, and checklist</span>
+                </span>
+                <span class="trip-arrow" aria-hidden="true">&#8250;</span>
+            </a>
+        </section>
 
-    </div>
-
-    <footer>
-        &copy; 2026 Sripathi Family
-        <div style="margin-top: 15px; opacity: 0.8;">
-    <img id="visit-count" src="" alt="Page Views" style="height: 20px;">
-</div>
-
-<script>
-    // 1. Get the current page URL path (e.g., "sripathi.one/toy1")
-    var pageId = window.location.hostname + window.location.pathname;
-    
-    // 2. Clean it up: Force lowercase and remove trailing slashes
-    // This ensures "sripathi.one/Toy1/" and "sripathi.one/toy1" count as the SAME page.
-    pageId = pageId.toLowerCase().replace(/\/$/, "");
-
-    // 3. Generate the counter badge URL
-    // Style options: flat-square (modern), plastic (classic), for-the-badge (blocky)
-    var counterUrl = "https://hits.sh/" + pageId + ".svg?style=flat-square&label=Views&extraCount=0&color=38bdf8";
-
-    // 4. Set the image
-    document.getElementById("visit-count").src = counterUrl;
-</script>
-    </footer>
-
+        <footer>&copy; 2026 Sripathi Family</footer>
+    </main>
 </body>
 </html>
