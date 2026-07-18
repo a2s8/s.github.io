@@ -3,207 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LEGO Audi F1 | Sripathi Builds</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --bg-dark: #0f172a;
-            --card-bg: #1e293b;
-            --text-main: #f8fafc;
-            --text-muted: #94a3b8;
-            --accent-audi: #e10600; /* Audi Racing Red */
-            --amazon-orange: #ff9900;
-        }
-
-        body {
-            background-color: var(--bg-dark);
-            color: var(--text-main);
-            font-family: 'Inter', sans-serif;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .hero {
-            width: 100%;
-            max-width: 600px;
-            padding: 40px 20px 20px;
-            text-align: center;
-        }
-
-        h1 {
-            font-size: 2.2rem;
-            font-weight: 800;
-            margin-bottom: 25px;
-            background: linear-gradient(to right, #ff4d4d, var(--accent-audi));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .video-container {
-            position: relative;
-            width: 100%;
-            max-width: 320px; 
-            margin: 0 auto 30px;
-            aspect-ratio: 9 / 16; 
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 20px 40px -10px rgba(225, 6, 0, 0.4);
-            border: 3px solid var(--card-bg);
-        }
-
-        iframe { width: 100%; height: 100%; border: none; }
-
-        /* --- PRODUCT PREVIEW CARD --- */
-        .product-preview {
-            background: #ffffff;
-            color: #1a1a1a;
-            width: 90%;
-            max-width: 400px;
-            border-radius: 16px;
-            padding: 20px;
-            margin: 0 auto 50px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-            text-decoration: none;
-            transition: transform 0.2s;
-            border: 2px solid transparent;
-        }
-
-        .product-preview:hover { transform: scale(1.02); border-color: var(--amazon-orange); }
-
-        .product-label {
-            align-self: flex-start;
-            background: #f0f0f0;
-            padding: 4px 10px;
-            border-radius: 4px;
-            font-size: 0.7rem;
-            font-weight: 700;
-            color: #666;
-            margin-bottom: 10px;
-            text-transform: uppercase;
-        }
-
-        .product-info { text-align: center; width: 100%; }
-
-        .product-title {
-            font-weight: 800;
-            font-size: 1.1rem;
-            margin-bottom: 5px;
-            display: block;
-        }
-
-        .product-subtitle {
-            font-size: 0.85rem;
-            color: #555;
-            margin-bottom: 8px;
-            font-weight: 600;
-        }
-
-        .product-rating { color: #ffa41c; font-size: 0.9rem; margin-bottom: 15px; }
-
-        .btn-amazon {
-            background: var(--amazon-orange);
-            color: #232f3e;
-            padding: 12px 0;
-            border-radius: 8px;
-            font-weight: 800;
-            text-decoration: none;
-            width: 100%;
-            display: block;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        }
-
-        /* --- CONTENT GRID --- */
-        .content-grid {
-            width: 90%;
-            max-width: 800px;
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 20px;
-            margin: 0 auto 50px;
-        }
-
-        .card {
-            background: var(--card-bg);
-            padding: 25px;
-            border-radius: 16px;
-            border: 1px solid rgba(255,255,255,0.05);
-        }
-
-        h2 { margin-top: 0; color: var(--accent-audi); font-size: 1.3rem; }
-        p { line-height: 1.6; color: var(--text-muted); font-size: 0.95rem; }
-
-        .btn-secondary {
-            background: rgba(255,255,255,0.1);
-            color: #fff;
-            padding: 12px 24px;
-            border-radius: 50px;
-            text-decoration: none;
-            margin-bottom: 50px;
-            font-size: 0.9rem;
-            transition: background 0.2s;
-        }
-        .btn-secondary:hover { background: rgba(255,255,255,0.2); }
-
-        footer { margin-bottom: 40px; opacity: 0.6; font-size: 0.8rem; text-align: center; }
-
-        @media (min-width: 768px) {
-            .content-grid { grid-template-columns: 1fr 1fr; }
-        }
-    </style>
+    <meta name="theme-color" content="#f8f1ef">
+    <meta name="description" content="Avik's LEGO Audi Formula 1 build.">
+    <title>LEGO Audi F1 | Avik's Builds</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&amp;family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/family.css">
+    <style>:root { --accent: #a43b31; --accent-soft: #f4ded8; --page: #f8f1ef; }</style>
 </head>
 <body>
-
-    <div class="hero">
-        <h1>Building the Audi F1 🏎️</h1>
-        
-        <div class="video-container">
-            <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID" title="LEGO Audi F1 Build" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        </div>
-
-        <a href="https://www.amazon.com/dp/B0FMYTJ93W" class="product-preview" target="_blank">
-            <span class="product-label">Amazon Recommendation</span>
-            <div class="product-info">
-                <span class="product-title">LEGO Speed Champions Audi Revolut F1 Team R26</span>
-                <div class="product-subtitle">Building Set (77259) • Ages 10+</div>
-                <div class="product-rating">★★★★★ (4.8/5)</div>
-                <div class="btn-amazon">Check Price on Amazon</div>
+    <main class="site-shell">
+        <header class="family-nav">
+            <a class="family-brand" href="/" aria-label="sripathi.one family home"><span class="family-brand-mark" aria-hidden="true">S1</span><span>sripathi.one</span></a>
+            <nav class="nav-links" aria-label="Page navigation"><a class="nav-link nav-link-extra" href="/a/">Avik's studio</a><a class="nav-link" href="/">Family home</a></nav>
+        </header>
+        <section class="content-section">
+            <div class="product-layout">
+                <div class="media-placeholder"><div><p class="eyebrow">Build video</p><strong>Coming soon</strong><p>The page is ready for the finished build video when it is published.</p></div></div>
+                <div class="product-copy">
+                    <p class="eyebrow">Avik's builds</p>
+                    <h1>LEGO Audi F1</h1>
+                    <p class="lede">A compact Formula 1 build with enough aerodynamic detail to look fast even while sitting on a shelf.</p>
+                    <div class="hero-actions">
+                        <a class="button" href="https://www.amazon.com/dp/B0FMYTJ93W" target="_blank" rel="noreferrer sponsored">View the set on Amazon</a>
+                        <a class="button button-secondary" href="/a/">More from Avik</a>
+                    </div>
+                </div>
             </div>
-        </a>
-    </div>
-
-    <div class="content-grid">
-        <div class="card">
-            <h2>⚙️ The Build</h2>
-            <p>We had a blast putting together this LEGO Speed Champions Audi Revolut F1 car. It is the perfect scale for a quick weekend project, capturing all the sleek aerodynamic details of the real R26 race car.</p>
-        </div>
-
-        <div class="card">
-            <h2>🏆 The Verdict</h2>
-            <p>Designed for ages 10+, it strikes a great balance. It looks incredible as a display piece on a desk or shelf, but it's also sturdy enough to actually play with and race around the house!</p>
-        </div>
-    </div>
-
-    <a href="/" class="btn-secondary">&larr; Back to Home</a>
-
-    <footer>
-        &copy; 2026 sripathi.one
-        <div style="margin-top: 15px;">
-            <img id="visit-count" src="" alt="Views" style="height: 18px;">
-        </div>
-    </footer>
-
-    <script>
-        var pageId = window.location.hostname + window.location.pathname;
-        pageId = pageId.toLowerCase().replace(/\/$/, "");
-        // Matching the Audi Red accent color
-        var counterUrl = "https://hits.sh/" + pageId + ".svg?style=flat-square&label=Views&extraCount=0&color=e10600";
-        document.getElementById("visit-count").src = counterUrl;
-    </script>
+        </section>
+        <section class="content-section" aria-labelledby="story-title">
+            <div class="section-heading"><h2 id="story-title">About the build</h2><p>A weekend-scale project designed for both display and play.</p></div>
+            <div class="tile-grid">
+                <article class="info-tile"><h3>The process</h3><p>The set balances a manageable build time with recognizable Formula 1 details and a clean final silhouette.</p></article>
+                <article class="info-tile"><h3>The result</h3><p>It works as a desk or shelf display while remaining sturdy enough to take off the stand and race around.</p></article>
+                <article class="info-tile"><h3>Video status</h3><p>The old page pointed to a placeholder video. The real player will return here only after the finished video exists.</p></article>
+            </div>
+        </section>
+        <footer class="site-footer"><span>&copy; 2026 Sripathi Family</span><a href="/a/">Back to Avik's studio</a></footer>
+    </main>
 </body>
 </html>

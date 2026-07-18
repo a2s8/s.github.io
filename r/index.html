@@ -3,178 +3,89 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rama S. | Techy & Editor</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <meta name="theme-color" content="#f8f1ef">
+    <meta name="description" content="Rama's technology, security, product, and creative work.">
+    <title>Rama S. | Technology and Creative Work</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&amp;family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/family.css">
     <style>
-        :root {
-            --bg-dark: #0a0a0c;
-            --card-bg: #111113;
-            --text-main: #ffffff;
-            --text-muted: #94a3b8;
-            --accent-purple: #a855f7; /* Techy Purple */
-            --accent-glass: rgba(168, 85, 247, 0.15);
-        }
-
-        body {
-            background-color: var(--bg-dark);
-            color: var(--text-main);
-            font-family: 'Inter', sans-serif;
-            margin: 0;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            padding: 20px;
-            /* Subtle mesh gradient */
-            background-image: 
-                radial-gradient(at 0% 0%, rgba(168, 85, 247, 0.1) 0px, transparent 50%),
-                radial-gradient(at 100% 100%, rgba(56, 189, 248, 0.05) 0px, transparent 50%);
-        }
-
-        .profile-container {
-            max-width: 500px;
-            width: 100%;
-            text-align: center;
-            background: var(--card-bg);
-            padding: 60px 40px;
-            border-radius: 32px;
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            box-shadow: 0 40px 100px -20px rgba(0, 0, 0, 0.8);
-            position: relative;
-        }
-
-        .badge {
-            background: var(--accent-glass);
-            color: var(--accent-purple);
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            font-weight: 800;
-            padding: 8px 16px;
-            border-radius: 50px;
-            display: inline-block;
-            margin-bottom: 25px;
-            border: 1px solid rgba(168, 85, 247, 0.2);
-        }
-
-        h1 {
-            font-size: 3rem;
-            font-weight: 800;
-            margin: 0;
-            letter-spacing: -2px;
-            background: linear-gradient(to bottom, #fff, #94a3b8);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .roles {
-            color: var(--accent-purple);
-            font-weight: 600;
-            font-size: 1.1rem;
-            margin: 15px 0 25px;
-        }
-
-        .description {
-            color: var(--text-muted);
-            line-height: 1.6;
-            font-size: 1rem;
-            margin-bottom: 35px;
-        }
-
-        /* Skills Tags */
-        .skills {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 10px;
-            margin-bottom: 40px;
-        }
-
-        .skill-tag {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            padding: 6px 14px;
-            border-radius: 12px;
-            font-size: 0.8rem;
-            color: var(--text-muted);
-        }
-
-        .btn {
-            background: var(--text-main);
-            color: var(--bg-dark);
-            text-decoration: none;
-            padding: 16px 35px;
-            border-radius: 16px;
-            font-weight: 700;
-            display: inline-block;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .btn:hover {
-            transform: scale(1.02);
-            box-shadow: 0 0 30px rgba(255, 255, 255, 0.1);
-        }
-
-        .home-link {
-            display: block;
-            margin-top: 40px;
-            color: var(--text-muted);
-            text-decoration: none;
-            font-size: 0.85rem;
-            opacity: 0.5;
-        }
-        
-        .home-link:hover { opacity: 1; }
-
-        /* Visit Counter Styling */
-        .counter-container {
-            margin-top: 30px;
-            opacity: 0.6;
-        }
+        :root { --accent: #9f4434; --accent-soft: #f4ded8; --page: #f8f1ef; }
     </style>
 </head>
 <body>
+    <main class="site-shell">
+        <header class="family-nav">
+            <a class="family-brand" href="/" aria-label="sripathi.one family home">
+                <span class="family-brand-mark" aria-hidden="true">S1</span>
+                <span>sripathi.one</span>
+            </a>
+            <nav class="nav-links" aria-label="Page navigation">
+                <a class="nav-link nav-link-extra" href="#focus">Focus</a>
+                <a class="nav-link" href="/">Family home</a>
+            </nav>
+        </header>
 
-    <div class="profile-container">
-        <div class="badge">The Techy</div>
-        
-        <h1>Rama S.</h1>
-        <div class="roles">Architect • TPM • PdM</div>
-        
-        <p class="description">
-            Building secure infrastructure by day, crafting cinematic stories by night. 
-            Technical Solutions Architect specializing in Cloud Security and DevOps.
-        </p>
+        <section class="profile-hero" aria-labelledby="page-title">
+            <div class="profile-visual" aria-hidden="true">
+                <div class="profile-monogram">R</div>
+            </div>
+            <div class="profile-copy">
+                <p class="eyebrow">Technology and creative work</p>
+                <h1 id="page-title">Rama S.</h1>
+                <p class="lede">Building secure infrastructure and useful products by day, then shaping stories, experiments, and family projects after hours.</p>
+                <div class="tag-list" aria-label="Areas of interest">
+                    <span class="tag">Cloud security</span>
+                    <span class="tag">DevOps</span>
+                    <span class="tag">Product</span>
+                    <span class="tag">Program leadership</span>
+                    <span class="tag">Video editing</span>
+                </div>
+                <div class="hero-actions">
+                    <a class="button" href="https://r2k8.com" target="_blank" rel="noreferrer">Open full portfolio</a>
+                    <a class="button button-secondary" href="#focus">Current focus</a>
+                </div>
+            </div>
+        </section>
 
-        <div class="skills">
-            <span class="skill-tag">Final Cut Pro</span>
-            <span class="skill-tag">Cloud Security</span>
-            <span class="skill-tag">DevOps</span>
-            <span class="skill-tag">Tech Enthusiast</span>
-        </div>
+        <section class="content-section" id="focus" aria-labelledby="focus-title">
+            <div class="section-heading">
+                <h2 id="focus-title">What I work on</h2>
+                <p>A compact introduction here, with deeper technical work and case studies living on the dedicated portfolio.</p>
+            </div>
+            <div class="tile-grid">
+                <article class="info-tile">
+                    <h3>Secure platforms</h3>
+                    <p>Cloud security architecture, practical controls, resilient infrastructure, and developer-friendly guardrails.</p>
+                </article>
+                <article class="info-tile">
+                    <h3>Products and programs</h3>
+                    <p>Connecting technical strategy, delivery, customer needs, and teams across complex initiatives.</p>
+                </article>
+                <article class="info-tile">
+                    <h3>Creative systems</h3>
+                    <p>Editing stories, building small tools, and turning family ideas into things people can actually use.</p>
+                </article>
+            </div>
+        </section>
 
-        <div class="links">
-            <a href="https://r2k8.com" class="btn" target="_blank">View Portfolio</a>
-        </div>
+        <section class="content-section" aria-labelledby="next-title">
+            <div class="section-heading">
+                <h2 id="next-title">Continue to the portfolio</h2>
+                <p>The complete professional profile, projects, and technical writing are maintained separately at r2k8.com.</p>
+            </div>
+            <a class="project-tile" href="https://r2k8.com" target="_blank" rel="noreferrer">
+                <h3>r2k8.com</h3>
+                <p>Cloud security, DevOps, product work, experiments, and a longer professional story.</p>
+                <span class="tile-link">Visit the portfolio &rarr;</span>
+            </a>
+        </section>
 
-        <a href="/" class="home-link">&larr; Back to sripathi.one</a>
-    </div>
-
-    <div class="counter-container">
-        <img id="visit-count" src="" alt="Page Views" style="height: 20px;">
-    </div>
-
-    <script>
-        // Automatic Path Detection
-        var pageId = window.location.hostname + window.location.pathname;
-        pageId = pageId.toLowerCase().replace(/\/$/, "");
-        
-        // Purple Theme Counter (matches accent)
-        var counterUrl = "https://hits.sh/" + pageId + ".svg?style=flat-square&label=Views&extraCount=0&color=a855f7";
-        
-        document.getElementById("visit-count").src = counterUrl;
-    </script>
-
+        <footer class="site-footer">
+            <span>&copy; 2026 Sripathi Family</span>
+            <a href="/">Back to the family home</a>
+        </footer>
+    </main>
 </body>
 </html>

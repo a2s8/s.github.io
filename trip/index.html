@@ -42,7 +42,15 @@
     button, a { -webkit-tap-highlight-color: transparent; }
     button { font: inherit; }
     a { color: inherit; }
-    .shell { width: min(100%, 760px); margin: 0 auto; background: var(--paper); min-height: 100vh; }
+    .shell { width: min(100%, 960px); margin: 0 auto; overflow: hidden; background: var(--paper); min-height: 100vh; }
+
+    .family-nav { display: flex; align-items: center; justify-content: space-between; min-height: 70px; padding: 0 24px; background: var(--surface); border-bottom: 1px solid var(--line); }
+    .family-brand { display: inline-flex; align-items: center; gap: 10px; color: var(--ink); font-family: "Newsreader", Georgia, serif; font-size: 1.2rem; font-weight: 600; text-decoration: none; }
+    .family-mark { display: grid; place-items: center; width: 34px; height: 34px; border-radius: 50%; background: var(--forest); color: #fff; font-family: "DM Sans", sans-serif; font-size: .7rem; transition: transform .2s ease, background-color .2s ease; }
+    .family-brand:hover .family-mark { background: var(--clay); transform: rotate(-8deg) scale(1.08); }
+    .family-home { position: relative; color: var(--forest); font-size: .8rem; font-weight: 600; text-decoration: none; }
+    .family-home::after { content: ""; position: absolute; right: 0; bottom: -7px; left: 0; height: 2px; background: var(--forest); transform: scaleX(0); transform-origin: right; transition: transform .18s ease; }
+    .family-home:hover::after { transform: scaleX(1); transform-origin: left; }
 
     .hero {
       min-height: min(520px, 66vh);
@@ -148,17 +156,21 @@
 
     @media (min-width: 700px) {
       body { padding: 22px 0; }
-      .shell { border: 1px solid var(--line); box-shadow: var(--shadow); }
+      .shell { border: 1px solid var(--line); border-radius: 8px; box-shadow: var(--shadow); }
       .hero { min-height: 500px; }
       h1 { font-size: 5rem; }
-      section { padding-left: 28px; padding-right: 28px; }
-      .quick-nav { padding-left: 24px; padding-right: 24px; }
-      .safety-band { margin-left: 28px; margin-right: 28px; border-radius: 8px; }
+      section { padding-left: 44px; padding-right: 44px; }
+      .quick-nav { padding-left: 40px; padding-right: 40px; }
+      .safety-band { margin-left: 44px; margin-right: 44px; border-radius: 8px; }
     }
   </style>
 </head>
 <body>
   <div class="shell">
+    <header class="family-nav">
+      <a class="family-brand" href="/" aria-label="sripathi.one family home"><span class="family-mark" aria-hidden="true">S1</span><span>sripathi.one</span></a>
+      <a class="family-home" href="/">Family home</a>
+    </header>
     <header class="hero">
       <div class="hero-copy">
         <p class="eyebrow">Family trip · Aug 19–24, 2026</p>
