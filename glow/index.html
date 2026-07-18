@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LED Glow Tubes | Sripathi Experiments</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-dark: #0f172a;
+            --card-bg: #1e293b;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --accent-glow: #ec4899; /* Neon Pink */
+            --accent-glow-2: #a855f7; /* Neon Purple */
+            --amazon-orange: #ff9900;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .hero {
+            width: 100%;
+            max-width: 600px;
+            padding: 40px 20px 20px;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 2.2rem;
+            font-weight: 800;
+            margin-bottom: 25px;
+            background: linear-gradient(to right, var(--accent-glow-2), var(--accent-glow));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 20px rgba(236, 72, 153, 0.3);
+        }
+
+        .video-container {
+            position: relative;
+            width: 100%;
+            max-width: 320px;
+            margin: 0 auto 30px;
+            aspect-ratio: 9 / 16;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px -10px rgba(236, 72, 153, 0.4);
+            border: 3px solid var(--card-bg);
+        }
+
+        iframe { width: 100%; height: 100%; border: none; }
+
+        /* --- PRODUCT PREVIEW CARD (Centered) --- */
+        .product-preview {
+            background: #ffffff;
+            color: #1a1a1a;
+            width: 90%;
+            max-width: 400px;
+            border-radius: 16px;
+            padding: 20px;
+            margin: 0 auto 50px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            text-decoration: none;
+            transition: transform 0.2s;
+            border: 2px solid transparent;
+        }
+
+        .product-preview:hover { transform: scale(1.02); border-color: var(--amazon-orange); }
+
+        .product-label {
+            align-self: flex-start;
+            background: #f0f0f0;
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            color: #666;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .product-info { text-align: center; width: 100%; }
+
+        .product-title {
+            font-weight: 800;
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        .product-rating { color: #ffa41c; font-size: 0.9rem; margin-bottom: 15px; }
+
+        .btn-amazon {
+            background: var(--amazon-orange);
+            color: #232f3e;
+            padding: 12px 0;
+            border-radius: 8px;
+            font-weight: 800;
+            text-decoration: none;
+            width: 100%;
+            display: block;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        /* --- CONTENT GRID (Side by Side) --- */
+        .content-grid {
+            width: 90%;
+            max-width: 800px;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+            margin: 0 auto 50px;
+        }
+
+        .card {
+            background: var(--card-bg);
+            padding: 25px;
+            border-radius: 16px;
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+
+        h2 { margin-top: 0; color: var(--accent-glow); font-size: 1.3rem; }
+        p { line-height: 1.6; color: var(--text-muted); font-size: 0.95rem; }
+
+        .btn-secondary {
+            background: rgba(255,255,255,0.1);
+            color: #fff;
+            padding: 12px 24px;
+            border-radius: 50px;
+            text-decoration: none;
+            margin-bottom: 50px;
+            font-size: 0.9rem;
+            transition: background 0.2s;
+        }
+        .btn-secondary:hover { background: rgba(255,255,255,0.2); }
+
+        footer { margin-bottom: 40px; opacity: 0.6; font-size: 0.8rem; text-align: center; }
+
+        @media (min-width: 768px) {
+            .content-grid { grid-template-columns: 1fr 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="hero">
+        <h1>Ultimate LED Glow Tubes ✨</h1>
+        
+        <div class="video-container">
+            <iframe src="https://www.youtube.com/embed/b8oHVh4PnKE" title="LED Glow Tubes" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+
+        <a href="https://amzn.to/4l0QCu0" class="product-preview" target="_blank">
+            <span class="product-label">Amazon Recommendation</span>
+            <div class="product-info">
+                <span class="product-title">LED Pop Tubes Glow Sticks</span>
+                <div class="product-rating">★★★★★ (4.8/5)</div>
+                <div class="btn-amazon">Check Price on Amazon</div>
+            </div>
+        </a>
+    </div>
+
+    <div class="content-grid">
+        <div class="card">
+            <h2>🎉 The Story</h2>
+            <p>We tried these LED glow tubes for dance night yesterday, and it was so much fun! The 7-year-old and 11-year-old had an absolute blast linking them together and wearing them on the dance floor.</p>
+        </div>
+
+        <div class="card">
+            <h2>💡 Why We Love Them</h2>
+            <p>They are super bright, hold up perfectly to kids playing, and made the whole night feel extra special. Highly recommend if you want to add some fun to your next party!</p>
+        </div>
+    </div>
+
+    <a href="/" class="btn-secondary">&larr; Back to Home</a>
+
+    <footer>
+        &copy; 2026 sripathi.one
+        <div style="margin-top: 15px;">
+            <img id="visit-count" src="" alt="Views" style="height: 18px;">
+        </div>
+    </footer>
+
+    <script>
+        var pageId = window.location.hostname + window.location.pathname;
+        pageId = pageId.toLowerCase().replace(/\/$/, "");
+        // Matching the pink accent color
+        var counterUrl = "https://hits.sh/" + pageId + ".svg?style=flat-square&label=Views&extraCount=0&color=ec4899";
+        document.getElementById("visit-count").src = counterUrl;
+    </script>
+</body>
+</html>

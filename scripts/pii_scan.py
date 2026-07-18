@@ -35,7 +35,10 @@ PATTERNS = {
         r"LANE|LN|COURT|CT|WAY|BOULEVARD|BLVD)\b",
         re.I,
     ),
-    "US ZIP code": re.compile(r"\b\d{5}(?:-\d{4})?\b"),
+    # Exclude five-digit asset filenames and parenthesized product/model numbers.
+    "US ZIP code": re.compile(
+        r"(?<![\w(\"'/.])\d{5}(?:-\d{4})?(?![\w.)])"
+    ),
     "payment field": re.compile(
         r"\b(?:CARD NUMBER|CVV|CVC|PAYMENT METHOD|DEPOSIT PAID|BALANCE DUE)\b", re.I
     ),
