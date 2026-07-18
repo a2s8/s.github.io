@@ -1,0 +1,24 @@
+name: PII scan
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  pii-scan:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+      - name: Scan published files
+        env:
+          PII_PRIVATE_TERMS: ${{ secrets.PII_PRIVATE_TERMS }}
+        run: python scripts/pii_scan.py .

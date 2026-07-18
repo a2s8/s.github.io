@@ -1,0 +1,380 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="robots" content="noindex, nofollow, noarchive">
+  <meta name="theme-color" content="#182220">
+  <link rel="icon" href="data:,">
+  <title>Yellowstone 2026 | Family Trip</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Newsreader:opsz,wght@6..72,600&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.min.js" defer></script>
+  <style>
+    :root {
+      --ink: #182220;
+      --muted: #5e6a67;
+      --paper: #f6f7f3;
+      --surface: #ffffff;
+      --line: #d9ded8;
+      --forest: #1f5a4c;
+      --forest-soft: #dfece7;
+      --sun: #e7a62c;
+      --sun-soft: #fff0cf;
+      --clay: #a84d38;
+      --clay-soft: #f7e5df;
+      --lake: #276b83;
+      --lake-soft: #deedf2;
+      --shadow: 0 8px 28px rgba(24, 34, 32, .08);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: "DM Sans", system-ui, sans-serif;
+      font-size: 16px;
+      letter-spacing: 0;
+    }
+    button, a { -webkit-tap-highlight-color: transparent; }
+    button { font: inherit; }
+    a { color: inherit; }
+    .shell { width: min(100%, 760px); margin: 0 auto; background: var(--paper); min-height: 100vh; }
+
+    .hero {
+      min-height: min(520px, 66vh);
+      display: flex;
+      align-items: flex-end;
+      position: relative;
+      isolation: isolate;
+      background: url("assets/yellowstone-hero.jpg") 58% center / cover no-repeat;
+      color: #fff;
+      padding: max(22px, env(safe-area-inset-top)) 20px 26px;
+    }
+    .hero::after { content: ""; position: absolute; inset: 0; z-index: -1; background: rgba(10, 20, 18, .5); }
+    .hero-copy { max-width: 600px; }
+    .eyebrow { margin: 0 0 8px; font-size: .82rem; font-weight: 600; text-transform: uppercase; }
+    .hero .eyebrow { color: rgba(255,255,255,.82); }
+    h1, h2 { font-family: "Newsreader", Georgia, serif; letter-spacing: 0; }
+    h1 { margin: 0; max-width: 100%; font-size: 3rem; line-height: .92; font-weight: 600; }
+    .hero-sub { margin: 12px 0 0; max-width: 500px; font-size: 1.05rem; color: rgba(255,255,255,.9); }
+    .hero-facts { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 18px; }
+    .hero-fact { display: inline-flex; align-items: center; gap: 7px; background: rgba(10,20,18,.72); border: 1px solid rgba(255,255,255,.24); border-radius: 6px; padding: 8px 10px; font-size: .84rem; font-weight: 600; }
+    .hero-fact svg { width: 16px; height: 16px; }
+
+    .quick-nav { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; padding: 12px; background: var(--surface); border-bottom: 1px solid var(--line); position: sticky; top: 0; z-index: 20; }
+    .quick-nav a { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; min-height: 52px; color: var(--muted); text-decoration: none; font-size: .72rem; font-weight: 600; border-radius: 6px; }
+    .quick-nav a:active, .quick-nav a:focus-visible { background: var(--forest-soft); color: var(--forest); outline: 2px solid var(--forest); outline-offset: 1px; }
+    .quick-nav svg { width: 19px; height: 19px; }
+
+    main { padding-bottom: calc(36px + env(safe-area-inset-bottom)); }
+    section { padding: 30px 18px 0; scroll-margin-top: 78px; }
+    .section-head { display: flex; justify-content: space-between; align-items: end; gap: 14px; margin-bottom: 14px; }
+    h2 { margin: 0; font-size: 2rem; font-weight: 600; line-height: 1; }
+    .section-note { margin: 0; color: var(--muted); font-size: .8rem; text-align: right; }
+
+    .status-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: 8px; overflow: hidden; box-shadow: var(--shadow); }
+    .status-item { min-width: 0; background: var(--surface); padding: 14px 10px; }
+    .status-item span { display: block; color: var(--muted); font-size: .72rem; }
+    .status-item strong { display: block; margin-top: 3px; font-size: .92rem; font-weight: 600; overflow-wrap: anywhere; }
+
+    .route-line { display: grid; gap: 0; }
+    .route-stop { display: grid; grid-template-columns: 52px 28px 1fr; gap: 10px; align-items: start; position: relative; padding: 0 0 18px; }
+    .route-stop:not(:last-child)::after { content: ""; position: absolute; left: 65px; top: 29px; bottom: -1px; width: 2px; background: var(--line); }
+    .route-time { color: var(--muted); font-size: .8rem; font-weight: 600; text-align: right; padding-top: 4px; }
+    .route-icon { display: grid; place-items: center; width: 28px; height: 28px; border-radius: 50%; background: var(--forest-soft); color: var(--forest); z-index: 1; }
+    .route-icon svg { width: 15px; height: 15px; }
+    .route-copy strong { display: block; font-size: .95rem; font-weight: 600; }
+    .route-copy p { margin: 3px 0 0; color: var(--muted); font-size: .84rem; line-height: 1.45; }
+    .map-link { display: inline-flex; align-items: center; gap: 5px; margin-top: 7px; color: var(--forest); font-size: .78rem; font-weight: 600; text-decoration: none; }
+    .map-link svg { width: 14px; height: 14px; }
+    .map-link:focus-visible { outline: 2px solid var(--forest); outline-offset: 3px; border-radius: 2px; }
+
+    .day-tabs { display: flex; gap: 7px; overflow-x: auto; scrollbar-width: none; padding: 2px 0 10px; }
+    .day-tabs::-webkit-scrollbar { display: none; }
+    .day-tab { flex: 0 0 62px; min-height: 58px; border: 1px solid var(--line); border-radius: 6px; background: var(--surface); color: var(--muted); cursor: pointer; }
+    .day-tab span { display: block; }
+    .day-tab .weekday { font-size: .75rem; font-weight: 600; }
+    .day-tab .date { margin-top: 2px; font-size: .9rem; }
+    .day-tab[aria-selected="true"] { color: #fff; background: var(--forest); border-color: var(--forest); }
+    .day-tab:focus-visible { outline: 3px solid rgba(31,90,76,.28); outline-offset: 2px; }
+    .day-panel { background: var(--surface); border: 1px solid var(--line); border-radius: 8px; box-shadow: var(--shadow); overflow: hidden; }
+    .day-banner { padding: 16px; background: var(--lake-soft); border-bottom: 1px solid var(--line); }
+    .day-banner .eyebrow { color: var(--lake); }
+    .day-banner h3 { margin: 0; font-size: 1.15rem; font-weight: 600; }
+    .day-banner p { margin: 5px 0 0; color: var(--muted); font-size: .84rem; }
+    .agenda { list-style: none; margin: 0; padding: 6px 16px; }
+    .agenda li { display: grid; grid-template-columns: 70px 1fr; gap: 10px; padding: 11px 0; border-bottom: 1px solid var(--line); }
+    .agenda li:last-child { border-bottom: 0; }
+    .agenda time { color: var(--clay); font-size: .8rem; font-weight: 600; }
+    .agenda strong { display: block; font-size: .9rem; font-weight: 600; }
+    .agenda span { display: block; margin-top: 2px; color: var(--muted); font-size: .8rem; line-height: 1.4; }
+    .agenda .map-link { display: inline-flex; }
+
+    .booking-list { display: grid; gap: 9px; }
+    .booking { display: grid; grid-template-columns: 38px 1fr auto; gap: 11px; align-items: center; background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 13px; }
+    .booking-icon { display: grid; place-items: center; width: 38px; height: 38px; border-radius: 6px; background: var(--forest-soft); color: var(--forest); }
+    .booking-icon svg { width: 19px; height: 19px; }
+    .booking strong { display: block; font-size: .9rem; font-weight: 600; }
+    .booking p { margin: 3px 0 0; color: var(--muted); font-size: .78rem; }
+    .badge { border-radius: 999px; padding: 5px 8px; font-size: .68rem; font-weight: 600; white-space: nowrap; }
+    .confirmed { background: var(--forest-soft); color: var(--forest); }
+    .todo { background: var(--sun-soft); color: #75500e; }
+
+    .checklist { background: var(--surface); border: 1px solid var(--line); border-radius: 8px; overflow: hidden; }
+    .check-item { display: grid; grid-template-columns: 24px 1fr auto; align-items: center; gap: 9px; padding: 12px 13px; border-bottom: 1px solid var(--line); cursor: pointer; }
+    .check-item:last-child { border-bottom: 0; }
+    .check-item input { width: 18px; height: 18px; accent-color: var(--forest); }
+    .check-item span { font-size: .88rem; }
+    .check-item small { color: var(--muted); font-size: .72rem; text-align: right; }
+    .check-item:has(input:checked) span { color: var(--muted); text-decoration: line-through; }
+
+    .safety-band { background: var(--ink); color: #fff; padding: 24px 18px; margin-top: 30px; }
+    .safety-band h2 { font-size: 1.7rem; }
+    .safety-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 14px; }
+    .safety-item { border-top: 2px solid var(--sun); padding-top: 10px; }
+    .safety-item strong { display: block; color: #fff; font-size: .9rem; }
+    .safety-item span { display: block; margin-top: 3px; color: rgba(255,255,255,.7); font-size: .78rem; line-height: 1.4; }
+
+    footer { padding: 24px 18px 34px; color: var(--muted); font-size: .76rem; }
+    .footer-row { display: flex; justify-content: space-between; gap: 12px; align-items: center; }
+    .icon-button { display: inline-grid; place-items: center; width: 42px; height: 42px; border: 1px solid var(--line); border-radius: 6px; background: var(--surface); color: var(--ink); cursor: pointer; }
+    .icon-button svg { width: 19px; height: 19px; }
+    .icon-button:focus-visible { outline: 3px solid rgba(31,90,76,.28); }
+    #toast { min-height: 18px; margin-top: 8px; text-align: right; color: var(--forest); font-weight: 600; }
+
+    @media (min-width: 700px) {
+      body { padding: 22px 0; }
+      .shell { border: 1px solid var(--line); box-shadow: var(--shadow); }
+      .hero { min-height: 500px; }
+      h1 { font-size: 5rem; }
+      section { padding-left: 28px; padding-right: 28px; }
+      .quick-nav { padding-left: 24px; padding-right: 24px; }
+      .safety-band { margin-left: 28px; margin-right: 28px; border-radius: 8px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <header class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">Family trip · Aug 19–24, 2026</p>
+        <h1>Yellowstone</h1>
+        <p class="hero-sub">A compact, leave-friendly plan from Redmond to three nights inside the park.</p>
+        <div class="hero-facts">
+          <span class="hero-fact"><i data-lucide="users"></i>Family of four</span>
+          <span class="hero-fact"><i data-lucide="briefcase-business"></i>2–2.5 leave days</span>
+          <span class="hero-fact"><i data-lucide="circle-check"></i>Core trip confirmed</span>
+        </div>
+      </div>
+    </header>
+
+    <nav class="quick-nav" aria-label="Trip sections">
+      <a href="#route"><i data-lucide="route"></i><span>Route</span></a>
+      <a href="#days"><i data-lucide="calendar-days"></i><span>Days</span></a>
+      <a href="#bookings"><i data-lucide="ticket-check"></i><span>Bookings</span></a>
+      <a href="#checklist"><i data-lucide="list-checks"></i><span>Checklist</span></a>
+    </nav>
+
+    <main>
+      <section aria-label="Trip status">
+        <div class="status-strip">
+          <div class="status-item"><span>Flights</span><strong>SEA ⇄ BZN</strong></div>
+          <div class="status-item"><span>Park stay</span><strong>3 nights</strong></div>
+          <div class="status-item"><span>Known total</span><strong>$1,617.97</strong></div>
+        </div>
+      </section>
+
+      <section id="route">
+        <div class="section-head">
+          <h2>Door to door</h2>
+          <p class="section-note">Wednesday evening</p>
+        </div>
+        <div class="route-line">
+          <div class="route-stop">
+            <div class="route-time">3:15 PM</div><div class="route-icon"><i data-lucide="house"></i></div>
+            <div class="route-copy"><strong>Leave Sixty-01</strong><p>Walk to Metro 245, or use a short rideshare to Redmond Technology Station with luggage.</p><a class="map-link" href="https://www.google.com/maps/dir/?api=1&amp;destination=Redmond%20Technology%20Station&amp;travelmode=transit" target="_blank" rel="noreferrer"><i data-lucide="navigation"></i>Directions</a></div>
+          </div>
+          <div class="route-stop">
+            <div class="route-time">3:45 PM</div><div class="route-icon"><i data-lucide="train-front"></i></div>
+            <div class="route-copy"><strong>2 Line to Bellevue</strong><p>Ride to Bellevue Downtown and walk to Transit Center Bay 6.</p><a class="map-link" href="https://www.google.com/maps/dir/?api=1&amp;destination=Bellevue%20Transit%20Center&amp;travelmode=transit" target="_blank" rel="noreferrer"><i data-lucide="navigation"></i>Directions</a></div>
+          </div>
+          <div class="route-stop">
+            <div class="route-time">4:07 PM</div><div class="route-icon"><i data-lucide="bus-front"></i></div>
+            <div class="route-copy"><strong>ST Express 560 to SEA</strong><p>Primary bus arrives about 5:10 PM. The 4:37 PM departure is the backup.</p><a class="map-link" href="https://www.google.com/maps/dir/?api=1&amp;destination=Seattle-Tacoma%20International%20Airport&amp;travelmode=transit" target="_blank" rel="noreferrer"><i data-lucide="navigation"></i>Directions</a></div>
+          </div>
+          <div class="route-stop">
+            <div class="route-time">8:16 PM</div><div class="route-icon"><i data-lucide="plane"></i></div>
+            <div class="route-copy"><strong>Alaska 1323 to Bozeman</strong><p>Nonstop flight, arriving BZN at 10:59 PM.</p><a class="map-link" href="https://www.google.com/maps/search/?api=1&amp;query=Bozeman%20Yellowstone%20International%20Airport" target="_blank" rel="noreferrer"><i data-lucide="map-pin"></i>View airport</a></div>
+          </div>
+          <div class="route-stop">
+            <div class="route-time">11:30 PM</div><div class="route-icon"><i data-lucide="bed-double"></i></div>
+            <div class="route-copy"><strong>Airport hotel</strong><p>Use the hotel shuttle. Collect the rental car Thursday morning after breakfast.</p><a class="map-link" href="https://www.google.com/maps/search/?api=1&amp;query=Hotels%20near%20Bozeman%20Yellowstone%20International%20Airport" target="_blank" rel="noreferrer"><i data-lucide="map-pin"></i>Nearby hotels</a></div>
+          </div>
+        </div>
+      </section>
+
+      <section id="days">
+        <div class="section-head">
+          <h2>Daily plan</h2>
+          <p class="section-note">Tap a day</p>
+        </div>
+        <div class="day-tabs" role="tablist" aria-label="Trip days">
+          <button class="day-tab" role="tab" aria-selected="true" data-day="0"><span class="weekday">Wed</span><span class="date">19</span></button>
+          <button class="day-tab" role="tab" aria-selected="false" data-day="1"><span class="weekday">Thu</span><span class="date">20</span></button>
+          <button class="day-tab" role="tab" aria-selected="false" data-day="2"><span class="weekday">Fri</span><span class="date">21</span></button>
+          <button class="day-tab" role="tab" aria-selected="false" data-day="3"><span class="weekday">Sat</span><span class="date">22</span></button>
+          <button class="day-tab" role="tab" aria-selected="false" data-day="4"><span class="weekday">Sun</span><span class="date">23</span></button>
+          <button class="day-tab" role="tab" aria-selected="false" data-day="5"><span class="weekday">Mon</span><span class="date">24</span></button>
+        </div>
+        <article class="day-panel" id="day-panel" role="tabpanel" aria-live="polite"></article>
+      </section>
+
+      <section id="bookings">
+        <div class="section-head">
+          <h2>Bookings</h2>
+          <p class="section-note">Share-safe status</p>
+        </div>
+        <div class="booking-list">
+          <div class="booking"><div class="booking-icon"><i data-lucide="plane"></i></div><div><strong>Alaska flights</strong><p>Aug 19 outbound · Aug 24 return</p></div><span class="badge confirmed">Confirmed</span></div>
+          <div class="booking"><div class="booking-icon"><i data-lucide="trees"></i></div><div><strong>Grant Village</strong><p>Aug 20–23 · inside Yellowstone</p></div><span class="badge confirmed">Confirmed</span></div>
+          <div class="booking"><div class="booking-icon"><i data-lucide="hotel"></i></div><div><strong>Bozeman airport hotels</strong><p>Arrival and departure nights</p></div><span class="badge todo">Book next</span></div>
+          <div class="booking"><div class="booking-icon"><i data-lucide="car-front"></i></div><div><strong>Rental car</strong><p>Aug 20 morning → Aug 23 evening</p></div><span class="badge todo">Book next</span></div>
+        </div>
+      </section>
+
+      <section id="checklist">
+        <div class="section-head">
+          <h2>Checklist</h2>
+          <p class="section-note" id="progress">0 of 8 ready</p>
+        </div>
+        <div class="checklist">
+          <label class="check-item"><input type="checkbox" data-check="hotel-arrival"><span>Book Aug 19 airport hotel</span><small>Shuttle after 11 PM</small></label>
+          <label class="check-item"><input type="checkbox" data-check="hotel-return"><span>Book Aug 23 airport hotel</span><small>4:30 AM shuttle</small></label>
+          <label class="check-item"><input type="checkbox" data-check="rental"><span>Book BZN rental car</span><small>Thu AM → Sun PM</small></label>
+          <label class="check-item"><input type="checkbox" data-check="seats"><span>Confirm family flight seating</span><small>Alaska Saver</small></label>
+          <label class="check-item"><input type="checkbox" data-check="pass"><span>Buy or pack park pass</span><small>Entrance ready</small></label>
+          <label class="check-item"><input type="checkbox" data-check="maps"><span>Download offline maps</span><small>NPS + Google Maps</small></label>
+          <label class="check-item"><input type="checkbox" data-check="gear"><span>Pack binoculars and layers</span><small>Cold mornings</small></label>
+          <label class="check-item"><input type="checkbox" data-check="alerts"><span>Check transit and park alerts</span><small>24 hours before</small></label>
+        </div>
+      </section>
+
+      <aside class="safety-band" aria-labelledby="safety-title">
+        <h2 id="safety-title">Park rules that matter</h2>
+        <div class="safety-grid">
+          <div class="safety-item"><strong>100 yards</strong><span>Bears, wolves and cougars</span></div>
+          <div class="safety-item"><strong>25 yards</strong><span>Bison, elk and other wildlife</span></div>
+          <div class="safety-item"><strong>Stay on boardwalks</strong><span>Thermal ground can break without warning</span></div>
+          <div class="safety-item"><strong>Use pullouts</strong><span>Never stop in the travel lane for wildlife</span></div>
+        </div>
+      </aside>
+    </main>
+
+    <footer>
+      <div class="footer-row"><span>Private family plan · Updated July 17, 2026</span><button class="icon-button" id="share" type="button" title="Share this plan" aria-label="Share this plan"><i data-lucide="share-2"></i></button></div>
+      <div id="toast" role="status" aria-live="polite"></div>
+    </footer>
+  </div>
+
+  <script>
+    const days = [
+      { eyebrow: "Travel night", title: "Redmond → SEA → Bozeman", note: "Workday preserved; no midnight rental driving.", items: [
+        ["3:15 PM", "Leave Sixty-01", "Metro 245 or short rideshare to Redmond Technology.", "Redmond Technology Station", "transit"],
+        ["4:07 PM", "ST 560 from Bellevue", "Target bus; 4:37 PM is the backup.", "Seattle-Tacoma International Airport", "transit"],
+        ["5:10 PM", "Arrive SEA", "Security, dinner and gate by 7:25 PM.", "Seattle-Tacoma International Airport", "transit"],
+        ["8:16 PM", "Alaska 1323", "Nonstop to BZN, arriving 10:59 PM.", "Bozeman Yellowstone International Airport", "driving"],
+        ["11:30 PM", "Airport hotel", "Call shuttle after collecting bags.", "Hotels near Bozeman Yellowstone International Airport", "driving"]
+      ]},
+      { eyebrow: "Park arrival", title: "Bozeman → Grant Village", note: "Rental pickup and an easy first evening.", items: [
+        ["7:00 AM", "Breakfast and checkout", "Check NPS roads and download offline maps.", null, null],
+        ["8:05 AM", "Pick up rental", "Photograph the car and verify fuel policy.", "Bozeman Yellowstone International Airport Rental Car Return", "driving"],
+        ["10:35 AM", "West Yellowstone stop", "Fuel, picnic supplies, restrooms and bear spray.", "West Yellowstone Montana", "driving"],
+        ["11:05 AM", "Enter Yellowstone", "West Entrance toward Madison and West Thumb.", "Yellowstone National Park West Entrance", "driving"],
+        ["2:15 PM", "West Thumb", "Lake-edge geyser basin boardwalk, about one hour.", "West Thumb Geyser Basin", "driving"],
+        ["3:45 PM", "Grant Village", "Check in, early dinner and quiet lake evening.", "Grant Village Yellowstone National Park", "driving"]
+      ]},
+      { eyebrow: "Geothermal day", title: "Old Faithful + Grand Prismatic", note: "The classic lower-loop highlights.", items: [
+        ["6:20 AM", "Leave Grant", "Breakfast packed; beat tour-bus traffic.", "Old Faithful Yellowstone National Park", "driving"],
+        ["7:15 AM", "Old Faithful", "Check eruption prediction at the visitor center.", "Old Faithful Visitor Education Center", "walking"],
+        ["9:00 AM", "Upper Geyser Basin", "Comfortable boardwalk section toward Castle and Grand.", "Upper Geyser Basin Yellowstone", "walking"],
+        ["11:30 AM", "Picnic lunch", "Eat before moving north.", null, null],
+        ["12:20 PM", "Grand Prismatic overlook", "About 1.6 miles round trip from Fairy Falls trailhead.", "Grand Prismatic Spring Overlook Trailhead", "driving"],
+        ["3:30 PM", "Fountain Paint Pot", "Optional short boardwalk before returning to Grant.", "Fountain Paint Pot Trail Yellowstone", "driving"]
+      ]},
+      { eyebrow: "Wildlife + canyon", title: "Hayden Valley and Lower Falls", note: "Early start; longest park-driving day.", items: [
+        ["5:55 AM", "Leave Grant", "Warm layers, lunch and binoculars ready.", "Hayden Valley Yellowstone National Park", "driving"],
+        ["7:10 AM", "Hayden Valley", "Use pullouts and scan quietly for wildlife.", "Hayden Valley Yellowstone National Park", "driving"],
+        ["8:45 AM", "Mud Volcano", "Short boardwalk if everyone is comfortable.", "Mud Volcano Yellowstone National Park", "driving"],
+        ["10:00 AM", "Artist Point", "Classic Grand Canyon and Lower Falls view.", "Artist Point Yellowstone National Park", "driving"],
+        ["11:45 AM", "Canyon lunch", "Restrooms, water and Junior Ranger break.", "Canyon Village Yellowstone National Park", "driving"],
+        ["1:00 PM", "North Rim", "Choose one or two overlooks based on energy.", "Brink of Lower Falls Trail Yellowstone", "driving"],
+        ["3:45 PM", "Return via Hayden", "A second wildlife window on the way back.", "Grant Village Yellowstone National Park", "driving"]
+      ]},
+      { eyebrow: "Return day", title: "Grant Village → BZN", note: "One flexible stop, then protect the flight buffer.", items: [
+        ["6:30 AM", "Breakfast and checkout", "Load the car and inspect the room.", null, null],
+        ["7:20 AM", "One final park stop", "West Thumb, Yellowstone Lake or a missed Friday stop.", "West Thumb Geyser Basin", "driving"],
+        ["12:00 PM", "West Yellowstone lunch", "Review rental return instructions.", "West Yellowstone Montana", "driving"],
+        ["2:00 PM", "Hard departure", "Drive north; do not add another long stop.", "Bozeman Yellowstone International Airport", "driving"],
+        ["5:15 PM", "Return rental", "Photograph fuel gauge and exterior.", "Bozeman Yellowstone International Airport Rental Car Return", "driving"],
+        ["6:30 PM", "Airport hotel", "Confirm the early shuttle and sleep.", "Hotels near Bozeman Yellowstone International Airport", "driving"]
+      ]},
+      { eyebrow: "Home morning", title: "Bozeman → SEA → Redmond", note: "Early flight leaves part of Monday available.", items: [
+        ["4:15 AM", "Wake and checkout", "Check flight status and collect medicines.", null, null],
+        ["4:45 AM", "Hotel shuttle", "Confirm exact pickup Sunday evening.", "Bozeman Yellowstone International Airport", "driving"],
+        ["5:00 AM", "BZN security", "Breakfast and gate by 6:20 AM.", "Bozeman Yellowstone International Airport", "walking"],
+        ["7:03 AM", "Alaska 761", "Nonstop to SEA, arriving 8:08 AM.", "Seattle-Tacoma International Airport", "driving"],
+        ["8:45 AM", "Choose home route", "Rideshare for speed; rail and bus for lowest cost.", "Redmond Technology Station", "transit"],
+        ["10:30 AM", "Home target", "Transit may arrive closer to 11:00 AM.", null, null]
+      ]}
+    ];
+
+    const panel = document.getElementById("day-panel");
+    const tabs = [...document.querySelectorAll(".day-tab")];
+
+    function renderDay(index) {
+      const day = days[index];
+      panel.innerHTML = `<div class="day-banner"><p class="eyebrow">${day.eyebrow}</p><h3>${day.title}</h3><p>${day.note}</p></div><ol class="agenda">${day.items.map(item => `<li><time>${item[0]}</time><div><strong>${item[1]}</strong><span>${item[2]}</span>${item[3] ? `<a class="map-link" href="${mapsUrl(item[3], item[4])}" target="_blank" rel="noreferrer"><i data-lucide="navigation"></i>Directions</a>` : ""}</div></li>`).join("")}</ol>`;
+      tabs.forEach((tab, tabIndex) => tab.setAttribute("aria-selected", tabIndex === index ? "true" : "false"));
+      window.lucide?.createIcons();
+    }
+
+    function mapsUrl(destination, travelMode = "driving") {
+      const params = new URLSearchParams({ api: "1", destination, travelmode: travelMode });
+      return `https://www.google.com/maps/dir/?${params.toString()}`;
+    }
+
+    tabs.forEach(tab => tab.addEventListener("click", () => renderDay(Number(tab.dataset.day))));
+    renderDay(0);
+
+    const checks = [...document.querySelectorAll("[data-check]")];
+    const progress = document.getElementById("progress");
+    function updateChecks() {
+      const completed = checks.filter(check => check.checked).length;
+      progress.textContent = `${completed} of ${checks.length} ready`;
+      localStorage.setItem("yellowstone-checklist", JSON.stringify(Object.fromEntries(checks.map(check => [check.dataset.check, check.checked]))));
+    }
+    try {
+      const saved = JSON.parse(localStorage.getItem("yellowstone-checklist") || "{}");
+      checks.forEach(check => check.checked = Boolean(saved[check.dataset.check]));
+    } catch (_) {}
+    checks.forEach(check => check.addEventListener("change", updateChecks));
+    updateChecks();
+
+    const shareButton = document.getElementById("share");
+    const toast = document.getElementById("toast");
+    shareButton.addEventListener("click", async () => {
+      const data = { title: "Yellowstone 2026", text: "Our confirmed Yellowstone family trip plan", url: location.href };
+      try {
+        if (navigator.share) await navigator.share(data);
+        else { await navigator.clipboard.writeText(location.href); toast.textContent = "Link copied"; setTimeout(() => toast.textContent = "", 2200); }
+      } catch (_) {}
+    });
+
+    window.addEventListener("DOMContentLoaded", () => window.lucide?.createIcons());
+  </script>
+</body>
+</html>
