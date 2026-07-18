@@ -4,67 +4,222 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#fbf3f1">
-    <meta name="description" content="Janu Bridal Artistry: bridal makeup, hairstyling, and saree draping in the Nizamabad area.">
-    <title>Janu Bridal Artistry | Portfolio</title>
+    <meta name="description" content="Janu Bridal Artistry offers bridal makeup, engagement and party looks, hairstyling, and saree draping in Nizamabad and Dichpally.">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="en_IN">
+    <meta property="og:title" content="Janu Bridal Artistry | Makeup Artist in Nizamabad">
+    <meta property="og:description" content="Bridal makeup, occasion looks, hairstyling, and saree draping for celebrations in the Nizamabad area.">
+    <meta property="og:url" content="https://sripathi.one/janu/">
+    <link rel="canonical" href="https://sripathi.one/janu/">
+    <title>Makeup Artist in Nizamabad | Janu Bridal Artistry</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&amp;family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/assets/family.css">
     <style>
         :root { --accent: #a94936; --accent-soft: #f4ded8; --page: #fbf3f1; --surface-soft: #fcf0ed; }
+
+        .business-nav { min-height: 74px; }
+        .business-brand { color: var(--ink); }
+        .business-brand-mark { background: var(--accent); }
+        .business-hero { position: relative; overflow: hidden; display: grid; grid-template-columns: minmax(0, 1.45fr) minmax(280px, .55fr); min-height: 510px; background: var(--surface); border-bottom: 1px solid var(--line); }
+        .business-hero::before, .business-hero::after { position: absolute; width: 360px; height: 18px; background: var(--accent); opacity: .22; content: ""; transform: rotate(-34deg); pointer-events: none; }
+        .business-hero::before { top: 70px; right: -105px; }
+        .business-hero::after { right: 105px; bottom: 50px; }
+        .business-copy { position: relative; z-index: 1; display: flex; justify-content: center; flex-direction: column; padding: 68px 54px; }
+        .business-copy h1 { max-width: 760px; }
+        .business-copy .lede { max-width: 720px; }
+        .local-proof { display: flex; flex-wrap: wrap; gap: 10px; margin: 22px 0 0; }
+        .local-proof span { display: inline-flex; align-items: center; min-height: 34px; padding: 7px 11px; border: 1px solid color-mix(in srgb, var(--accent) 32%, var(--line)); background: var(--surface-soft); color: var(--ink); font-size: .77rem; font-weight: 700; }
+        .business-signature { position: relative; z-index: 1; display: grid; place-items: center; border-left: 1px solid var(--line); background: var(--accent-soft); }
+        .signature-mark { display: grid; width: 170px; aspect-ratio: 1; place-items: center; border: 1px solid color-mix(in srgb, var(--accent) 50%, var(--line)); background: var(--surface); box-shadow: 0 18px 44px rgba(77, 40, 34, .12); color: var(--accent); font-family: "DM Serif Display", Georgia, serif; font-size: 4rem; transition: transform .25s ease, border-radius .25s ease; }
+        .business-hero:hover .signature-mark { border-radius: 50%; transform: rotate(-5deg) scale(1.03); }
+        .service-band { display: grid; grid-template-columns: repeat(4, 1fr); border-bottom: 1px solid var(--line); background: var(--ink); color: white; }
+        .service-band span { padding: 18px 16px; border-right: 1px solid rgba(255,255,255,.2); text-align: center; font-size: .78rem; font-weight: 700; }
+        .service-band span:last-child { border-right: 0; }
+        .service-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+        .service-card { position: relative; min-height: 220px; padding: 28px; overflow: hidden; border: 1px solid var(--line); border-top: 3px solid var(--accent); background: var(--surface); transition: transform .22s ease, box-shadow .22s ease; }
+        .service-card::after { position: absolute; right: -22px; bottom: -28px; color: var(--accent-soft); font-family: "DM Serif Display", Georgia, serif; font-size: 7rem; line-height: 1; content: attr(data-number); }
+        .service-card:hover { transform: translateY(-5px); box-shadow: 0 16px 32px rgba(77, 40, 34, .09); }
+        .service-card h3, .service-card p, .service-card ul { position: relative; z-index: 1; }
+        .service-card h3 { margin: 0 0 12px; font-family: "DM Serif Display", Georgia, serif; font-size: 1.45rem; }
+        .service-card p { max-width: 520px; margin: 0; color: var(--muted); line-height: 1.65; }
+        .service-card ul { margin: 17px 0 0; padding: 0; list-style: none; color: var(--muted); font-size: .84rem; line-height: 1.8; }
+        .service-card li::before { margin-right: 8px; color: var(--accent); content: "+"; font-weight: 700; }
+        .package-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+        .package-card { display: flex; min-height: 260px; flex-direction: column; padding: 26px; border: 1px solid var(--line); background: var(--surface); }
+        .package-kicker { margin: 0 0 8px; color: var(--accent); font-size: .72rem; font-weight: 700; text-transform: uppercase; }
+        .package-card h3 { margin: 0 0 12px; font-family: "DM Serif Display", Georgia, serif; font-size: 1.45rem; }
+        .package-card p { margin: 0; color: var(--muted); font-size: .9rem; line-height: 1.65; }
+        .package-quote { margin-top: auto; padding-top: 24px; border-top: 1px solid var(--line); color: var(--ink); font-weight: 700; }
+        .process-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); counter-reset: booking-step; }
+        .process-step { min-height: 190px; padding: 24px; border: 1px solid var(--line); border-right: 0; background: var(--surface); counter-increment: booking-step; }
+        .process-step:last-child { border-right: 1px solid var(--line); }
+        .process-step::before { display: grid; width: 34px; height: 34px; margin-bottom: 26px; place-items: center; background: var(--accent); color: white; content: counter(booking-step); font-size: .78rem; font-weight: 700; }
+        .process-step h3 { margin: 0 0 8px; font-size: .98rem; }
+        .process-step p { margin: 0; color: var(--muted); font-size: .82rem; line-height: 1.6; }
+        .booking-panel { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(290px, .75fr); overflow: hidden; border: 1px solid var(--line); background: var(--ink); color: white; }
+        .booking-copy { padding: 42px; }
+        .booking-copy .eyebrow { color: #efb4a8; }
+        .booking-copy h2 { max-width: 650px; margin: 0 0 16px; color: white; font-size: clamp(2rem, 5vw, 3.5rem); }
+        .booking-copy p { max-width: 650px; margin: 0; color: rgba(255,255,255,.72); line-height: 1.7; }
+        .booking-copy .button { margin-top: 26px; background: white; color: var(--ink); }
+        .booking-copy .button:hover { background: var(--accent-soft); }
+        .inquiry-list { display: grid; align-content: center; gap: 12px; margin: 0; padding: 34px; border-left: 1px solid rgba(255,255,255,.18); list-style: none; }
+        .inquiry-list li { display: flex; gap: 12px; align-items: baseline; padding-bottom: 12px; border-bottom: 1px solid rgba(255,255,255,.14); color: rgba(255,255,255,.8); font-size: .85rem; }
+        .inquiry-list li::before { color: #efb4a8; content: "+"; font-weight: 700; }
+        .business-footer { background: var(--surface); }
+        .sticky-inquiry { display: none; }
+
+        @media (max-width: 900px) {
+            .business-hero { grid-template-columns: minmax(0, 1fr) 230px; }
+            .business-copy { padding: 48px 34px; }
+            .signature-mark { width: 130px; font-size: 3rem; }
+            .package-grid { grid-template-columns: 1fr; }
+            .package-card { min-height: 0; }
+            .process-grid { grid-template-columns: repeat(2, 1fr); }
+            .process-step:nth-child(2) { border-right: 1px solid var(--line); }
+            .process-step:nth-child(n+3) { border-top: 0; }
+        }
+
+        @media (max-width: 680px) {
+            body { padding-bottom: 74px; }
+            .business-nav { min-height: 68px; padding: 0 18px; }
+            .business-nav .nav-link-extra { display: none; }
+            .business-hero { grid-template-columns: 1fr; }
+            .business-copy { order: 2; padding: 38px 18px 42px; }
+            .business-signature { min-height: 190px; border-left: 0; border-bottom: 1px solid var(--line); }
+            .signature-mark { width: 104px; font-size: 2.55rem; }
+            .service-band { grid-template-columns: repeat(2, 1fr); }
+            .service-band span:nth-child(2) { border-right: 0; }
+            .service-band span:nth-child(-n+2) { border-bottom: 1px solid rgba(255,255,255,.2); }
+            .service-grid { grid-template-columns: 1fr; }
+            .service-card { min-height: 0; padding: 24px 20px; }
+            .process-grid { grid-template-columns: 1fr; }
+            .process-step { min-height: 0; border-right: 1px solid var(--line); border-bottom: 0; }
+            .process-step:last-child { border-bottom: 1px solid var(--line); }
+            .booking-panel { grid-template-columns: 1fr; }
+            .booking-copy { padding: 34px 22px; }
+            .inquiry-list { padding: 28px 22px; border-top: 1px solid rgba(255,255,255,.18); border-left: 0; }
+            .sticky-inquiry { position: fixed; z-index: 20; right: 12px; bottom: 12px; left: 12px; display: flex; min-height: 52px; align-items: center; justify-content: center; background: var(--accent); box-shadow: 0 10px 30px rgba(45, 28, 24, .24); color: white; font-size: .88rem; font-weight: 700; }
+        }
     </style>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "Janu Bridal Artistry",
+        "url": "https://sripathi.one/janu/",
+        "sameAs": ["https://www.instagram.com/janu_bridal_artistry/"],
+        "description": "Bridal makeup, occasion makeup, hairstyling, and saree draping in the Nizamabad area.",
+        "areaServed": ["Nizamabad", "Dichpally"],
+        "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "Beauty services",
+            "itemListElement": [
+                {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Bridal makeup"}},
+                {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Engagement and occasion makeup"}},
+                {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Party makeup"}},
+                {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Hairstyling"}},
+                {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Saree draping"}}
+            ]
+        }
+    }
+    </script>
 </head>
 <body>
     <main class="site-shell">
-        <header class="family-nav">
-            <a class="family-brand" href="/" aria-label="sripathi.one family home">
-                <span class="family-brand-mark" aria-hidden="true">S1</span>
-                <span>sripathi.one</span>
+        <header class="family-nav business-nav">
+            <a class="family-brand business-brand" href="/janu/" aria-label="Janu Bridal Artistry home">
+                <span class="family-brand-mark business-brand-mark" aria-hidden="true">JA</span>
+                <span>Janu Bridal Artistry</span>
             </a>
             <nav class="nav-links" aria-label="Page navigation">
+                <a class="nav-link nav-link-extra" href="#services">Services</a>
                 <a class="nav-link nav-link-extra" href="#work">Portfolio</a>
-                <a class="nav-link" href="/">Family home</a>
+                <a class="nav-link" href="#book">Book</a>
             </nav>
         </header>
 
-        <section class="profile-hero" aria-labelledby="page-title">
-            <div class="profile-visual" aria-hidden="true">
-                <div class="profile-monogram">JA</div>
-            </div>
-            <div class="profile-copy">
-                <p class="eyebrow">Makeup and hair artistry</p>
+        <section class="business-hero" aria-labelledby="page-title">
+            <div class="business-copy">
+                <p class="eyebrow">Makeup artist serving Nizamabad</p>
                 <h1 id="page-title">Janu Bridal Artistry</h1>
-                <p class="lede">Enhancing natural beauty through bridal and party looks, hairstyling, and careful finishing for celebrations across the Nizamabad area.</p>
-                <div class="tag-list" aria-label="Services">
-                    <span class="tag">Bridal makeup</span>
-                    <span class="tag">Party looks</span>
-                    <span class="tag">Hairstyling</span>
-                    <span class="tag">Saree draping</span>
+                <p class="lede">Personalized bridal makeup, engagement and party looks, hairstyling, and saree draping designed around your features, outfit, occasion, and comfort.</p>
+                <div class="local-proof" aria-label="Service information">
+                    <span>Nizamabad + Dichpally</span>
+                    <span>On-location by availability</span>
+                    <span>Custom event quotes</span>
                 </div>
                 <div class="hero-actions">
-                    <a class="button" href="https://www.instagram.com/janu_bridal_artistry/" target="_blank" rel="noreferrer">View Instagram</a>
-                    <a class="button button-secondary" href="#work">See recent work</a>
+                    <a class="button" href="https://www.instagram.com/janu_bridal_artistry/" target="_blank" rel="noreferrer">Request availability</a>
+                    <a class="button button-secondary" href="#work">View recent work</a>
                 </div>
+            </div>
+            <div class="business-signature" aria-hidden="true">
+                <div class="signature-mark">JA</div>
             </div>
         </section>
 
-        <section class="content-section" aria-labelledby="services-title">
+        <div class="service-band" aria-label="Available beauty services">
+            <span>Bridal makeup</span>
+            <span>Occasion looks</span>
+            <span>Hair artistry</span>
+            <span>Saree draping</span>
+        </div>
+
+        <section class="content-section" id="services" aria-labelledby="services-title">
             <div class="section-heading">
-                <h2 id="services-title">Signature services</h2>
-                <p>Focused beauty services for ceremonies, celebrations, portraits, and special occasions.</p>
+                <h2 id="services-title">Services for every celebration</h2>
+                <p>Each look is planned for the event, outfit, jewelry, lighting, photography, and the finish you prefer.</p>
             </div>
-            <div class="tile-grid">
-                <article class="info-tile">
-                    <h3>Bridal and party makeup</h3>
-                    <p>Looks tailored to the event, outfit, jewelry, lighting, and the client's preferred finish.</p>
+            <div class="service-grid">
+                <article class="service-card" data-number="01">
+                    <h3>Bridal makeup</h3>
+                    <p>A complete bridal look shaped around your features and wedding style, with finishing that remains comfortable through a long celebration.</p>
+                    <ul><li>Personalized makeup look</li><li>Hair and draping options</li><li>Event-day schedule planning</li></ul>
                 </article>
-                <article class="info-tile">
-                    <h3>Hair artistry</h3>
-                    <p>Traditional and contemporary styling, from braids and buns to polished partywear looks.</p>
+                <article class="service-card" data-number="02">
+                    <h3>Engagement and occasion makeup</h3>
+                    <p>Polished looks for engagements, receptions, haldi, ceremonies, portraits, and other important family occasions.</p>
+                    <ul><li>Natural to defined finishes</li><li>Outfit-aware styling</li><li>Single-event combinations</li></ul>
                 </article>
-                <article class="info-tile">
-                    <h3>Saree draping</h3>
-                    <p>Clean, secure draping prepared for comfort, movement, photography, and long celebrations.</p>
+                <article class="service-card" data-number="03">
+                    <h3>Party makeup</h3>
+                    <p>Celebration-ready makeup for guests, family members, and smaller events, with services tailored to the group and schedule.</p>
+                    <ul><li>Individual appointments</li><li>Group requests by availability</li><li>Hair add-ons available</li></ul>
+                </article>
+                <article class="service-card" data-number="04">
+                    <h3>Hairstyling and draping</h3>
+                    <p>Traditional and contemporary braids, buns, and polished styles, paired with secure saree draping when requested.</p>
+                    <ul><li>Braids and buns</li><li>Hair accessories and flowers</li><li>Comfort-focused saree draping</li></ul>
+                </article>
+            </div>
+        </section>
+
+        <section class="content-section" aria-labelledby="packages-title">
+            <div class="section-heading">
+                <h2 id="packages-title">Simple ways to book</h2>
+                <p>Every request receives a clear quote based on the date, venue, selected services, travel, and number of people.</p>
+            </div>
+            <div class="package-grid">
+                <article class="package-card">
+                    <p class="package-kicker">Wedding day</p>
+                    <h3>Bridal appointment</h3>
+                    <p>Build the combination you need from bridal makeup, hairstyling, saree draping, and event-day preparation.</p>
+                    <div class="package-quote">Custom quote after event details</div>
+                </article>
+                <article class="package-card">
+                    <p class="package-kicker">Single occasion</p>
+                    <h3>Engagement or ceremony</h3>
+                    <p>A coordinated makeup and hair look for engagements, receptions, haldi, portraits, or family ceremonies.</p>
+                    <div class="package-quote">Custom quote after event details</div>
+                </article>
+                <article class="package-card">
+                    <p class="package-kicker">Guests and family</p>
+                    <h3>Party-ready services</h3>
+                    <p>Makeup, hairstyling, or draping for one person or a group, subject to timing and artist availability.</p>
+                    <div class="package-quote">Custom quote after event details</div>
                 </article>
             </div>
         </section>
@@ -72,7 +227,7 @@
         <section class="content-section" id="work" aria-labelledby="work-title">
             <div class="section-heading">
                 <h2 id="work-title">Recent work</h2>
-                <p>A few recent hairstyles and celebration-ready looks from Janu's official portfolio.</p>
+                <p>Recent hairstyles and celebration-ready looks from the official Janu Bridal Artistry portfolio.</p>
             </div>
             <div class="reel-grid">
                 <div class="reel-frame">
@@ -82,12 +237,12 @@
                 </div>
                 <div class="reel-frame">
                     <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DYgxitZSjnK/" data-instgrm-version="14">
-                        <a class="embed-fallback" href="https://www.instagram.com/reel/DYgxitZSjnK/" target="_blank" rel="noreferrer">Open trendy hairstyle reel</a>
+                        <a class="embed-fallback" href="https://www.instagram.com/reel/DYgxitZSjnK/" target="_blank" rel="noreferrer">Open contemporary hairstyle reel</a>
                     </blockquote>
                 </div>
                 <div class="reel-frame">
                     <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DYeweCmyqx0/" data-instgrm-version="14">
-                        <a class="embed-fallback" href="https://www.instagram.com/reel/DYeweCmyqx0/" target="_blank" rel="noreferrer">Open messy braid reel</a>
+                        <a class="embed-fallback" href="https://www.instagram.com/reel/DYeweCmyqx0/" target="_blank" rel="noreferrer">Open traditional braid reel</a>
                     </blockquote>
                 </div>
             </div>
@@ -96,32 +251,68 @@
             </div>
         </section>
 
+        <section class="content-section" aria-labelledby="process-title">
+            <div class="section-heading">
+                <h2 id="process-title">From inquiry to event day</h2>
+                <p>A focused booking conversation makes it easier to confirm availability, services, timing, and the final quote.</p>
+            </div>
+            <div class="process-grid">
+                <article class="process-step"><h3>Share the event</h3><p>Send the date, occasion, venue, and required services.</p></article>
+                <article class="process-step"><h3>Check availability</h3><p>Janu reviews the schedule and confirms whether the date can be accommodated.</p></article>
+                <article class="process-step"><h3>Receive your quote</h3><p>Travel, timing, selected services, and any booking terms are shared clearly.</p></article>
+                <article class="process-step"><h3>Confirm the plan</h3><p>Finalize the services and preparation schedule before the event.</p></article>
+            </div>
+        </section>
+
         <section class="content-section" aria-labelledby="faq-title">
             <div class="section-heading">
                 <h2 id="faq-title">Before booking</h2>
-                <p>Availability and package details are confirmed directly through Instagram messages.</p>
+                <p>Share complete event information to receive the most accurate availability and quote.</p>
             </div>
             <div class="faq-list">
                 <article class="faq-item">
-                    <h3>Do you travel to the venue?</h3>
-                    <p>On-location services may be available across Dichpally, Nizamabad, and nearby towns. Confirm the venue and timing when requesting availability.</p>
+                    <h3>Where are services available?</h3>
+                    <p>Appointments are available in the Nizamabad and Dichpally area. On-location and nearby travel requests depend on the venue, schedule, and availability.</p>
                 </article>
                 <article class="faq-item">
-                    <h3>What can a package include?</h3>
-                    <p>Services can include bridal or party makeup, professional hairstyling, traditional hair details, and saree draping. Final combinations depend on the event.</p>
+                    <h3>Are trials available?</h3>
+                    <p>Ask about trial availability when sharing the event details. Any trial pricing and scheduling will be confirmed before booking.</p>
                 </article>
                 <article class="faq-item">
-                    <h3>How do I request a date?</h3>
-                    <p>Open the official Instagram profile and send the event date, location, occasion, and requested services by direct message.</p>
+                    <h3>How long will preparation take?</h3>
+                    <p>Timing depends on the makeup, hairstyle, draping, and number of people. The expected preparation window is included in the final plan.</p>
+                </article>
+                <article class="faq-item">
+                    <h3>How are bookings confirmed?</h3>
+                    <p>Availability, final services, quote, timing, and any deposit or cancellation terms are shared directly before a booking is confirmed.</p>
                 </article>
             </div>
         </section>
 
-        <footer class="site-footer">
+        <section class="content-section" id="book" aria-labelledby="book-title">
+            <div class="booking-panel">
+                <div class="booking-copy">
+                    <p class="eyebrow">Request your date</p>
+                    <h2 id="book-title">Tell Janu about your celebration.</h2>
+                    <p>Open the official Instagram profile and send the details below. Complete information makes it easier to check the calendar and prepare an accurate quote.</p>
+                    <a class="button" href="https://www.instagram.com/janu_bridal_artistry/" target="_blank" rel="noreferrer">Request availability on Instagram</a>
+                </div>
+                <ul class="inquiry-list" aria-label="Information to send">
+                    <li>Event date and start time</li>
+                    <li>Venue or service location</li>
+                    <li>Occasion and requested services</li>
+                    <li>Number of people</li>
+                    <li>Preferred makeup and hair style</li>
+                </ul>
+            </div>
+        </section>
+
+        <footer class="site-footer business-footer">
             <span>&copy; 2026 Janu Bridal Artistry</span>
-            <a href="/">Back to the family home</a>
+            <a href="https://www.instagram.com/janu_bridal_artistry/" target="_blank" rel="noreferrer">Instagram portfolio</a>
         </footer>
     </main>
+    <a class="sticky-inquiry" href="https://www.instagram.com/janu_bridal_artistry/" target="_blank" rel="noreferrer">Request availability</a>
     <script async src="https://www.instagram.com/embed.js"></script>
 </body>
 </html>
