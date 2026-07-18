@@ -60,7 +60,11 @@ def iter_files(root: Path):
 
 def load_private_terms() -> list[str]:
     raw = os.environ.get("PII_PRIVATE_TERMS", "")
-    return [term.strip().casefold() for term in raw.splitlines() if term.strip()]
+    return [
+        term.strip().casefold()
+        for term in re.split(r"[\n|,]+", raw)
+        if term.strip()
+    ]
 
 
 def scan(root: Path) -> list[tuple[Path, int, str]]:
