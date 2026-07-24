@@ -87,6 +87,10 @@
     main { padding-bottom: calc(36px + env(safe-area-inset-bottom)); }
     section { padding: 30px 18px 0; scroll-margin-top: 78px; }
     .section-head { display: flex; justify-content: space-between; align-items: end; gap: 14px; margin-bottom: 14px; }
+    details > summary { list-style: none; cursor: pointer; }
+    details > summary::-webkit-details-marker { display: none; }
+    details[open] summary .lucide-chevron-down { transform: rotate(180deg); }
+    .lucide-chevron-down { transition: transform 0.2s ease; }
     .mermaid { background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 16px; margin-top: 14px; margin-bottom: 24px; overflow-x: auto; box-shadow: var(--shadow); }
     h2 { margin: 0; font-size: 2rem; font-weight: 600; line-height: 1; }
     .section-note { margin: 0; color: var(--muted); font-size: .8rem; text-align: right; }
@@ -209,11 +213,12 @@
       </section>
 
       <section id="flow">
-        <div class="section-head">
-          <h2>Visual Map</h2>
-          <p class="section-note">Trip flow</p>
-        </div>
-        <div class="mermaid">
+        <details>
+          <summary class="section-head">
+            <h2 style="display: flex; align-items: center; gap: 6px;">Visual Map <i data-lucide="chevron-down" style="width: 24px; height: 24px; color: var(--muted);"></i></h2>
+            <p class="section-note">Tap to expand</p>
+          </summary>
+          <div class="mermaid">
 graph TD
     classDef flight fill:#0284c7,stroke:#fff,color:#fff,rx:8px,ry:8px,font-weight:bold
     classDef hotel fill:#16a34a,stroke:#fff,color:#fff,rx:8px,ry:8px,font-weight:bold
@@ -248,6 +253,7 @@ graph TD
     class D,J car
     class E,F,G,H,I park
         </div>
+        </details>
       </section>
 
       <section id="route">
