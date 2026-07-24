@@ -11,6 +11,12 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Newsreader:opsz,wght@6..72,600&display=swap" rel="stylesheet">
   <script src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@10.9.1/dist/mermaid.min.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      mermaid.initialize({ startOnLoad: true, theme: 'base', themeVariables: { fontFamily: '"DM Sans", sans-serif', primaryColor: '#f6f7f3', lineColor: '#d9ded8' } });
+    });
+  </script>
   <style>
     :root {
       --ink: #182220;
@@ -73,7 +79,7 @@
     .hero-fact { display: inline-flex; align-items: center; gap: 7px; background: rgba(10,20,18,.72); border: 1px solid rgba(255,255,255,.24); border-radius: 6px; padding: 8px 10px; font-size: .84rem; font-weight: 600; }
     .hero-fact svg { width: 16px; height: 16px; }
 
-    .quick-nav { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; padding: 12px; background: var(--surface); border-bottom: 1px solid var(--line); position: sticky; top: 0; z-index: 20; }
+    .quick-nav { display: grid; grid-template-columns: repeat(5, 1fr); gap: 6px; padding: 12px; background: var(--surface); border-bottom: 1px solid var(--line); position: sticky; top: 0; z-index: 20; }
     .quick-nav a { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; min-height: 52px; color: var(--muted); text-decoration: none; font-size: .72rem; font-weight: 600; border-radius: 6px; }
     .quick-nav a:active, .quick-nav a:focus-visible { background: var(--forest-soft); color: var(--forest); outline: 2px solid var(--forest); outline-offset: 1px; }
     .quick-nav svg { width: 19px; height: 19px; }
@@ -81,6 +87,7 @@
     main { padding-bottom: calc(36px + env(safe-area-inset-bottom)); }
     section { padding: 30px 18px 0; scroll-margin-top: 78px; }
     .section-head { display: flex; justify-content: space-between; align-items: end; gap: 14px; margin-bottom: 14px; }
+    .mermaid { background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 16px; margin-top: 14px; margin-bottom: 24px; overflow-x: auto; box-shadow: var(--shadow); }
     h2 { margin: 0; font-size: 2rem; font-weight: 600; line-height: 1; }
     .section-note { margin: 0; color: var(--muted); font-size: .8rem; text-align: right; }
 
@@ -185,6 +192,7 @@
     </header>
 
     <nav class="quick-nav" aria-label="Trip sections">
+      <a href="#flow"><i data-lucide="map"></i><span>Map</span></a>
       <a href="#route"><i data-lucide="route"></i><span>Route</span></a>
       <a href="#days"><i data-lucide="calendar-days"></i><span>Days</span></a>
       <a href="#bookings"><i data-lucide="ticket-check"></i><span>Bookings</span></a>
@@ -197,6 +205,48 @@
           <div class="status-item"><span>Flights</span><strong>SEA ⇄ BZN</strong></div>
           <div class="status-item"><span>Park stay</span><strong>3 nights</strong></div>
           <div class="status-item"><span>Known total</span><strong>$1,845.97</strong></div>
+        </div>
+      </section>
+
+      <section id="flow">
+        <div class="section-head">
+          <h2>Visual Map</h2>
+          <p class="section-note">Trip flow</p>
+        </div>
+        <div class="mermaid">
+graph TD
+    classDef flight fill:#0284c7,stroke:#fff,color:#fff,rx:8px,ry:8px,font-weight:bold
+    classDef hotel fill:#16a34a,stroke:#fff,color:#fff,rx:8px,ry:8px,font-weight:bold
+    classDef park fill:#ea580c,stroke:#fff,color:#fff,rx:8px,ry:8px,font-weight:bold
+    classDef car fill:#9333ea,stroke:#fff,color:#fff,rx:8px,ry:8px,font-weight:bold
+
+    A[SEA Airport] -->|Wed 8:16 PM Flight| B(BZN Airport)
+    B -->|Free Hotel Shuttle| C{Best Western GranTree}
+    
+    C -.->|Sleep Wed Night| C
+    C -->|Thu 7:30 AM Hotel Shuttle| D(BZN Rental Car Counter)
+    
+    D -->|Drive SUV South| E[Yellowstone West Entrance]
+    E -->|See Geysers| F{Grant Village Basecamp}
+    
+    F -->|Fri 7:00 AM Drive| G[Grand Teton NP]
+    G -->|Fri 5:30 PM Return| F
+    
+    F -->|Sat 7:00 AM Drive| H[Grand Canyon of Yellowstone]
+    H -->|Sat 4:30 PM Return| F
+    
+    F -->|Sun 7:00 AM Check-out| I[Mammoth Hot Springs]
+    I -->|Sun 1:30 PM Drive North| J(BZN Rental Car Return)
+    
+    J -->|Free Hotel Shuttle| K{Departure Night Hotel}
+    K -->|Mon 4:30 AM Shuttle| L(BZN Airport)
+    L -->|Mon 7:03 AM Flight| M[SEA Airport]
+
+    class A,M flight
+    class B,L flight
+    class C,K hotel
+    class D,J car
+    class E,F,G,H,I park
         </div>
       </section>
 
@@ -310,30 +360,36 @@
         ["2:15 PM", "West Thumb", "Lake-edge geyser basin boardwalk, about one hour.", "West Thumb Geyser Basin", "driving"],
         ["3:45 PM", "Grant Village", "Check in, early dinner and quiet lake evening.", "Grant Village Yellowstone National Park", "driving"]
       ]},
-      { eyebrow: "Geothermal day", title: "Old Faithful + Grand Prismatic", note: "The classic lower-loop highlights.", items: [
-        ["6:20 AM", "Leave Grant", "Breakfast packed; beat tour-bus traffic.", "Old Faithful Yellowstone National Park", "driving"],
-        ["7:15 AM", "Old Faithful", "Check eruption prediction at the visitor center.", "Old Faithful Visitor Education Center", "walking"],
-        ["9:00 AM", "Upper Geyser Basin", "Comfortable boardwalk section toward Castle and Grand.", "Upper Geyser Basin Yellowstone", "walking"],
-        ["11:30 AM", "Picnic lunch", "Eat before moving north.", null, null],
-        ["12:20 PM", "Grand Prismatic overlook", "About 1.6 miles round trip from Fairy Falls trailhead.", "Grand Prismatic Spring Overlook Trailhead", "driving"],
-        ["3:30 PM", "Fountain Paint Pot", "Optional short boardwalk before returning to Grant.", "Fountain Paint Pot Trail Yellowstone", "driving"]
+      { eyebrow: "The Grand Teton day", title: "Grant Village ⇄ Grand Teton", note: "An easy 1-hour drive south to cross a second National Park off the list.", items: [
+        ["6:15 AM", "Wake and breakfast", "Eat early to beat the massive boat shuttle lines.", null, null],
+        ["7:00 AM", "Drive south", "Head down through the South Entrance.", "Grand Teton National Park", "driving"],
+        ["8:15 AM", "Jenny Lake Boat", "Arrive early and walk right onto the boat.", "Jenny Lake Visitor Center", "walking"],
+        ["8:45 AM", "Hidden Falls Hike", "Take the boat across and hike to Inspiration Point.", "Hidden Falls Grand Teton", "walking"],
+        ["12:00 PM", "Jackson Lake Lodge", "Grab lunch with huge panoramic views of the Teton range.", "Jackson Lake Lodge", "driving"],
+        ["2:00 PM", "Signal Mountain", "Drive to the top for a 360-degree view.", "Signal Mountain Summit Road", "driving"],
+        ["4:00 PM", "Oxbow Bend", "Stop for the most famous photo spot (and look for moose).", "Oxbow Bend Turnout", "driving"],
+        ["5:30 PM", "Return to basecamp", "Head back to Yellowstone for dinner.", "Grant Village Yellowstone National Park", "driving"]
       ]},
-      { eyebrow: "Wildlife + canyon", title: "Hayden Valley and Lower Falls", note: "Early start; longest park-driving day.", items: [
-        ["5:55 AM", "Leave Grant", "Warm layers, lunch and binoculars ready.", "Hayden Valley Yellowstone National Park", "driving"],
-        ["7:10 AM", "Hayden Valley", "Use pullouts and scan quietly for wildlife.", "Hayden Valley Yellowstone National Park", "driving"],
-        ["8:45 AM", "Mud Volcano", "Short boardwalk if everyone is comfortable.", "Mud Volcano Yellowstone National Park", "driving"],
-        ["10:00 AM", "Artist Point", "Classic Grand Canyon and Lower Falls view.", "Artist Point Yellowstone National Park", "driving"],
-        ["11:45 AM", "Canyon lunch", "Restrooms, water and Junior Ranger break.", "Canyon Village Yellowstone National Park", "driving"],
-        ["1:00 PM", "North Rim", "Choose one or two overlooks based on energy.", "Brink of Lower Falls Trail Yellowstone", "driving"],
-        ["3:45 PM", "Return via Hayden", "A second wildlife window on the way back.", "Grant Village Yellowstone National Park", "driving"]
+      { eyebrow: "Wildlife & Canyon", title: "Hayden Valley + Lower Falls", note: "The most iconic Yellowstone views.", items: [
+        ["6:15 AM", "Wake and breakfast", "Warm layers needed for the misty morning.", null, null],
+        ["7:00 AM", "Drive north", "Hit the road before traffic builds.", "Hayden Valley Yellowstone National Park", "driving"],
+        ["7:45 AM", "Hayden Valley", "Use pullouts and scan quietly for wolves, bears, and bison.", "Hayden Valley Yellowstone National Park", "driving"],
+        ["8:30 AM", "Artist Point", "Arrive early to beat the tour buses to the best view of the Lower Falls.", "Artist Point Yellowstone National Park", "driving"],
+        ["9:30 AM", "Brink of the Lower Falls", "Steep switchback trail to stand directly over the massive waterfall.", "Brink of Lower Falls Trail Yellowstone", "walking"],
+        ["12:00 PM", "Canyon Village", "Lunch, restrooms, and education center.", "Canyon Village Yellowstone National Park", "driving"],
+        ["1:30 PM", "Norris Geyser Basin", "Walk the Porcelain Basin in the hottest geyser area.", "Norris Geyser Basin", "driving"],
+        ["5:00 PM", "Return to basecamp", "Relax at the lodge or walk down to the lake.", "Grant Village Yellowstone National Park", "driving"]
       ]},
-      { eyebrow: "Return day", title: "Grant Village → BZN", note: "One flexible stop, then protect the flight buffer.", items: [
-        ["6:30 AM", "Breakfast and checkout", "Load the car and inspect the room.", null, null],
-        ["7:20 AM", "One final park stop", "West Thumb, Yellowstone Lake or a missed Friday stop.", "West Thumb Geyser Basin", "driving"],
-        ["12:00 PM", "West Yellowstone lunch", "Review rental return instructions.", "West Yellowstone Montana", "driving"],
-        ["2:00 PM", "Hard departure", "Drive north; do not add another long stop.", "Bozeman Yellowstone International Airport", "driving"],
-        ["5:15 PM", "Return rental", "Photograph fuel gauge and exterior.", "Bozeman Yellowstone International Airport Rental Car Return", "driving"],
-        ["6:30 PM", "Airport hotel", "Confirm the early shuttle and sleep.", "Hotels near Bozeman Yellowstone International Airport", "driving"]
+      { eyebrow: "Return day", title: "Mammoth → BZN", note: "A scenic exit via the North Entrance.", items: [
+        ["6:15 AM", "Breakfast and checkout", "Load the car and say goodbye to basecamp.", null, null],
+        ["7:00 AM", "Hit the road", "Drive north along the western half of the loop.", "Mammoth Hot Springs", "driving"],
+        ["9:00 AM", "Mammoth Hot Springs", "Walk the travertine terrace boardwalks before the midday heat.", "Mammoth Hot Springs", "walking"],
+        ["11:30 AM", "Roosevelt Arch", "Take a family photo leaving via the North Entrance.", "Roosevelt Arch", "driving"],
+        ["12:00 PM", "Gardiner lunch", "Grab food right outside the park borders.", "Gardiner Montana", "driving"],
+        ["1:30 PM", "Paradise Valley", "Beautiful drive north on Highway 89.", "Livingston Montana", "driving"],
+        ["3:30 PM", "Bozeman stop", "Stretch legs in downtown Bozeman.", "Bozeman Montana", "driving"],
+        ["7:00 PM", "Return rental", "Fill gas and return car at BZN airport.", "Bozeman Yellowstone International Airport Rental Car Return", "driving"],
+        ["8:30 PM", "Airport hotel", "Confirm your early Monday shuttle.", "Hotels near Bozeman Yellowstone International Airport", "driving"]
       ]},
       { eyebrow: "Home morning", title: "Bozeman → SEA → Redmond", note: "Early flight leaves part of Monday available.", items: [
         ["4:15 AM", "Wake and checkout", "Check flight status and collect medicines.", null, null],
