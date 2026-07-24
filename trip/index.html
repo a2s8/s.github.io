@@ -223,8 +223,8 @@
             <div class="route-copy"><strong>Alaska 1323 to Bozeman</strong><p>Nonstop flight, arriving BZN at 10:59 PM.</p><a class="map-link" href="https://www.google.com/maps/search/?api=1&amp;query=Bozeman%20Yellowstone%20International%20Airport" target="_blank" rel="noreferrer"><i data-lucide="map-pin"></i>View airport</a></div>
           </div>
           <div class="route-stop">
-            <div class="route-time">11:30 PM</div><div class="route-icon"><i data-lucide="bed-double"></i></div>
-            <div class="route-copy"><strong>Airport hotel</strong><p>Use the hotel shuttle. Collect the rental car Thursday morning after breakfast.</p><a class="map-link" href="https://www.google.com/maps/search/?api=1&amp;query=Hotels%20near%20Bozeman%20Yellowstone%20International%20Airport" target="_blank" rel="noreferrer"><i data-lucide="map-pin"></i>Nearby hotels</a></div>
+            <div class="route-time">11:30 PM</div><div class="route-icon"><i data-lucide="car-front"></i></div>
+            <div class="route-copy"><strong>Rental car & Hotel</strong><p>Pick up rental car at BZN counter. Drive to a budget hotel in Bozeman/Belgrade.</p><a class="map-link" href="https://www.google.com/maps/search/?api=1&amp;query=Hotels%20near%20Bozeman%20Yellowstone%20International%20Airport" target="_blank" rel="noreferrer"><i data-lucide="map-pin"></i>Nearby hotels</a></div>
           </div>
         </div>
       </section>
@@ -254,7 +254,7 @@
           <div class="booking"><div class="booking-icon"><i data-lucide="plane"></i></div><div><strong>Alaska flights</strong><p>Aug 19 outbound · Aug 24 return</p></div><span class="badge confirmed">Confirmed</span></div>
           <div class="booking"><div class="booking-icon"><i data-lucide="trees"></i></div><div><strong>Grant Village</strong><p>Aug 20–23 · inside Yellowstone</p></div><span class="badge confirmed">Confirmed</span></div>
           <div class="booking"><div class="booking-icon"><i data-lucide="hotel"></i></div><div><strong>Bozeman airport hotels</strong><p>Arrival and departure nights</p></div><span class="badge todo">Book next</span></div>
-          <div class="booking"><div class="booking-icon"><i data-lucide="car-front"></i></div><div><strong>Rental car</strong><p>Aug 20 morning → Aug 23 evening</p></div><span class="badge todo">Book next</span></div>
+          <div class="booking"><div class="booking-icon"><i data-lucide="car-front"></i></div><div><strong>Rental car</strong><p>Aug 19 night → Aug 23 evening</p></div><span class="badge todo">Book next</span></div>
         </div>
       </section>
 
@@ -264,9 +264,9 @@
           <p class="section-note" id="progress">0 of 8 ready</p>
         </div>
         <div class="checklist">
-          <label class="check-item"><input type="checkbox" data-check="hotel-arrival"><span>Book Aug 19 airport hotel</span><small>Shuttle after 11 PM</small></label>
+          <label class="check-item"><input type="checkbox" data-check="hotel-arrival"><span>Book Aug 19 budget hotel</span><small>Late check-in</small></label>
           <label class="check-item"><input type="checkbox" data-check="hotel-return"><span>Book Aug 23 airport hotel</span><small>4:30 AM shuttle</small></label>
-          <label class="check-item"><input type="checkbox" data-check="rental"><span>Book BZN rental car</span><small>Thu AM → Sun PM</small></label>
+          <label class="check-item"><input type="checkbox" data-check="rental"><span>Book BZN rental car</span><small>Wed PM → Sun PM</small></label>
           <label class="check-item"><input type="checkbox" data-check="seats"><span>Confirm family flight seating</span><small>Alaska Saver</small></label>
           <label class="check-item"><input type="checkbox" data-check="pass"><span>Buy or pack park pass</span><small>Entrance ready</small></label>
           <label class="check-item"><input type="checkbox" data-check="maps"><span>Download offline maps</span><small>NPS + Google Maps</small></label>
@@ -294,16 +294,16 @@
 
   <script>
     const days = [
-      { eyebrow: "Travel night", title: "Redmond → SEA → Bozeman", note: "Workday preserved; no midnight rental driving.", items: [
+      { eyebrow: "Travel night", title: "Redmond → SEA → Bozeman", note: "Workday preserved; late car pickup.", items: [
         ["3:15 PM", "Leave Sixty-01", "Metro 245 or short rideshare to Redmond Technology.", "Redmond Technology Station", "transit"],
         ["4:07 PM", "ST 560 from Bellevue", "Target bus; 4:37 PM is the backup.", "Seattle-Tacoma International Airport", "transit"],
         ["5:10 PM", "Arrive SEA", "Security, dinner and gate by 7:25 PM.", "Seattle-Tacoma International Airport", "transit"],
         ["8:16 PM", "Alaska 1323", "Nonstop to BZN, arriving 10:59 PM.", "Bozeman Yellowstone International Airport", "driving"],
-        ["11:30 PM", "Airport hotel", "Call shuttle after collecting bags.", "Hotels near Bozeman Yellowstone International Airport", "driving"]
+        ["11:30 PM", "Rental car & Hotel", "Pick up car at airport, drive to budget hotel.", "Hotels near Bozeman Yellowstone International Airport", "driving"]
       ]},
-      { eyebrow: "Park arrival", title: "Bozeman → Grant Village", note: "Rental pickup and an easy first evening.", items: [
-        ["7:00 AM", "Breakfast and checkout", "Check NPS roads and download offline maps.", null, null],
-        ["8:05 AM", "Pick up rental", "Photograph the car and verify fuel policy.", "Bozeman Yellowstone International Airport Rental Car Return", "driving"],
+      { eyebrow: "Park arrival", title: "Bozeman → Grant Village", note: "Direct drive to the park and an easy first evening.", items: [
+        ["7:30 AM", "Breakfast and checkout", "Check NPS roads and download offline maps.", null, null],
+        ["8:30 AM", "Leave Bozeman", "Start driving south towards West Yellowstone.", null, "driving"],
         ["10:35 AM", "West Yellowstone stop", "Fuel, picnic supplies, restrooms and bear spray.", "West Yellowstone Montana", "driving"],
         ["11:05 AM", "Enter Yellowstone", "West Entrance toward Madison and West Thumb.", "Yellowstone National Park West Entrance", "driving"],
         ["2:15 PM", "West Thumb", "Lake-edge geyser basin boardwalk, about one hour.", "West Thumb Geyser Basin", "driving"],
