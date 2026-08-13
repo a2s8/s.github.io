@@ -250,6 +250,57 @@
           <p class="section-note">Where are we now?</p>
         </div>
         <div id="live-tracker-container"></div>
+        
+        <details style="margin-top: 32px;" open>
+          <summary class="section-head">
+            <h2 style="display: flex; align-items: center; gap: 6px;">Visual Map <i data-lucide="chevron-down" style="width: 24px; height: 24px; color: var(--muted);"></i></h2>
+            <p class="section-note">Live route progress</p>
+          </summary>
+          <div class="mermaid" id="mermaid-container" style="visibility: hidden;">
+graph TD
+    classDef flight fill:#0ea5e9,stroke:#0284c7,stroke-width:2px,color:#fff,rx:12px,ry:12px,font-weight:600
+    classDef hotel fill:#10b981,stroke:#059669,stroke-width:2px,color:#fff,rx:12px,ry:12px,font-weight:600
+    classDef park fill:#f59e0b,stroke:#d97706,stroke-width:2px,color:#fff,rx:12px,ry:12px,font-weight:600
+    classDef car fill:#8b5cf6,stroke:#7c3aed,stroke-width:2px,color:#fff,rx:12px,ry:12px,font-weight:600
+    classDef activeNode fill:#ef4444,stroke:#991b1b,stroke-width:4px,color:#fff,rx:14px,ry:14px,font-weight:800
+
+    A["Wed 8:16 PM - SEA Airport"] -->|Alaska 1323| B("Wed 10:59 PM - BZN Airport")
+    B -->|11:30 PM Shuttle| C{"Wed 11:45 PM - Best Western GranTree"}
+    
+    C -.->|Sleep| C
+    C -->|Thu 7:30 AM Shuttle| D("Thu 8:05 AM - BZN Rental Car")
+    
+    D -->|Drive South| E["Thu 11:00 AM - West Entrance & Picnic"]
+    E --> F["Thu 1:30 PM - Firehole Canyon Drive"]
+    F --> G["Thu 3:00 PM - Grand Prismatic Overlook"]
+    G --> H["Thu 5:00 PM - Old Faithful"]
+    H --> I{"Thu 7:30 PM - Grant Village Basecamp"}
+    
+    I -->|Fri 7:00 AM Drive| J["Fri 8:15 AM - Jenny Lake Boat"]
+    J --> K["Fri 12:00 PM - Jackson Lake Lodge"]
+    K --> L["Fri 2:00 PM - Signal Mountain"]
+    L -->|Fri 5:30 PM Return| I
+    
+    I -->|Sat 7:00 AM Drive| M["Sat 7:45 AM - Hayden Valley"]
+    M --> N["Sat 8:30 AM - Grand Canyon / Artist Point"]
+    N --> O["Sat 1:30 PM - Storm Point Hike & Lake Hotel"]
+    O -->|Sat 5:30 PM Return| I
+    
+    I -->|Sun 7:00 AM Checkout| P["Sun 9:00 AM - Mammoth Hot Springs"]
+    P --> Q["Sun 11:30 AM - Roosevelt Arch & Gardiner"]
+    Q -->|Sun 1:30 PM Drive| R("Sun 7:00 PM - BZN Rental Car Return")
+    
+    R -->|Sun 8:30 PM Shuttle| S{"Sun Night - Departure Hotel"}
+    S -->|Mon 4:30 AM Shuttle| T("Mon 5:00 AM - BZN Airport")
+    T -->|Mon 7:03 AM Flight| U["Mon 8:08 AM - SEA Airport"]
+
+    class A,U flight
+    class B,T flight
+    class C,S hotel
+    class D,R car
+    class E,F,G,H,I,J,K,L,M,N,O,P,Q park
+          </div>
+        </details>
       </section>
 
       <section id="route">
@@ -499,6 +550,15 @@
 
     tabs.forEach(tab => tab.addEventListener("click", () => renderDay(Number(tab.dataset.day))));
     
+    const nodeMapping = [
+      ['A', 'B', 'C'], // Day 0
+      ['D', 'E', 'F', 'G', 'H', 'I'], // Day 1
+      ['J', 'K', 'L'], // Day 2
+      ['M', 'N', 'O'], // Day 3
+      ['P', 'Q', 'R', 'S'], // Day 4
+      ['T', 'U'] // Day 5
+    ];
+
     const initialState = getLiveState();
     let defaultDay = 0;
     if (initialState.type === 'active') {
@@ -506,6 +566,21 @@
     }
     renderDay(defaultDay);
     updateLiveWidget();
+    
+    // Inject dynamic class into Mermaid text BEFORE it renders
+    const mermaidDiv = document.getElementById('mermaid-container');
+    if (mermaidDiv && initialState.type === 'active' && initialState.current) {
+        const dIndex = initialState.dayIndex;
+        const iIndex = initialState.current.index;
+        if (nodeMapping[dIndex] && nodeMapping[dIndex][iIndex]) {
+            const activeNodeId = nodeMapping[dIndex][iIndex];
+            mermaidDiv.textContent += `\n    class ${activeNodeId} activeNode`;
+        }
+    }
+    
+    mermaid.initialize({ startOnLoad: true, theme: 'base', themeVariables: { fontFamily: '"DM Sans", sans-serif', primaryColor: '#f6f7f3', lineColor: '#d9ded8' } });
+    if(mermaidDiv) mermaidDiv.style.visibility = 'visible';
+
     setInterval(() => { 
        updateLiveWidget(); 
        const selectedTab = document.querySelector('.day-tab[aria-selected="true"]');
@@ -538,5 +613,6 @@
 
     window.addEventListener("DOMContentLoaded", () => window.lucide?.createIcons());
   </script>
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@10.9.1/dist/mermaid.min.js"></script>
 </body>
 </html>
