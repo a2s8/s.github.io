@@ -11,6 +11,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Newsreader:opsz,wght@6..72,600&display=swap" rel="stylesheet">
   <script src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@10.9.1/dist/mermaid.min.js"></script>
   
   <script>
     document.addEventListener("DOMContentLoaded", function() {
@@ -256,7 +257,7 @@
             <h2 style="display: flex; align-items: center; gap: 6px;">Visual Map <i data-lucide="chevron-down" style="width: 24px; height: 24px; color: var(--muted);"></i></h2>
             <p class="section-note">Live route progress</p>
           </summary>
-          <div class="mermaid" id="mermaid-container" style="visibility: hidden;">
+          <div class="mermaid" id="mermaid-container">
 graph TD
     classDef flight fill:#0ea5e9,stroke:#0284c7,stroke-width:2px,color:#fff,rx:12px,ry:12px,font-weight:600
     classDef hotel fill:#10b981,stroke:#059669,stroke-width:2px,color:#fff,rx:12px,ry:12px,font-weight:600
@@ -613,6 +614,5 @@ graph TD
 
     window.addEventListener("DOMContentLoaded", () => window.lucide?.createIcons());
   </script>
-  <script src="https://cdn.jsdelivr.net/npm/mermaid@10.9.1/dist/mermaid.min.js"></script>
 </body>
 </html>
