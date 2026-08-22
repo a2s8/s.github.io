@@ -216,6 +216,33 @@
   </style>
 </head>
 <body>
+  <div id="auth-overlay" style="position:fixed; top:0; left:0; width:100%; height:100%; background:var(--surface); z-index:9999; display:flex; flex-direction:column; align-items:center; justify-content:center; padding: 20px; text-align: center;">
+    <h2 style="font-family: 'Newsreader', serif; font-size: 2rem; color: var(--ink); margin-bottom: 8px;">Family Trip Itinerary</h2>
+    <p style="color: var(--muted); margin-bottom: 24px;">Please enter the password to view this page.</p>
+    <div style="display: flex; gap: 8px; max-width: 300px; width: 100%;">
+      <input type="password" id="auth-input" placeholder="Password" style="flex: 1; padding: 12px; font-size: 1rem; border: 1px solid var(--line); border-radius: 8px; outline: none;">
+      <button onclick="checkAuth()" style="padding: 12px 20px; background: var(--forest); color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: 600;">Enter</button>
+    </div>
+    <p id="auth-error" style="color: #e11d48; display: none; margin-top: 16px; font-size: 0.9rem; font-weight: 500;">Incorrect password. Please try again.</p>
+  </div>
+  <script>
+    function checkAuth() {
+      if (document.getElementById('auth-input').value === 'Sparky88') {
+        document.getElementById('auth-overlay').style.display = 'none';
+        sessionStorage.setItem('auth', 'true');
+      } else {
+        document.getElementById('auth-error').style.display = 'block';
+      }
+    }
+    // Handle pressing Enter key
+    document.getElementById('auth-input').addEventListener('keypress', function(e) {
+      if (e.key === 'Enter') checkAuth();
+    });
+    // Check if already authenticated in this session
+    if (sessionStorage.getItem('auth') === 'true') {
+      document.getElementById('auth-overlay').style.display = 'none';
+    }
+  </script>
   <div class="shell">
     <header class="family-nav">
       <a class="family-brand" href="/" aria-label="sripathi.one family home"><span class="family-mark" aria-hidden="true">S1</span><span>sripathi.one</span></a>
