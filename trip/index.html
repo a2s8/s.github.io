@@ -226,25 +226,408 @@
     <p id="auth-error" style="color: #e11d48; display: none; margin-top: 16px; font-size: 0.9rem; font-weight: 500;">Incorrect password. Please try again.</p>
   </div>
   <script>
-    function decrypt(pwd) {
-      try {
-        const binaryString = atob(encryptedDays);
-        const pwdBytes = new TextEncoder().encode(pwd);
-        let decryptedBytes = new Uint8Array(binaryString.length);
-        for (let i = 0; i < binaryString.length; i++) {
-          decryptedBytes[i] = binaryString.charCodeAt(i) ^ pwdBytes[i % pwdBytes.length];
+    function checkAuth() {
+      if (document.getElementById('auth-input').value === 'Sparky88') {
+        document.getElementById('auth-overlay').style.display = 'none';
+        sessionStorage.setItem('auth', 'true');
+      } else {
+        document.getElementById('auth-error').style.display = 'block';
+      }
+    }
+    // Handle pressing Enter key
+    document.getElementById('auth-input').addEventListener('keypress', function(e) {
+      if (e.key === 'Enter') checkAuth();
+    });
+    // Check if already authenticated in this session
+    if (sessionStorage.getItem('auth') === 'true') {
+      document.getElementById('auth-overlay').style.display = 'none';
+    }
+  </script>
+  <div class="shell">
+    <header class="family-nav">
+      <a class="family-brand" href="/" aria-label="sripathi.one family home"><span class="family-mark" aria-hidden="true">S1</span><span>sripathi.one</span></a>
+      <a class="family-home" href="/">Family home</a>
+    </header>
+    <header class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">Family trip · Aug 19–24, 2026</p>
+        <h1>Yellowstone</h1>
+        <p class="hero-sub">A compact, leave-friendly plan from Redmond to three nights inside the park.</p>
+        <div class="hero-facts">
+          <span class="hero-fact"><i data-lucide="users"></i>Family of four</span>
+          <span class="hero-fact"><i data-lucide="briefcase-business"></i>2–2.5 leave days</span>
+          <span class="hero-fact"><i data-lucide="circle-check"></i>Core trip confirmed</span>
+        </div>
+      </div>
+    </header>
+
+    <nav class="quick-nav" aria-label="Trip sections">
+      <a href="#flow"><i data-lucide="map"></i><span>Map</span></a>
+      <a href="#route"><i data-lucide="route"></i><span>Route</span></a>
+      <a href="#days"><i data-lucide="calendar-days"></i><span>Days</span></a>
+      <a href="#bookings"><i data-lucide="ticket-check"></i><span>Bookings</span></a>
+      <a href="#checklist"><i data-lucide="list-checks"></i><span>Checklist</span></a>
+    </nav>
+
+    <main>
+      <section aria-label="Trip status">
+        <div class="status-strip">
+          <div class="status-item"><span>Flights</span><strong>SEA ⇄ BZN</strong></div>
+          <div class="status-item"><span>Park stay</span><strong>3 nights</strong></div>
+          <div class="status-item"><span>Known total</span><strong>$2,606.84</strong></div>
+        </div>
+      </section>
+
+      <section id="flow">
+        <div class="section-head">
+          <h2>Live Tracker</h2>
+          <p class="section-note">Where are we now?</p>
+        </div>
+        <div id="live-tracker-container"></div>
+        
+                        <details style="margin-top: 32px;">
+          <summary class="section-head" style="cursor: pointer;">
+            <h2 style="display: flex; align-items: center; gap: 6px;">Visual Flowchart <i data-lucide="git-merge" style="width: 24px; height: 24px; color: var(--forest);"></i></h2>
+            <p class="section-note">Live route flow</p>
+          </summary>
+          <div class="mermaid-container" style="background: rgba(255,255,255,0.5); backdrop-filter: var(--glass-blur); -webkit-backdrop-filter: var(--glass-blur); border: 1px solid rgba(255,255,255,0.8); border-radius: 16px; padding: 24px; overflow-x: auto; box-shadow: var(--shadow);">
+            <div class="mermaid" id="mermaid-canvas">
+graph TD
+    classDef flight fill:#ffffffE6,stroke:#0ea5e9,stroke-width:2px,color:#0f172a,rx:12px,ry:12px
+    classDef hotel fill:#ffffffE6,stroke:#10b981,stroke-width:2px,color:#0f172a,rx:12px,ry:12px
+    classDef park fill:#ffffffE6,stroke:#f59e0b,stroke-width:2px,color:#0f172a,rx:12px,ry:12px
+    classDef car fill:#ffffffE6,stroke:#f97316,stroke-width:2px,color:#0f172a,rx:12px,ry:12px
+    classDef activeNode fill:#10b981,stroke:#047857,stroke-width:3px,color:#ffffff,rx:14px,ry:14px,font-weight:700
+
+    A["Wed 8:16 PM<br>SEA Airport"] -->|Alaska 1323| B("Wed 10:59 PM<br>BZN Airport")
+    B -->|11:30 PM Shuttle| C{"Wed 11:45 PM<br>GranTree Inn"}
+    
+    C -.->|Sleep| C
+    C -->|Thu 7:30 AM Shuttle| D("Thu 8:05 AM<br>BZN Rental Pickup")
+    
+    D -->|Depart South| E["Thu 11:00 AM<br>West Entrance"]
+    E --> F["Thu 1:30 PM<br>Firehole Canyon"]
+    F --> G["Thu 3:00 PM<br>Grand Prismatic"]
+    G --> H["Thu 5:00 PM<br>Old Faithful"]
+    H --> I{"Thu 7:30 PM<br>Grant Village Basecamp"}
+    
+    I -->|Fri 7:00 AM Depart| J["Fri 8:15 AM<br>Jenny Lake Boat"]
+    J --> K["Fri 12:00 PM<br>Jackson Lake Lodge"]
+    K --> L["Fri 2:00 PM<br>Signal Mountain"]
+    L -->|Fri 5:30 PM Return| I
+    
+    I -->|Sat 7:00 AM Depart| M["Sat 7:45 AM<br>Hayden Valley"]
+    M --> N["Sat 8:30 AM<br>Grand Canyon"]
+    N --> O["Sat 1:30 PM<br>Storm Point Hike"]
+    O -->|Sat 5:30 PM Return| I
+    
+    I -->|Sun 7:00 AM Checkout| P["Sun 9:00 AM<br>Mammoth Springs"]
+    P --> Q["Sun 11:30 AM<br>Roosevelt Arch"]
+    Q -->|Sun 1:30 PM Depart| R("Sun 7:00 PM<br>BZN Rental Dropoff")
+    
+    R -->|Sun 8:30 PM Shuttle| S{"Sun Night<br>EVEN Hotel"}
+    S -->|Mon 4:30 AM Shuttle| T("Mon 5:00 AM<br>BZN Airport")
+    T -->|Mon 7:03 AM Flight| U["Mon 8:08 AM<br>SEA Airport"]
+
+    class A,U flight
+    class B,T flight
+    class C,S hotel
+    class D,R car
+    class E,F,G,H,I,J,K,L,M,N,O,P,Q park
+            </div>
+          </div>
+        </details>
+      </section>
+
+      <section id="route">
+        <div class="section-head">
+          <h2>Door to door</h2>
+          <p class="section-note">Wednesday evening</p>
+        </div>
+        <div class="route-line">
+          <div class="route-stop">
+            <div class="route-time">3:15 PM</div><div class="route-icon"><i data-lucide="house"></i></div>
+            <div class="route-copy"><strong>Leave Sixty-01</strong><p>Walk to Metro 245, or use a short rideshare to Redmond Technology Station with luggage.</p><a class="map-link" href="https://www.google.com/maps/dir/?api=1&amp;destination=Redmond%20Technology%20Station&amp;travelmode=transit" target="_blank" rel="noreferrer"><i data-lucide="navigation"></i>Directions</a></div>
+          </div>
+          <div class="route-stop">
+            <div class="route-time">3:45 PM</div><div class="route-icon"><i data-lucide="train-front"></i></div>
+            <div class="route-copy"><strong>2 Line to Bellevue</strong><p>Ride to Bellevue Downtown and walk to Transit Center Bay 6.</p><a class="map-link" href="https://www.google.com/maps/dir/?api=1&amp;destination=Bellevue%20Transit%20Center&amp;travelmode=transit" target="_blank" rel="noreferrer"><i data-lucide="navigation"></i>Directions</a></div>
+          </div>
+          <div class="route-stop">
+            <div class="route-time">4:07 PM</div><div class="route-icon"><i data-lucide="bus-front"></i></div>
+            <div class="route-copy"><strong>ST Express 560 to SEA</strong><p>Primary bus arrives about 5:10 PM. The 4:37 PM departure is the backup.</p><a class="map-link" href="https://www.google.com/maps/dir/?api=1&amp;destination=Seattle-Tacoma%20International%20Airport&amp;travelmode=transit" target="_blank" rel="noreferrer"><i data-lucide="navigation"></i>Directions</a></div>
+          </div>
+          <div class="route-stop">
+            <div class="route-time">8:16 PM</div><div class="route-icon"><i data-lucide="plane"></i></div>
+            <div class="route-copy"><strong>Alaska 1323 to Bozeman</strong><p>Nonstop flight, arriving BZN at 10:59 PM.</p><a class="map-link" href="https://www.google.com/maps/search/?api=1&amp;query=Bozeman%20Yellowstone%20International%20Airport" target="_blank" rel="noreferrer"><i data-lucide="map-pin"></i>View airport</a></div>
+          </div>
+          <div class="route-stop">
+            <div class="route-time">11:30 PM</div><div class="route-icon"><i data-lucide="bed-double"></i></div>
+            <div class="route-copy"><strong>Airport hotel</strong><p>Grab bags, then call the GranTree shuttle for pickup. Get the rental car tomorrow.</p><a class="map-link" href="https://www.google.com/maps/search/?api=1&amp;query=Best%20Western%20Plus%20GranTree%20Inn" target="_blank" rel="noreferrer"><i data-lucide="map-pin"></i>View hotel</a></div>
+          </div>
+        </div>
+      </section>
+
+      <section id="days">
+        <div class="section-head">
+          <h2>Daily plan</h2>
+          <p class="section-note">Tap a day</p>
+        </div>
+        <div class="day-tabs" role="tablist" aria-label="Trip days">
+          <button class="day-tab" role="tab" aria-selected="true" data-day="0"><span class="weekday">Wed</span><span class="date">19</span></button>
+          <button class="day-tab" role="tab" aria-selected="false" data-day="1"><span class="weekday">Thu</span><span class="date">20</span></button>
+          <button class="day-tab" role="tab" aria-selected="false" data-day="2"><span class="weekday">Fri</span><span class="date">21</span></button>
+          <button class="day-tab" role="tab" aria-selected="false" data-day="3"><span class="weekday">Sat</span><span class="date">22</span></button>
+          <button class="day-tab" role="tab" aria-selected="false" data-day="4"><span class="weekday">Sun</span><span class="date">23</span></button>
+          <button class="day-tab" role="tab" aria-selected="false" data-day="5"><span class="weekday">Mon</span><span class="date">24</span></button>
+        </div>
+        <article class="day-panel" id="day-panel" role="tabpanel" aria-live="polite"></article>
+      </section>
+
+      <section id="bookings">
+        <div class="section-head">
+          <h2>Bookings</h2>
+          <p class="section-note">Share-safe status</p>
+        </div>
+        <div class="booking-list">
+          <div class="booking"><div class="booking-icon"><i data-lucide="plane"></i></div><div><strong>Alaska flights</strong><p>Aug 19 outbound · Aug 24 return</p></div><span class="badge confirmed">Confirmed</span></div>
+          <div class="booking"><div class="booking-icon"><i data-lucide="trees"></i></div><div><strong>Grant Village</strong><p>Aug 20–23 · inside Yellowstone</p></div><span class="badge confirmed">Confirmed</span></div>
+          <div class="booking"><div class="booking-icon"><i data-lucide="hotel"></i></div><div><strong>Arrival hotel</strong><p>Aug 19 · GranTree Inn</p></div><span class="badge confirmed">Confirmed</span></div>
+          <div class="booking"><div class="booking-icon"><i data-lucide="hotel"></i></div><div><strong>Departure hotel</strong><p>Aug 23 · EVEN Hotel BZN</p></div><span class="badge confirmed">Confirmed</span></div>
+          <div class="booking"><div class="booking-icon"><i data-lucide="car-front"></i></div><div><strong>Rental car</strong><p>Aug 20 6:00 AM → Aug 23 9:00 PM</p></div><span class="badge confirmed">Confirmed</span></div>
+        </div>
+      </section>
+
+      <section id="checklist">
+        <div class="section-head">
+          <h2>Checklist</h2>
+          <p class="section-note" id="progress">0 of 8 ready</p>
+        </div>
+        <div class="checklist">
+          <h3 style="margin: 0 0 12px 4px; font-size: 1rem; color: var(--muted); text-transform: uppercase; letter-spacing: 1px;">Before Departure</h3>
+          <label class="check-item"><input type="checkbox" data-check="seats"><span>Confirm family flight seating</span><small>Alaska Saver</small></label>
+          <label class="check-item"><input type="checkbox" data-check="kettle"><span>Pack electric kettle</span><small>For cheap hot meals in the room</small></label>
+          <label class="check-item"><input type="checkbox" data-check="pass"><span>Buy or pack park pass</span><small>Entrance ready</small></label>
+          <label class="check-item"><input type="checkbox" data-check="maps"><span>Download offline maps</span><small>NPS + Google Maps</small></label>
+          <label class="check-item"><input type="checkbox" data-check="gear"><span>Pack binoculars and layers</span><small>Cold mornings</small></label>
+          <label class="check-item"><input type="checkbox" data-check="alerts"><span>Check transit and park alerts</span><small>24 hours before</small></label>
+
+          <h3 style="margin: 24px 0 12px 4px; font-size: 1rem; color: var(--lake); text-transform: uppercase; letter-spacing: 1px;">Walmart Run (Thu Morning)</h3>
+          <label class="check-item"><input type="checkbox" data-check="w-seats"><span>2x Backless Booster Seats</span><small>~$15 each (easier than secondhand)</small></label>
+          <label class="check-item"><input type="checkbox" data-check="w-cooler"><span>Styrofoam or plastic cooler</span><small>For picnic lunches</small></label>
+          <label class="check-item"><input type="checkbox" data-check="w-ice"><span>Bag of ice</span><small>Keep food safe in the car</small></label>
+          <label class="check-item"><input type="checkbox" data-check="w-water"><span>24-pack of water bottles</span><small>Hydration at high altitude</small></label>
+          <label class="check-item"><input type="checkbox" data-check="w-food"><span>Bread, deli meat & cheese</span><small>For budget picnic sandwiches</small></label>
+          <label class="check-item"><input type="checkbox" data-check="w-hotfood"><span>Instant noodles & oatmeal</span><small>Use your electric kettle for cheap hot meals</small></label>
+          <label class="check-item"><input type="checkbox" data-check="w-snacks"><span>Trail mix & granola bars</span><small>Driving snacks</small></label>
+        </div>
+      </section>
+
+      <aside class="safety-band" aria-labelledby="safety-title">
+        <h2 id="safety-title">Park rules that matter</h2>
+        <div class="safety-grid">
+          <div class="safety-item"><strong>100 yards</strong><span>Bears, wolves and cougars</span></div>
+          <div class="safety-item"><strong>25 yards</strong><span>Bison, elk and other wildlife</span></div>
+          <div class="safety-item"><strong>Stay on boardwalks</strong><span>Thermal ground can break without warning</span></div>
+          <div class="safety-item"><strong>Use pullouts</strong><span>Never stop in the travel lane for wildlife</span></div>
+        </div>
+      </aside>
+    </main>
+
+    <footer>
+      <div class="footer-row" style="margin-bottom: 12px; justify-content: center;">
+         <a href="./Yellowstone_Confirmed_Guide.docx" download class="button" style="background: var(--lake); color: white; padding: 10px 20px; border-radius: 20px; text-decoration: none; font-weight: 500; font-size: 0.9rem; display: inline-flex; align-items: center; gap: 8px;">
+           <i data-lucide="download"></i> Download Confirmed Offline Guide
+         </a>
+      </div>
+      <div class="footer-row"><span>Private family plan · Updated Aug 21, 2026</span><button class="icon-button" id="share" type="button" title="Share this plan" aria-label="Share this plan"><i data-lucide="share-2"></i></button></div>
+      <div id="toast" role="status" aria-live="polite"></div>
+    </footer>
+  </div>
+
+  <script>
+    const days = [
+      { eyebrow: "Travel night", title: "Redmond → SEA → Bozeman", note: "Workday preserved; no midnight rental driving.", items: [
+        ["3:15 PM", "Leave Sixty-01", "Metro 245 or short rideshare to Redmond Technology.", "Redmond Technology Station", "transit"],
+        ["4:07 PM", "ST 560 from Bellevue", "Target bus; 4:37 PM is the backup.", "Seattle-Tacoma International Airport", "transit"],
+        ["5:10 PM", "Arrive SEA", "Security, dinner and gate by 7:25 PM.", "Seattle-Tacoma International Airport", "transit"],
+        ["8:16 PM", "Alaska 1323", "Nonstop to BZN, arriving 10:59 PM.", "Bozeman Yellowstone International Airport", "driving"],
+        ["11:30 PM", "Airport hotel", "Grab bags and call the GranTree shuttle for pickup.", "Best Western Plus GranTree Inn", "driving"]
+      ]},
+      { eyebrow: "Geysers & Arrivals", title: "West Entrance → Grant Village", note: "Strategic stops to avoid the midday geyser crowds.", items: [
+        ["7:00 AM", "Breakfast and checkout", "Check NPS roads and download offline maps.", null, null],
+        ["8:05 AM", "Pick up rental & Walmart", "Pick up car at BZN. Then hit Walmart in Bozeman for $15 backless boosters (often easier/safer than secondhand!), a cheap cooler, and picnic groceries.", "Bozeman Yellowstone International Airport", "driving"],
+        ["10:35 AM", "West Yellowstone stop", "Grab any last-minute supplies and bear spray.", "West Yellowstone Montana", "driving"],
+        ["11:05 AM", "Enter Yellowstone", "West Entrance toward Madison.", "Yellowstone National Park West Entrance", "driving"],
+        ["12:00 PM", "Madison River Picnic", "Budget Lunch: Eat your Walmart sandwiches away from the heavy basin crowds.", "Madison Campground", "walking"],
+        ["1:30 PM", "Firehole Canyon Drive", "A scenic, less-crowded detour with waterfalls.", "Firehole Canyon Drive", "driving"],
+        ["3:00 PM", "Grand Prismatic Overlook", "Hike Fairy Falls trail to see it from above (easier parking).", "Grand Prismatic Spring Overlook Trailhead", "walking"],
+        ["5:00 PM", "Old Faithful", "Crowds thin out; watch eruption and grab early dinner.", "Old Faithful Visitor Education Center", "walking"],
+        ["7:30 PM", "Grant Village", "Check in. Budget Dinner: Eat packed groceries in the room or grab a quick pizza.", "Grant Village Yellowstone National Park", "driving"]
+      ]},
+      { eyebrow: "Wildlife & Canyon", title: "Hayden Valley + Lower Falls", note: "Best on rainy/cool days! Animals are highly active.", items: [
+        ["6:15 AM", "Wake and breakfast", "Warm layers needed. Grab your binoculars and cameras before leaving.", null, null],
+        ["7:00 AM", "Drive north", "Hit the road before traffic builds towards the central park.", "Hayden Valley Yellowstone National Park", "driving"],
+        ["7:45 AM", "Hayden Valley", "Pull over at Alum Creek. Turn off engine, roll down windows, use binoculars to scan tree lines for wolves & grizzlies. Huge bison herds here.", "Hayden Valley Yellowstone National Park", "driving"],
+        ["8:30 AM", "Artist Point", "Short 0.1mi paved walk. Classic, breathtaking view of the 308-foot Lower Falls plunging into the yellow canyon.", "Artist Point Yellowstone National Park", "driving"],
+        ["9:30 AM", "Brink of the Lower Falls", "Steep switchback trail down 600ft to stand directly over the massive waterfall edge. Very tiring hike back up!", "Brink of Lower Falls Trail Yellowstone", "walking"],
+        ["11:30 AM", "Canyon Village", "Lunch: Canyon Lodge Eatery. Great indoor spot to dry off and warm up if it's pouring rain.", "Canyon Village Yellowstone National Park", "driving"],
+        ["1:30 PM", "Storm Point Hike", "Flat 2.3-mile loop through dense pine forest out to a beautiful beach on Yellowstone Lake. (Skip if thunderstorms!)", "Storm Point Trailhead", "walking"],
+        ["4:00 PM", "Lake Yellowstone Hotel", "Grab hot cocoa or ice cream and relax in the beautiful historic sunroom looking over the massive lake.", "Lake Yellowstone Hotel", "driving"],
+        ["5:30 PM", "Return to basecamp", "Dinner: Stop at Lake Lodge Cafeteria on the way back or head to Grant Village for a warm meal.", "Grant Village Yellowstone National Park", "driving"]
+      ]},
+      { eyebrow: "The Grand Teton day", title: "Grant Village ⇄ Grand Teton", note: "Best on sunny days! Stunning mountain views.", items: [
+        ["6:15 AM", "Wake and breakfast", "Eat early to beat the massive boat shuttle lines down in Tetons.", null, null],
+        ["7:00 AM", "Drive south", "Drive PAST the northern spots to hit Jenny Lake before the crowds arrive.", "44.133,-110.665", "driving"],
+        ["7:45 AM", "Oxbow Bend (Moose!)", "Quick 15-min stop while driving south. Morning mist here is the absolute best time and place to spot Moose drinking.", "43.865,-110.548", "driving"],
+        ["8:30 AM", "Jenny Lake Boat", "Arrive early and pay $20 to walk right onto the boat shuttle across the crystal clear alpine lake.", "43.751,-110.719", "walking"],
+        ["8:45 AM", "Hidden Falls Hike", "Once off the boat, hike 0.5mi slightly uphill to a cascading waterfall.", "43.766,-110.746", "walking"],
+        ["10:30 AM", "Mormon Row Detour", "Drive east to the famous Moulton Barns for the most iconic rustic photo of the Tetons.", "43.660,-110.662", "driving"],
+        ["12:00 PM", "Signal Mountain", "Drive your car up the narrow 5-mile paved road to the summit for a 360-degree view (eat a quick snack here).", "43.847,-110.569", "driving"],
+        ["1:30 PM", "Jackson Lake Lodge", "Late Lunch: Walk inside the lodge, go up the stairs, and eat while looking through massive 60-foot windows.", "43.877,-110.643", "driving"],
+        ["4:00 PM", "Oxbow Bend", "Stop at this famous highway pullout. Mt. Moran reflects perfectly in the water. #1 spot to spot Moose!", "43.865,-110.548", "driving"],
+        ["5:30 PM", "Return to basecamp", "Budget Dinner: Grant Village basecamp.", "44.391,-110.556", "driving"]
+      ]},
+      { eyebrow: "Return day", title: "Mammoth + Lamar Valley", note: "The Ultimate Wildlife Finale & Exit.", items: [
+        ["6:15 AM", "Breakfast and checkout", "Load the car and say goodbye to basecamp.", null, null],
+        ["7:00 AM", "Hit the road", "Drive north along the western half of the loop.", "44.976,-110.702", "driving"],
+        ["9:00 AM", "Mammoth Hot Springs", "Walk the lower boardwalks (Palette Spring) and drive the 1.5-mile Upper Terrace Drive to see the limestone terraces.", "44.976,-110.702", "walking"],
+        ["10:30 AM", "Lamar Valley Detour", "Drive East into the 'Serengeti of North America'. The absolute best place on earth to see wolves and massive bison herds.", "44.890,-110.157", "driving"],
+        ["12:30 PM", "Roosevelt Arch", "Take a family photo leaving via the North Entrance under the massive 1903 stone arch.", "45.030,-110.710", "driving"],
+        ["1:00 PM", "Gardiner lunch", "Lunch: Grab quick food or eat leftover groceries right outside the park borders.", "45.032,-110.707", "driving"],
+        ["2:30 PM", "Paradise Valley", "Beautiful scenic drive north on Highway 89 alongside the river.", "45.662,-110.561", "driving"],
+        ["4:30 PM", "Bozeman stop", "Dinner: Fast food in Livingston or Bozeman to save money before dropping the car.", "45.677,-111.042", "driving"],
+        ["7:00 PM", "Return rental", "Fill gas and return car at BZN airport.", "45.776,-111.157", "driving"],
+        ["8:30 PM", "EVEN Hotel BZN", "Check in and confirm your 4:30 AM Monday shuttle.", "45.787,-111.161", "driving"]
+      ]},
+      { eyebrow: "Home morning", title: "Bozeman → SEA → Redmond", note: "Early flight leaves part of Monday available.", items: [
+        ["4:00 AM", "Wake and checkout", "Check flight status and collect medicines.", null, null],
+        ["4:30 AM", "EVEN Hotel shuttle", "Take the 4:30 AM shuttle to the airport.", "Bozeman Yellowstone International Airport", "driving"],
+        ["5:00 AM", "BZN security", "Breakfast and gate by 6:20 AM.", "Bozeman Yellowstone International Airport", "walking"],
+        ["7:03 AM", "Alaska 761", "Nonstop to SEA, arriving 8:08 AM.", "Seattle-Tacoma International Airport", "driving"],
+        ["8:45 AM", "Choose home route", "Rideshare for speed; rail and bus for lowest cost.", "Redmond Technology Station", "transit"],
+        ["10:30 AM", "Home target", "Transit may arrive closer to 11:00 AM.", null, null]
+      ]}
+    ];
+
+    const panel = document.getElementById("day-panel");
+    const tabs = [...document.querySelectorAll(".day-tab")];
+
+    const tripDates = ["2026-08-19", "2026-08-20", "2026-08-21", "2026-08-22", "2026-08-23", "2026-08-24"];
+    
+    function parseTime(dateStr, timeStr) {
+      let [time, modifier] = timeStr.split(' ');
+      let [hours, minutes] = time.split(':');
+      hours = parseInt(hours, 10);
+      if (hours === 12) hours = 0;
+      if (modifier === 'PM') hours += 12;
+      return new Date(`${dateStr}T${hours.toString().padStart(2, '0')}:${minutes}:00-06:00`);
+    }
+
+    function getLiveState() {
+      const now = new Date();
+      const todayStr = now.toLocaleDateString('en-CA', {timeZone: 'America/Denver'});
+      const dayIndex = tripDates.indexOf(todayStr);
+      
+      if (dayIndex === -1) {
+        if (now < new Date("2026-08-19T00:00:00-06:00")) {
+           return { type: 'before', days: Math.max(1, Math.ceil((new Date("2026-08-19T00:00:00-06:00") - now) / 86400000)) };
         }
-        const jsonStr = new TextDecoder().decode(decryptedBytes);
-        // We evaluate it since it was a JS literal string, not strict JSON (has unquoted keys sometimes, or null)
-        days = eval(jsonStr);
-        return true;
-      } catch (e) {
-        return false;
+        return { type: 'after' };
+      }
+      
+      const items = days[dayIndex].items.map((item, i) => ({
+         date: parseTime(todayStr, item[0]),
+         data: item,
+         index: i
+      }));
+      
+      let current = null;
+      let next = null;
+      
+      for (let i = 0; i < items.length; i++) {
+        if (items[i].date > now) {
+          next = items[i];
+          if (i > 0) current = items[i-1];
+          break;
+        }
+      }
+      if (!next && items.length > 0 && items[items.length-1].date <= now) {
+         current = items[items.length-1];
+      }
+      
+      return { type: 'active', dayIndex, current, next };
+    }
+
+    function updateLiveWidget() {
+      const state = getLiveState();
+      const widget = document.getElementById('live-tracker-container');
+      if (!widget) return;
+      
+      if (state.type === 'before') {
+        widget.innerHTML = `<div class="live-tracker"><div class="live-label">Upcoming</div><div class="live-content"><h3>Trip begins in ${state.days} days</h3><p>Make sure to check the packing list.</p></div></div>`;
+      } else if (state.type === 'after') {
+        widget.innerHTML = `<div class="live-tracker"><div class="live-label">Completed</div><div class="live-content"><h3>Welcome home!</h3><p>Hope you had a great time in Yellowstone.</p></div></div>`;
+      } else if (state.type === 'active') {
+        let html = `<div class="live-tracker"><div class="live-label"><span class="dot"></span> Happening Now</div><div class="live-content">`;
+        if (state.current) {
+           html += `<h3>${state.current.data[1]}</h3><p>${state.current.data[2]}</p>`;
+           if (state.current.data[3]) {
+              html += `<a class="live-action" href="${mapsUrl(state.current.data[3], state.current.data[4])}" target="_blank"><i data-lucide="navigation"></i> Open Maps</a>`;
+           }
+        } else if (state.next) {
+           html += `<h3>Up next: ${state.next.data[1]}</h3><p>Starting at ${state.next.data[0]}</p>`;
+        }
+        html += `</div></div>`;
+        widget.innerHTML = html;
+        window.lucide?.createIcons();
       }
     }
 
-    function initApp() {
-        
+    function renderDay(index) {
+      const day = days[index];
+      const state = getLiveState();
+      let activeIndex = -1;
+      if (state.type === 'active' && state.dayIndex === index && state.current) {
+         activeIndex = state.current.index;
+      }
+      
+      panel.innerHTML = `<div class="day-banner"><p class="eyebrow">${day.eyebrow}</p><h3>${day.title}</h3><p>${day.note}</p></div><ol class="agenda">${day.items.map((item, i) => `<li class="${i === activeIndex ? 'active-stop' : ''}"><time>${item[0]}</time><div><strong>${item[1]}</strong><span>${item[2]}</span>${item[3] ? `<a class="map-link" href="${mapsUrl(item[3], item[4])}" target="_blank" rel="noreferrer"><i data-lucide="navigation"></i>Directions</a>` : ""}</div></li>`).join("")}</ol>`;
+      tabs.forEach((tab, tabIndex) => tab.setAttribute("aria-selected", tabIndex === index ? "true" : "false"));
+      window.lucide?.createIcons();
+    }
+
+    function mapsUrl(destination, travelMode = "driving") {
+      const params = new URLSearchParams({ api: "1", destination, travelmode: travelMode });
+      return `https://www.google.com/maps/dir/?${params.toString()}`;
+    }
+
+    tabs.forEach(tab => tab.addEventListener("click", () => renderDay(Number(tab.dataset.day))));
+    
+    const nodeMapping = [
+      ['A', 'B', 'C'], // Day 0
+      ['D', 'E', 'F', 'G', 'H', 'I'], // Day 1
+      ['J', 'K', 'L'], // Day 2
+      ['M', 'N', 'O'], // Day 3
+      ['P', 'Q', 'R', 'S'], // Day 4
+      ['T', 'U'] // Day 5
+    ];
+
+    const initialState = getLiveState();
+    let defaultDay = 0;
+    if (initialState.type === 'active') {
+       defaultDay = initialState.dayIndex;
+    }
+    renderDay(defaultDay);
+    updateLiveWidget();
+    
+
+
+    setInterval(() => { 
+       updateLiveWidget(); 
+       const selectedTab = document.querySelector('.day-tab[aria-selected="true"]');
+       if (selectedTab) renderDay(Number(selectedTab.dataset.day)); 
+    }, 60000);
 
     const checks = [...document.querySelectorAll("[data-check]")];
     const progress = document.getElementById("progress");
