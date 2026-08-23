@@ -565,12 +565,32 @@ graph TD
          activeIndex = state.current.index;
       }
       
-      panel.innerHTML = `<div class="day-banner"><p class="eyebrow">${day.eyebrow}</p><h3>${day.title}</h3><p>${day.note}</p></div><ol class="agenda">${day.items.map((item, i) => `<li class="${i === activeIndex ? 'active-stop' : ''}"><time>${item[0]}</time><div><strong>${item[1]}</strong><span>${item[2]}</span>${item[3] ? `<a class="map-link" href="${mapsUrl(item[3], item[4])}" target="_blank" rel="noreferrer"><i data-lucide="navigation"></i>Directions</a>` : ""}</div></li>`).join("")}</ol>`;
+            const fullRoute = fullRouteUrl(day);
+      const routeButton = fullRoute ? `<a href="${fullRoute}" target="_blank" style="display:inline-block; margin-top:12px; background:var(--forest); color:white; padding:8px 16px; border-radius:6px; text-decoration:none; font-weight:600; font-size:0.85rem;"><i data-lucide="map" style="width:16px;height:16px;vertical-align:-3px;margin-right:6px;"></i>Load Full Day Route</a>` : '';
+      
+      panel.innerHTML = `<div class="day-banner"><p class="eyebrow">${day.eyebrow}</p><h3>${day.title}</h3><p>${day.note}</p>${routeButton}</div><ol class="agenda">${day.items.map((item, i) => {
+         // Determine offline URI scheme based on OS
+         const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+         const offlineUrl = item[3] ? (isIOS ? `maps://?daddr=${item[3]}` : `geo:0,0?q=${item[3]}`) : '';
+         
+         return `<li class="${i === activeIndex ? 'active-stop' : ''}"><time>${item[0]}</time><div><strong>${item[1]}</strong><span>${item[2]}</span>${item[3] ? `<div style="display:flex;gap:8px;margin-top:6px;"><a class="map-link" href="${mapsUrl(item[3], item[4])}" target="_blank" rel="noreferrer" style="padding:4px 8px; border:1px solid var(--line); border-radius:4px; text-decoration:none; font-size:0.75rem; color:var(--ink);"><i data-lucide="navigation" style="width:14px;height:14px;"></i> G-Maps</a><a class="map-link" href="${offlineUrl}" target="_blank" rel="noreferrer" style="padding:4px 8px; border:1px solid var(--line); border-radius:4px; text-decoration:none; font-size:0.75rem; color:var(--ink);"><i data-lucide="compass" style="width:14px;height:14px;"></i> Offline App</a></div>` : ""}</div></li>`;
+      }).join("")}</ol>`;
       tabs.forEach((tab, tabIndex) => tab.setAttribute("aria-selected", tabIndex === index ? "true" : "false"));
       window.lucide?.createIcons();
     }
 
+
+    function fullRouteUrl(day) {
+      const stops = day.items.map(i => i[3]).filter(loc => loc && loc.includes(',')); // only coordinates
+      if (stops.length < 2) return '';
+      const destination = stops[stops.length - 1];
+      const waypoints = stops.slice(0, stops.length - 1).join('|');
+      const params = new URLSearchParams({ api: "1", destination, waypoints, travelmode: "driving" });
+      return `https://www.google.com/maps/dir/?${params.toString()}`;
+    }
+
     function mapsUrl(destination, travelMode = "driving") {
+
       const params = new URLSearchParams({ api: "1", destination, travelmode: travelMode });
       return `https://www.google.com/maps/dir/?${params.toString()}`;
     }
