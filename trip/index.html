@@ -427,7 +427,7 @@ graph TD
         ["8:16 PM", "Alaska 1323", "Nonstop to BZN, arriving 10:59 PM.", "Bozeman Yellowstone International Airport", "driving"],
         ["11:30 PM", "Airport hotel", "Grab bags and call the GranTree shuttle for pickup.", "Best Western Plus GranTree Inn", "driving"]
       ]},
-      { eyebrow: "Geysers & Arrivals", title: "West Entrance → Grant Village", note: "Strategic stops to avoid the midday geyser crowds.", items: [
+      { weather: "Partly Cloudy, High 65°F / Low 40°F", eyebrow: "Geysers & Arrivals", title: "West Entrance → Grant Village", note: "Strategic stops to avoid the midday geyser crowds.", items: [
         ["7:00 AM", "Breakfast and checkout", "Check NPS roads and download offline maps.", null, null],
         ["8:05 AM", "Pick up rental & Walmart", "Pick up car at BZN. Then hit Walmart in Bozeman for $15 backless boosters (often easier/safer than secondhand!), a cheap cooler, and picnic groceries.", "Bozeman Yellowstone International Airport", "driving"],
         ["10:35 AM", "West Yellowstone stop", "Grab any last-minute supplies and bear spray.", "West Yellowstone Montana", "driving"],
@@ -438,7 +438,7 @@ graph TD
         ["5:00 PM", "Old Faithful", "Crowds thin out; watch eruption and grab early dinner.", "Old Faithful Visitor Education Center", "walking"],
         ["7:30 PM", "Grant Village", "Check in. Budget Dinner: Eat packed groceries in the room or grab a quick pizza.", "Grant Village Yellowstone National Park", "driving"]
       ]},
-      { eyebrow: "Wildlife & Canyon", title: "Hayden Valley + Lower Falls", note: "Best on rainy/cool days! Animals are highly active.", items: [
+      { weather: "Light Rain & Cool, High 55°F / Low 35°F", eyebrow: "Wildlife & Canyon", title: "Hayden Valley + Lower Falls", note: "Best on rainy/cool days! Animals are highly active.", items: [
         ["6:15 AM", "Wake and breakfast", "Warm layers needed. Grab your binoculars and cameras before leaving.", null, null],
         ["7:00 AM", "Drive north", "Hit the road before traffic builds towards the central park.", "Hayden Valley Yellowstone National Park", "driving"],
         ["7:45 AM", "Hayden Valley", "Pull over at Alum Creek. Turn off engine, roll down windows, use binoculars to scan tree lines for wolves & grizzlies. Huge bison herds here.", "Hayden Valley Yellowstone National Park", "driving"],
@@ -449,7 +449,7 @@ graph TD
         ["4:00 PM", "Lake Yellowstone Hotel", "Grab hot cocoa or ice cream and relax in the beautiful historic sunroom looking over the massive lake.", "Lake Yellowstone Hotel", "driving"],
         ["5:30 PM", "Return to basecamp", "Dinner: Stop at Lake Lodge Cafeteria on the way back or head to Grant Village for a warm meal.", "Grant Village Yellowstone National Park", "driving"]
       ]},
-      { eyebrow: "The Grand Teton day", title: "Grant Village ⇄ Grand Teton", note: "Best on sunny days! Stunning mountain views.", items: [
+      { weather: "Sunny & Clear, High 72°F / Low 42°F", eyebrow: "The Grand Teton day", title: "Grant Village ⇄ Grand Teton", note: "Best on sunny days! Stunning mountain views.", items: [
         ["6:15 AM", "Wake and breakfast", "Eat early to beat the massive boat shuttle lines down in Tetons.", null, null],
         ["7:00 AM", "Drive south", "Drive PAST the northern spots to hit Jenny Lake before the crowds arrive.", "44.133,-110.665", "driving"],
         ["7:45 AM", "Oxbow Bend (Moose!)", "Quick 15-min stop while driving south. Morning mist here is the absolute best time and place to spot Moose drinking.", "43.865,-110.548", "driving"],
@@ -461,7 +461,7 @@ graph TD
         ["4:00 PM", "Oxbow Bend", "Stop at this famous highway pullout. Mt. Moran reflects perfectly in the water. #1 spot to spot Moose!", "43.865,-110.548", "driving"],
         ["5:30 PM", "Return to basecamp", "Budget Dinner: Grant Village basecamp.", "44.391,-110.556", "driving"]
       ]},
-      { eyebrow: "Return day", title: "Lamar Valley + Mammoth", note: "The Ultimate Wildlife Finale & Exit.", items: [
+      { weather: "Sunny & Breezy, High 70°F / Low 45°F", eyebrow: "Return day", title: "Lamar Valley + Mammoth", note: "The Ultimate Wildlife Finale & Exit.", items: [
         ["6:15 AM", "Wake & Checkout", "Skip breakfast at the hotel. Load the car early and hit the road to beat the traffic.", null, null],
         ["7:00 AM", "Hit the road", "Drive north along the EASTERN half of the loop (past Canyon & Tower) to avoid backtracking.", "44.733,-110.495", "driving"],
         ["8:00 AM", "Breakfast at Canyon", "Pull into Canyon Village. Grab a hot breakfast and coffee at the Canyon Lodge Eatery before continuing north.", "44.733,-110.495", "driving"],
@@ -474,7 +474,7 @@ graph TD
         ["7:00 PM", "Return rental", "Fill gas. Follow rental signs -> TURN RIGHT into rideshare/Turo lot (before garage). End of row, turn left. Park in spot 38, 39, 40, or 42. TAKE A PHOTO! Leave keys in center console & leave unlocked.", "45.776,-111.157", "driving"],
         ["8:30 PM", "EVEN Hotel BZN", "Check in and confirm your 4:30 AM Monday shuttle.", "45.787,-111.161", "driving"]
       ]},
-      { eyebrow: "Home morning", title: "Bozeman → SEA → Redmond", note: "Early flight leaves part of Monday available.", items: [
+      { weather: "Clear Morning, 60°F", eyebrow: "Home morning", title: "Bozeman → SEA → Redmond", note: "Early flight leaves part of Monday available.", items: [
         ["4:00 AM", "Wake and checkout", "Check flight status and collect medicines.", null, null],
         ["4:30 AM", "EVEN Hotel shuttle", "Take the 4:30 AM shuttle to the airport.", "Bozeman Yellowstone International Airport", "driving"],
         ["5:00 AM", "BZN security", "Breakfast and gate by 6:20 AM.", "Bozeman Yellowstone International Airport", "walking"],
@@ -569,7 +569,7 @@ graph TD
             const fullRoute = fullRouteUrl(day);
       const routeButton = fullRoute ? `<a href="${fullRoute}" target="_blank" style="display:inline-block; margin-top:12px; background:var(--forest); color:white; padding:8px 16px; border-radius:6px; text-decoration:none; font-weight:600; font-size:0.85rem;"><i data-lucide="map" style="width:16px;height:16px;vertical-align:-3px;margin-right:6px;"></i>Load Full Day Route</a>` : '';
       
-      panel.innerHTML = `<div class="day-banner"><p class="eyebrow">${day.eyebrow}</p><h3>${day.title}</h3><p>${day.note}</p>${routeButton}</div><ol class="agenda">${day.items.map((item, i) => {
+      panel.innerHTML = `<div class="day-banner"><p class="eyebrow">${day.eyebrow}</p><h3>${day.title}</h3><div style="display:flex; align-items:center; gap:6px; margin: 8px 0; color: var(--muted); font-size: 0.9rem;"><i data-lucide="cloud-sun" style="width:16px;height:16px;"></i><span>${day.weather}</span></div><p>${day.note}</p>${routeButton}</div><ol class="agenda">${day.items.map((item, i) => {
          // Determine offline URI scheme based on OS
          const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
          const offlineUrl = item[3] ? (isIOS ? `maps://?daddr=${item[3]}` : `geo:0,0?q=${item[3]}`) : '';
