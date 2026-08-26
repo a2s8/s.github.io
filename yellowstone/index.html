@@ -142,7 +142,23 @@
       .safety-band { margin-left: 30px; margin-right: 30px; }
     }
   </style>
+
+  <script type="module">
+    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+    mermaid.initialize({ 
+      startOnLoad: true, 
+      theme: 'base',
+      themeVariables: { 
+        primaryColor: '#ffffff',
+        primaryTextColor: '#182220',
+        primaryBorderColor: '#1f5a4c',
+        lineColor: '#1f5a4c',
+        fontFamily: 'DM Sans'
+      } 
+    });
+  </script>
 </head>
+
 <body>
   <div class="shell">
     <header class="hero">
@@ -195,7 +211,39 @@
               <span>Stay near Mammoth Hot Springs or Canyon Village. Focus on the Grand Canyon of the Yellowstone, wildlife in Hayden/Lamar Valleys, and the Mammoth terraces.</span>
             </div>
           </div>
+          
           <p style="font-size: .85rem;"><em>Pro-tip: Park lodges (booked via Xanterra) open 13 months in advance and sell out quickly. Book early, or look for cancellations!</em></p>
+          
+          <div style="margin-top: 25px; border-top: 1px solid var(--line); padding-top: 20px;">
+            <h3 style="margin: 0 0 10px; font-size: 1.1rem; font-weight: 600; color: var(--forest);">The "Figure 8" Visualized</h3>
+            <p style="font-size: .85rem; color: var(--muted); margin-bottom: 15px;">Here is a rough map of the park's Figure 8 road system to help you visualize where the main hubs and sights are located.</p>
+            <div style="overflow-x: auto; background: var(--paper); border: 1px solid var(--line); border-radius: 8px; padding: 10px; text-align: center;">
+              <pre class="mermaid">
+                graph TD
+                    subgraph North [North & East Side]
+                        M[Mammoth Hot Springs<br/>🏨 Stay Here] --- T[Tower-Roosevelt]
+                        T --- L[Lamar Valley<br/>🐺 Wildlife]
+                        T --- C[Canyon Village<br/>🏨 Stay Here<br/>🌊 Grand Canyon]
+                    end
+
+                    subgraph West [West & South Side]
+                        N[Norris Geyser Basin] --- M
+                        N --- C
+                        W[West Yellowstone<br/>🏨 Stay Here] --- Madi[Madison]
+                        N --- Madi
+                        Madi --- GP[Grand Prismatic Spring]
+                        GP --- OF[Old Faithful<br/>🏨 Stay Here]
+                        OF --- WT[West Thumb<br/>Lake]
+                        C --- Fishing[Fishing Bridge]
+                        Fishing --- WT
+                    end
+              </pre>
+            </div>
+            <a href="https://www.google.com/maps/dir/West+Yellowstone,+MT/Old+Faithful/Grand+Prismatic+Spring/Canyon+Village/Mammoth+Hot+Springs/Lamar+Valley" target="_blank" rel="noreferrer" class="btn-primary" style="display: block; text-align: center; text-decoration: none; margin-top: 15px; background: var(--lake);">
+              <i data-lucide="map" style="display: inline-block; vertical-align: middle; margin-right: 5px;"></i> Open Sample Route in Google Maps
+            </a>
+          </div>
+
         </div>
       </section>
 
