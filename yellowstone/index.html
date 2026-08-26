@@ -64,7 +64,7 @@
     .hero-fact { display: inline-flex; align-items: center; gap: 7px; background: rgba(10,20,18,.72); border: 1px solid rgba(255,255,255,.24); border-radius: 6px; padding: 8px 10px; font-size: .84rem; font-weight: 600; }
     .hero-fact svg { width: 16px; height: 16px; }
 
-    .quick-nav { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; padding: 12px; background: var(--surface); border-bottom: 1px solid var(--line); position: sticky; top: 0; z-index: 20; }
+    .quick-nav { display: grid; grid-template-columns: repeat(5, 1fr); gap: 6px; padding: 12px; background: var(--surface); border-bottom: 1px solid var(--line); position: sticky; top: 0; z-index: 20; }
     .quick-nav a { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; min-height: 52px; color: var(--muted); text-decoration: none; font-size: .75rem; font-weight: 600; border-radius: 6px; }
     .quick-nav a:active, .quick-nav a:focus-visible { background: var(--forest-soft); color: var(--forest); outline: 2px solid var(--forest); }
     .quick-nav svg { width: 19px; height: 19px; }
@@ -179,6 +179,7 @@
       <a href="#lodging"><i data-lucide="bed-double"></i><span>Lodging</span></a>
       <a href="#getting-there"><i data-lucide="plane"></i><span>Travel</span></a>
       <a href="#itinerary"><i data-lucide="calendar-days"></i><span>Itinerary</span></a>
+      <a href="#survival"><i data-lucide="triangle-alert"></i><span>Survival</span></a>
     </nav>
 
     <main>
@@ -290,7 +291,21 @@
         <article class="day-panel" id="day-panel" role="tabpanel" aria-live="polite"></article>
       </section>
 
+      
+      <section id="survival">
+        <div class="section-head">
+          <h2>5. Crucial Survival Tips</h2>
+          <p class="section-note">Before you enter the gates</p>
+        </div>
+        <div class="info-card">
+          <p><strong>📵 ZERO Cell Service:</strong> You will not have a cellular network for 95% of your trip. While the official NPS app is helpful, it is useless without a connection. <strong>You must download the NPS app's offline content AND download your route on Google Maps</strong> before leaving your hotel.</p>
+          <p><strong>🥪 Pack a Cooler:</strong> Food options inside the park are sparse and often have massive lines. Driving to a restaurant will eat up hours of your day. Buy groceries in a gateway town (like West Yellowstone or Gardiner) and pack picnic lunches and snacks every day.</p>
+          <p><strong>🥾 Stops Are Bigger Than They Sound:</strong> It is easy to look at a map and think "Old Faithful" is just a quick 10-minute stop. In reality, it is the center of the Upper Geyser Basin—an entire region with miles of boardwalks, historic lodges, and dozens of other erupting geysers. Expect major stops to take hours to truly explore.</p>
+        </div>
+      </section>
+
       <aside class="safety-band">
+
         <h2>Park Rules That Matter</h2>
         <div class="safety-grid">
           <div class="safety-item"><strong>100 yards</strong><span>Keep distance from bears, wolves and cougars. Bring bear spray!</span></div>
