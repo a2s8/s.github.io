@@ -1,0 +1,66 @@
+:root {
+    --page: #ffffff;
+    --ink: #15191a;
+    --muted: #535d61;
+    --line: #dbe4e4;
+    --accent: #08777a;
+    --accent-soft: #e4f7f6;
+    --surface-soft: #f5f9f9;
+}
+
+.site-shell { width: 100%; max-width: 1440px; margin: 0 auto; border: 0; border-radius: 0; }
+.family-nav { padding: 12px 5%; }
+.family-brand { font-family: "Inter", sans-serif; font-size: 0.9rem; font-weight: 700; gap: 8px; }
+.family-brand img { width: 44px; height: 44px; object-fit: contain; }
+.skip-link { position: absolute; top: -100px; left: 16px; z-index: 5; padding: 14px; background: #fff; color: #15191a; }
+.skip-link:focus { top: 12px; }
+.channel-hero { margin: 0; background: #00b9bc; }
+.channel-banner { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: cover; }
+.channel-intro { padding: 36px 6% 44px; border-bottom: 1px solid var(--line); }
+h1, h2, h3 { font-family: "Inter", sans-serif; font-weight: 700; letter-spacing: 0; overflow-wrap: break-word; }
+h1 { font-size: 44px; line-height: 1.1; }
+.lede { max-width: 780px; font-size: 17px; margin-top: 14px; line-height: 1.6; }
+.eyebrow { font-size: 12px; }
+.hero-actions { margin-top: 22px; }
+.button { border-radius: 4px; gap: 12px; min-height: 46px; }
+.youtube-button { background: #c82a1b; border-color: #c82a1b; color: #fff; }
+.youtube-button:hover { background: #a92317; }
+.button:hover, .button:focus-visible { transform: none; box-shadow: none; }
+.content-section { padding: 48px 6%; }
+.section-heading h2 { font-size: 30px; line-height: 1.2; }
+.section-heading p { font-size: 14px; }
+.project-tile { box-shadow: none; border-radius: 4px; }
+.project-tile:nth-child(2) { border-top-color: #c82a1b; }
+.project-tile:nth-child(3) { border-top-color: #15191a; }
+.project-tile h3 { font-size: 19px; }
+.text-link { color: var(--accent); font-weight: 700; font-size: 14px; text-underline-offset: 5px; }
+.video-frame, .reel-frame { box-shadow: none; border-radius: 4px; }
+.channel-follow { padding: 44px 6%; border-top: 1px solid var(--line); background: #e4f7f6; }
+.channel-follow h2 { font-size: 30px; line-height: 1.25; margin: 8px 0 22px; }
+.site-footer { padding: 24px 6%; }
+a:focus-visible { outline: 3px solid #08777a; outline-offset: 5px; }
+
+@media (min-width: 1100px) {
+    .channel-banner { height: 430px; object-position: center; }
+}
+
+@media (max-width: 680px) {
+    .family-nav { padding: 10px 16px; }
+    .family-brand { font-size: 12px; gap: 4px; }
+    .family-brand img { width: 32px; height: 32px; }
+    .nav-links { gap: 12px; }
+    .nav-link { font-size: 12px; }
+    .channel-banner { height: 210px; object-fit: cover; }
+    .channel-intro { padding: 28px 18px 32px; }
+    h1 { font-size: 36px; }
+    .lede { font-size: 16px; }
+    .content-section, .channel-follow { padding: 32px 18px; }
+    .section-heading h2, .channel-follow h2 { font-size: 26px; }
+    .site-footer { padding: 22px 18px; }
+}
+
+@media (max-width: 360px) {
+    .family-brand { font-size: 11px; }
+    .nav-links { gap: 9px; }
+    .channel-banner { height: 185px; }
+}
