@@ -352,6 +352,18 @@
 
         .trip-card:focus-visible { outline: 3px solid #89b9a8; outline-offset: 2px; }
 
+        .math-art {
+            display: grid;
+            place-items: center;
+            padding: 8px;
+            background: #dceae2;
+            color: var(--forest);
+            font: italic clamp(1rem, 3vw, 2.4rem) "DM Serif Display", serif;
+            white-space: nowrap;
+        }
+        #stempathi-title { margin: 0; }
+        .project-link { color: var(--forest); font-size: .85rem; font-weight: 700; text-decoration: underline; }
+
         .trip-art {
             position: relative;
             overflow: hidden;
@@ -571,6 +583,19 @@
                     <span class="arrow" aria-hidden="true">&#8250;</span>
                 </a>
             </div>
+        </section>
+
+        <section class="trip-band" aria-labelledby="stempathi-title">
+            <a class="trip-card" href="https://stempathi.sripathi.one/">
+                <span class="math-art" aria-hidden="true">x + 2 = 5</span>
+                <div class="trip-copy">
+                    <span class="trip-label">Our family’s passion project</span>
+                    <h2 class="trip-title" id="stempathi-title">STEMpathi: Hands-on Math</h2>
+                    <p class="trip-meta">We’re building STEMpathi to help kids learn math by moving pieces and balancing equations. What can you take away from both sides and still keep them equal?</p>
+                    <span class="project-link">Explore STEMpathi</span>
+                </div>
+                <span class="trip-arrow" aria-hidden="true">&#8250;</span>
+            </a>
         </section>
 
         <section class="trip-band" aria-labelledby="trip-title">
